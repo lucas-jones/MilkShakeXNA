@@ -95,7 +95,9 @@
     <Compile Include="Core\Cameras\Camera.cs" />
     <Compile Include="Core\Cameras\CameraManager.cs" />
     <Compile Include="Core\Content\LoadManager.cs" />
+    <Compile Include="Core\Game\Entity.cs" />
     <Compile Include="Core\Scenes\Scene.cs" />
+    <Compile Include="Core\Scenes\SceneComponent.cs" />
     <Compile Include="Core\Scenes\SceneManager.cs" />
     <Compile Include="Core\Game\AnimatedSprite.cs" />
     <Compile Include="Core\Game\GameEntity.cs" />

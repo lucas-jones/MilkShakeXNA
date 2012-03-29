@@ -9,6 +9,8 @@ namespace MilkShakeFramework.Render
 {
     public class Renderer : Entity
     {
+        // [Helpers]
+        public RenderManager RenderManager { get { return Scene.RenderManager; } }
         public Camera CurrentCamera { get { return Scene.Camera; } }
     }
 }

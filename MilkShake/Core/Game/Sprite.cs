@@ -14,7 +14,13 @@ namespace MilkShakeFramework.Core.Game
         public Sprite(string url)
         {
             mImage = new Image(url);
+        }
+
+        public override void Setup()
+        {
             AddNode(mImage);
+
+            base.Setup();
         }
     }
 }
