@@ -27,8 +27,9 @@ namespace MilkShakeFramework.Core.Content
 
         public void Load()
         {
-            foreach (Entity entity in mLoadQueue)
+            while(mLoadQueue.Count > 0)
             {
+                Entity entity = mLoadQueue.Dequeue();
                 entity.Load(this);
                 entity.FixUp();
             }
