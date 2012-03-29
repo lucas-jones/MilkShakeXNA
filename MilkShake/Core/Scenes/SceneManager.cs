@@ -43,7 +43,7 @@ namespace MilkShakeFramework.Core.Scenes
 
             mCurrentScreenKey = key;
 
-            if (!CurrentScene.IsLoaded)
+            if (!CurrentScene.ContentManager.IsLoaded)
             {
                 CurrentScene.Setup();
                 CurrentScene.LoadScene();
@@ -51,10 +51,13 @@ namespace MilkShakeFramework.Core.Scenes
             }
         }
 
+        // [Pulbic]
         public static Dictionary<string, Scene> Scenes { get { return mScenes; } }
         public static Scene CurrentScene { get { return mScenes[mCurrentScreenKey]; } }
     }
 
+
+    // [Temp]
     public class LoadingScene { }
     public class Transition { }
 }
