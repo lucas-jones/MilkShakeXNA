@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
+  <Asset Type="Pipeline:BuildItemCollection">
+    <BuildSuccessful>true</BuildSuccessful>
+    <Settings>
+      <TargetPlatform>Windows</TargetPlatform>
+      <TargetProfile>Reach</TargetProfile>
+      <BuildConfiguration>Debug</BuildConfiguration>
+      <CompressContent>false</CompressContent>
+      <RootDirectory>C:\Users\lucas.jones\Dropbox\MilkShake Engine\Playground\PlaygroundContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\lucas.jones\Dropbox\MilkShake Engine\Playground\Playground\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\lucas.jones\Dropbox\MilkShake Engine\Playground\PlaygroundContent\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\lucas.jones\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\</OutputDirectory>
+    </Settings>
+    <Assemblies>
+      <Assembly>
+        <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2011-09-20T13:38:18.4268345+01:00</Value>
+      </Assembly>
+    </Assemblies>
+  </Asset>
+</XnaContent>
