@@ -8,40 +8,6 @@ using MilkShakeFramework.Core.Scenes;
 
 namespace MilkShakeFramework.Core.Game
 {
-
-    public class Entity : TreeNode
-    {
-        private Scene mScene;
-
-        public Entity()
-        {
-        }
-
-        public void SetScene(Scene scene)
-        {
-            mScene = scene;
-
-            foreach (Entity entity in Nodes) entity.SetScene(scene);
-        }
-
-        public virtual void Setup()
-        {
-            foreach (Entity entity in Nodes) entity.Setup();
-        }
-
-        public virtual void Load(LoadManager content)
-        {
-            foreach (Entity entity in Nodes) entity.Load(content);
-        }
-
-        public virtual void FixUp()
-        {
-            foreach (Entity entity in Nodes) entity.FixUp();
-        }
-
-        public Scene Scene { get { return mScene; } }
-    }
-
     public class GameEntity : Entity
     {
         private Vector2 mPosition;
