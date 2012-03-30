@@ -29,7 +29,13 @@ namespace MilkShakeFramework.Core.Scenes
 
         public virtual void LoadScene()
         {
-            mLoadManager.Load();
+            mLoadManager.LoadScene();
+        }
+
+        public override void Update(GameTime gameTime)
+        {
+            mLoadManager.Update();
+            base.Update(gameTime);
         }
 
         // [Events]

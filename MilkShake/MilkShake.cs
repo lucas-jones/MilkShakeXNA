@@ -33,10 +33,12 @@ namespace MilkShakeFramework
         protected override void Draw(GameTime gameTime)
         {
             Graphics.Clear(Globals.ScreenColour);
+            SceneManager.Draw();
         }
 
         protected override void Update(GameTime gameTime)
         {
+            SceneManager.Update(gameTime);
         }
 
         private void ChangeResolution(int Width, int Height)

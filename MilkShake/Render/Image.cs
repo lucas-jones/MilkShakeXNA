@@ -21,7 +21,6 @@ namespace MilkShakeFramework.Render
 
         public override void Load(LoadManager content)
         {
-            //Scene.ContentManager.Load<Texture2D>
             Console.WriteLine("Load Called");
         }
 

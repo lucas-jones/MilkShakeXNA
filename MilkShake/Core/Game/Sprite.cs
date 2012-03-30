@@ -22,5 +22,11 @@ namespace MilkShakeFramework.Core.Game
 
             base.Setup();
         }
+
+        public override void Load(LoadManager content)
+        {
+            mImage.Load(content);
+            base.Load(content);
+        }
     }
 }

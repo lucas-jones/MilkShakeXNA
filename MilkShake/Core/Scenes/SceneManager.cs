@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Microsoft.Xna.Framework;
 
 namespace MilkShakeFramework.Core.Scenes
 {
@@ -49,6 +50,16 @@ namespace MilkShakeFramework.Core.Scenes
                 CurrentScene.LoadScene();
                 CurrentScene.FixUp();
             }
+        }
+
+        public static void Draw()
+        {
+            CurrentScene.Draw();
+        }
+
+        public static void Update(GameTime gameTime)
+        {
+            CurrentScene.Update(gameTime);
         }
 
         // [Pulbic]

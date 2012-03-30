@@ -26,12 +26,12 @@ namespace MilkShakeFramework.Core.Game
 
         public virtual void Update(GameTime gameTime)
         {
-            foreach (GameEntity gameEntity in Nodes) gameEntity.Update(gameTime);
+            foreach (GameEntity gameEntity in Nodes.OfType<GameEntity>()) gameEntity.Update(gameTime);
         }
 
         public virtual void Draw()
         {
-            foreach (GameEntity gameEntity in Nodes) gameEntity.Draw();
+            foreach (GameEntity gameEntity in Nodes.OfType<GameEntity>()) gameEntity.Draw();
         }
 
         // [Public]
