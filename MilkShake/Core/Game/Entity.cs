@@ -19,6 +19,7 @@ namespace MilkShakeFramework.Core.Game
             if (node is Entity)
             {
                 Entity entity = (node as Entity);
+
                 entity.SetScene(mScene);
                 mScene.EntityAdded(entity);
             }

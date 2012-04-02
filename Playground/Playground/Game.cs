@@ -44,8 +44,7 @@ namespace Playground
         {
             AddNode(new Sprite("background") { Width = Globals.ScreenWidth, Height = Globals.ScreenHeight });
 
-            tileGroup = new GameEntity();
-            AddNode(tileGroup);
+            tileGroup = new GameEntity();           
 
             tileGroup.AddNode(new Sprite("Tiles/Dirt Block"));
             tileGroup.AddNode(new Sprite("Tiles/Grass Block") { Position = new Vector2(100, 0) });
@@ -54,7 +53,7 @@ namespace Playground
             tileGroup.AddNode(new Sprite("Tiles/Grass Block") { Position = new Vector2(400, 0) });
             tileGroup.AddNode(new Sprite("Tiles/Dirt Block") { Position = new Vector2(500, 0) });
 
-    
+            AddNode(tileGroup);
 
             base.Setup();
         }
@@ -64,8 +63,22 @@ namespace Playground
             base.Update(gameTime);
 
             tileGroup.Position = new Vector2(Mouse.GetState().X, Mouse.GetState().Y);
+
+            ControlCamera();
         }
 
+        private void ControlCamera()
+        {
+            KeyboardState keyboardState = Keyboard.GetState();
 
+            Vector2 movementStash = Vector2.Zero;
+
+            if (keyboardState.IsKeyDown(Keys.D)) movementStash.X++;
+            if (keyboardState.IsKeyDown(Keys.A)) movementStash.X--;
+            if (keyboardState.IsKeyDown(Keys.W)) movementStash.Y--;
+            if (keyboardState.IsKeyDown(Keys.S)) movementStash.Y++;
+
+            Camera.Position = (movementStash * 4) + Camera.Position;
+        }
     }
 }

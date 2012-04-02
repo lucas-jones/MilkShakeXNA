@@ -18,11 +18,30 @@ namespace MilkShakeFramework.Render
             mSpriteBatch = new SpriteBatch(MilkShake.Graphics);
         }
 
+        public void Begin()
+        {
+            mSpriteBatch.Begin(SpriteSortMode.Immediate,
+                               BlendState.AlphaBlend,
+                               SamplerState.LinearClamp,
+                               DepthStencilState.None,
+                               RasterizerState.CullNone,
+                               null,
+                               Scene.Camera.Matrix);
+        }
+
         public void Draw(Vector2 position, Texture2D texture, int width, int height)
         {
-            mSpriteBatch.Begin();
-            mSpriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, width, height), new Rectangle(0,0, texture.Width, texture.Height), Color.White);
+            mSpriteBatch.Draw(texture, new Rectangle((int)position.X - (int)cameraOffset().X, (int)position.Y - (int)cameraOffset().Y, width, height), new Rectangle(0, 0, texture.Width, texture.Height), Color.White);
+        }
+
+        public void End()
+        {
             mSpriteBatch.End();
+        }
+
+        public Vector2 cameraOffset()
+        {
+            return Scene.Camera.Transform;
         }
     }
 }

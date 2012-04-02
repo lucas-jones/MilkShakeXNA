@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using MilkShakeFramework.Core.Content;
 using MilkShakeFramework.Core.Scenes;
+using Microsoft.Xna.Framework;
 
 namespace MilkShakeFramework.Core.Cameras
 {
@@ -13,6 +14,12 @@ namespace MilkShakeFramework.Core.Cameras
 
         public CameraManager(Scene scene) : base(scene)
         {
+            mCurrentCamera = new Camera();
+        }
+
+        public void Update(GameTime gameTime)
+        {
+            mCurrentCamera.Update(gameTime);
         }
 
         public Camera CurrentCamera { get { return mCurrentCamera;  } }

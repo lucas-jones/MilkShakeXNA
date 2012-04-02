@@ -30,6 +30,7 @@ namespace MilkShakeFramework.Core.Scenes
         public override void Update(GameTime gameTime)
         {
             mLoadManager.Update();
+            mCameraManager.Update(gameTime);
             base.Update(gameTime);
         }
 
@@ -45,6 +46,13 @@ namespace MilkShakeFramework.Core.Scenes
         public void EntityRemoved(Entity entity)
         {
             if (OnEntityRemoved != null) OnEntityRemoved(entity);
+        }
+
+        public override void Draw()
+        {
+            RenderManager.Begin();
+            base.Draw();
+            RenderManager.End();
         }
 
         // [Public]
