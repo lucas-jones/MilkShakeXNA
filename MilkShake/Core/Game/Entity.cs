@@ -10,19 +10,20 @@ namespace MilkShakeFramework.Core.Game
     public class Entity : TreeNode
     {
         private Scene mScene;
+        private Boolean mIsLoaded;
 
         public Entity() { }
 
         public override void AddNode(INode node)
         {
-            base.AddNode(node);
-
             if (node is Entity)
             {
                 Entity entity = (node as Entity);
                 entity.SetScene(mScene);
                 mScene.EntityAdded(entity);
             }
+
+            base.AddNode(node);
         }
 
         public void SetScene(Scene scene)
@@ -39,14 +40,16 @@ namespace MilkShakeFramework.Core.Game
 
         public virtual void Load(LoadManager content)
         {
+            foreach (Entity entity in Nodes) entity.Load(content);
         }
 
         public virtual void FixUp()
         {
-
+            foreach (Entity entity in Nodes) entity.FixUp();
         }
 
         // [Public]
         public Scene Scene { get { return mScene; } }
+        public Boolean IsLoaded { get { return mIsLoaded; } }
     }
 }

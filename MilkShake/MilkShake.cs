@@ -16,10 +16,12 @@ namespace MilkShakeFramework
     {
         public static GraphicsDeviceManager GraphicsManager;
         public static GraphicsDevice Graphics;
+        public static ContentManager ConentManager;
 
         public MilkShake(int ScreenWidth = Globals.DefaultScreenWidth, int ScreenHeight = Globals.DefaultScreenHeight) : base()
         {
             GraphicsManager = new GraphicsDeviceManager(this);
+            ConentManager = Content;
 
             ChangeResolution(ScreenWidth, ScreenHeight);
         }
@@ -27,6 +29,7 @@ namespace MilkShakeFramework
         protected override void Initialize()
         {
             Graphics = GraphicsManager.GraphicsDevice;
+            ConentManager.RootDirectory = Globals.ContentDirectory;
             SceneManager.Setup();
         }
 

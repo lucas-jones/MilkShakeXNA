@@ -10,6 +10,8 @@ namespace MilkShakeFramework.Core.Game
     public class Sprite : GameEntity
     {
         private Image mImage;
+        private int mWidth, mHeight;
+
 
         public Sprite(string url)
         {
@@ -25,8 +27,25 @@ namespace MilkShakeFramework.Core.Game
 
         public override void Load(LoadManager content)
         {
-            mImage.Load(content);
             base.Load(content);
+
+            mWidth = (mWidth == 0) ? mImage.Texture.Width : mWidth;
+            mHeight = (mHeight == 0) ? mImage.Texture.Height : mHeight;
         }
+
+        public override void FixUp()
+        {
+            base.FixUp();
+        }
+
+        public override void Draw()
+        {
+            mImage.Draw(WorldPosition, mWidth, mHeight);
+
+            base.Draw();
+        }
+
+        public int Width { get { return mWidth; } set { mWidth = value; } }
+        public int Height { get { return mHeight; } set { mHeight = value; } }
     }
 }

@@ -21,11 +21,13 @@ namespace MilkShakeFramework.Render
 
         public override void Load(LoadManager content)
         {
-            Console.WriteLine("Load Called");
+            mTexture2D = MilkShake.ConentManager.Load<Texture2D>(URL);
+            base.Load(content);
         }
 
-        public void Draw(Vector2 position)
+        public void Draw(Vector2 position, int width, int height)
         {
+            RenderManager.Draw(position, Texture, width, height);
         }
 
         public Texture2D Texture { get { return mTexture2D; } }

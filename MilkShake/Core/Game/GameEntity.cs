@@ -35,6 +35,7 @@ namespace MilkShakeFramework.Core.Game
         }
 
         // [Public]
-        public Vector2 Position { get { return mPosition; } }
+        public Vector2 Position { get { return mPosition; } set { mPosition = value; }  }
+        public Vector2 WorldPosition { get { return (Parent as GameEntity).Position + Position; } }
     }
 }

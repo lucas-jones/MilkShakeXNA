@@ -17,7 +17,7 @@ namespace MilkShakeFramework.Core.Content
             mLoadQueue = new Queue<Entity>();
             mSceneLoaded = false;
 
-            Scene.OnEntityAdded += new EntityEvent(SceneOnEntityAdded);
+            //Scene.OnEntityAdded += new EntityEvent(SceneOnEntityAdded);
         }
 
         private void SceneOnEntityAdded(Entity node)
@@ -35,14 +35,14 @@ namespace MilkShakeFramework.Core.Content
             mSceneLoaded = true;
         }
 
-        private void OnDemandLoad()
+        private void DynamicLoad()
         {
             LoadEntity(mLoadQueue.Dequeue());
         }
 
         public void Update()
         {
-            if (mLoadQueue.Count > 0) OnDemandLoad();
+            if (mLoadQueue.Count > 0) DynamicLoad();
         }
 
         private void LoadEntity(Entity entity)

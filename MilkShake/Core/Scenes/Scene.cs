@@ -27,11 +27,6 @@ namespace MilkShakeFramework.Core.Scenes
             mRenderManager = new RenderManager(this);
         }
 
-        public virtual void LoadScene()
-        {
-            mLoadManager.LoadScene();
-        }
-
         public override void Update(GameTime gameTime)
         {
             mLoadManager.Update();
@@ -58,5 +53,10 @@ namespace MilkShakeFramework.Core.Scenes
 
         public Camera Camera { get { return mCameraManager.CurrentCamera; } }
         public RenderManager RenderManager { get { return mRenderManager; } }
+
+        internal void LoadScene()
+        {
+            Load(ContentManager);
+        }
     }
 }

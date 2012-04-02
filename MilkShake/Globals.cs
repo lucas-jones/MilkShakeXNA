@@ -22,5 +22,7 @@ namespace MilkShakeFramework
         public static Color ScreenColour = Color.Salmon;
         public static bool BackToFrontRender = true;
         public static bool EnabledVSync = true;
+
+        public static string ContentDirectory = "Content";
     }
 }
