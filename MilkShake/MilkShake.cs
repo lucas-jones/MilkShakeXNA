@@ -29,6 +29,8 @@ namespace MilkShakeFramework
         protected override void Initialize()
         {
             Graphics = GraphicsManager.GraphicsDevice;
+            
+
             ConentManager.RootDirectory = Globals.ContentDirectory;
             SceneManager.Setup();
         }

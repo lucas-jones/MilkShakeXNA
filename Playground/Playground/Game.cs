@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework;
 using System;
 using MilkShakeFramework.Core.Game;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace Playground
 {
@@ -36,8 +37,9 @@ namespace Playground
 
         public BasicScene() : base()
         {
-
-           
+           // RenderWidth = Globals.ScreenWidth / 8;
+           // RenderHeight = Globals.ScreenHeight / 8;
+           // RenderManager.SamplerState = SamplerState.PointClamp;
         }
 
         public override void Setup()
@@ -62,7 +64,7 @@ namespace Playground
         {            
             base.Update(gameTime);
 
-            tileGroup.Position = new Vector2(Mouse.GetState().X, Mouse.GetState().Y);
+            tileGroup.Position = new Vector2(Mouse.GetState().X, Mouse.GetState().Y) + Camera.Position;
 
             ControlCamera();
         }
@@ -78,7 +80,15 @@ namespace Playground
             if (keyboardState.IsKeyDown(Keys.W)) movementStash.Y--;
             if (keyboardState.IsKeyDown(Keys.S)) movementStash.Y++;
 
+            if (keyboardState.IsKeyDown(Keys.E)) Camera.Zoom += 0.001f;
+            if (keyboardState.IsKeyDown(Keys.Q)) Camera.Zoom -= 0.001f;
+
             Camera.Position = (movementStash * 4) + Camera.Position;
+        }
+
+        public override void Draw()
+        {
+            base.Draw();
         }
     }
 }

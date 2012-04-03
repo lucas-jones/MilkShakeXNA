@@ -15,16 +15,13 @@ namespace MilkShakeFramework.Core.Cameras
         private Vector2 mOffset;
         private float mZoom;
 
-        private int mWidth; // Setup
-        private int mHeight;
-
         private Rectangle mViewBox;
         private Matrix mMatrix;
 
         public Camera()
         {
             mOffset = Vector2.Zero;
-            mZoom = 0.9f;
+            mZoom = 1;
 
             mViewBox = new Rectangle(0, 0, Globals.ScreenWidth, Globals.ScreenHeight);
         }
@@ -46,8 +43,8 @@ namespace MilkShakeFramework.Core.Cameras
 
             mViewBox = new Rectangle((int)inverseOffset.X, (int)inverseOffset.Y, (int)(Globals.ScreenWidth * (1 / Zoom)), (int)(Globals.ScreenHeight * (1 / Zoom)));
         }
-        
-        public float Zoom { get { return mZoom; } }
+
+        public float Zoom { get { return mZoom; } set { mZoom = value; } }
         public Vector2 Offset { get { return mOffset; } }
         public Rectangle ViewBox { get { return mViewBox; } }
         public Vector2 Transform { get { return (Position + Offset); } }
