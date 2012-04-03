@@ -53,7 +53,7 @@ namespace MilkShakeFramework.Render
 
         public void RawBegin()
         {
-            mSpriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend, SamplerState, DepthStencilState.None, RasterizerState.CullNone);
+            mSpriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState, DepthStencilState.None, RasterizerState.CullNone);
         }
 
         public Vector2 cameraOffset()

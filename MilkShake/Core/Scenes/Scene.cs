@@ -34,15 +34,19 @@ namespace MilkShakeFramework.Core.Scenes
 
         public override void Setup()
         {
-            mWidth = (mWidth == 0) ? Globals.ScreenWidth : mWidth;
-            mHeight = (mHeight == 0) ? Globals.ScreenHeight : mHeight;
-
-            mRenderWidth = (mRenderWidth == 0) ? Globals.ScreenWidth : mRenderWidth;
-            mRenderHeight = (mRenderHeight == 0) ? Globals.ScreenHeight : mRenderHeight;
+            mWidth = SetValueOrDefault(mWidth, Globals.ScreenWidth );
+            mHeight = SetValueOrDefault(mHeight, Globals.ScreenHeight);
+            mRenderWidth = SetValueOrDefault(mRenderWidth, Globals.ScreenWidth);
+            mRenderHeight = SetValueOrDefault(mRenderHeight, Globals.ScreenHeight);
 
             mRenderTarget = new RenderTarget2D(MilkShake.Graphics, mRenderWidth, mRenderHeight); // Setup
 
             base.Setup();
+        }
+
+        internal void LoadScene()
+        {
+            Load(ContentManager);
         }
 
         public override void Update(GameTime gameTime)
@@ -100,10 +104,5 @@ namespace MilkShakeFramework.Core.Scenes
 
         public int Width { get { return mWidth; } set { mWidth = value; } }
         public int Height { get { return mHeight; } set { mHeight = value; } }
-        
-        internal void LoadScene()
-        {
-            Load(ContentManager);
-        }
     }
 }

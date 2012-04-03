@@ -105,6 +105,9 @@
     <Compile Include="Core\Node.cs" />
     <Compile Include="Core\TreeNode.cs" />
     <Compile Include="Globals.cs" />
+    <Compile Include="IO\Input\Devices\KeyboardInput.cs" />
+    <Compile Include="IO\Input\Devices\MouseInput.cs" />
+    <Compile Include="IO\Input\InputManager.cs" />
     <Compile Include="MilkShake.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Render\Image.cs" />
@@ -113,7 +116,6 @@
     <Compile Include="Render\SpriteSheet.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="IO\" />
     <Folder Include="Tools\Tween\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

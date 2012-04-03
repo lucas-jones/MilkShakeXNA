@@ -37,5 +37,11 @@ namespace MilkShakeFramework.Core
         public Guid GUID { get { return mGUID; } }
         public string Name { get { return mName; } set { mName = value; } }
         public ITreeNode Parent { get { return mParent; } }
+
+        // [Helper]
+        public int SetValueOrDefault(int value, int defaultValue)
+        {
+            return (value == 0) ? defaultValue : value;
+        }
     }
 }

@@ -5,6 +5,7 @@ using System;
 using MilkShakeFramework.Core.Game;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Graphics;
+using MilkShakeFramework.IO.Input.Devices;
 
 namespace Playground
 {
@@ -37,9 +38,17 @@ namespace Playground
 
         public BasicScene() : base()
         {
-           // RenderWidth = Globals.ScreenWidth / 8;
-           // RenderHeight = Globals.ScreenHeight / 8;
-           // RenderManager.SamplerState = SamplerState.PointClamp;
+        }
+
+        private void Pixelize()
+        {
+            int zoom = 16;
+            RenderWidth = Globals.ScreenWidth / zoom;
+            RenderHeight = Globals.ScreenHeight / zoom;
+            RenderManager.SamplerState = SamplerState.PointClamp;
+
+            Camera.Width = Globals.ScreenWidth / zoom;
+            Camera.Height = Globals.ScreenHeight / zoom;
         }
 
         public override void Setup()
@@ -57,6 +66,15 @@ namespace Playground
 
             AddNode(tileGroup);
 
+            AddNode(new Tile());
+            AddNode(new Tile() { Position = new Vector2(100, 0) });
+            AddNode(new Tile() { Position = new Vector2(200, 100) });
+            AddNode(new Tile() { Position = new Vector2(300, 0) });
+            AddNode(new Tile() { Position = new Vector2(400, 0) });
+            AddNode(new Tile() { Position = new Vector2(500, 0) });
+            AddNode(new Tile() { Position = new Vector2(600, 0) });
+            AddNode(new Tile() { Position = new Vector2(700, 0) });
+
             base.Setup();
         }
 
@@ -64,24 +82,22 @@ namespace Playground
         {            
             base.Update(gameTime);
 
-            tileGroup.Position = new Vector2(Mouse.GetState().X, Mouse.GetState().Y) + Camera.Position;
+            tileGroup.Position = MouseInput.Position + Camera.Position;
 
             ControlCamera();
         }
 
         private void ControlCamera()
         {
-            KeyboardState keyboardState = Keyboard.GetState();
-
             Vector2 movementStash = Vector2.Zero;
 
-            if (keyboardState.IsKeyDown(Keys.D)) movementStash.X++;
-            if (keyboardState.IsKeyDown(Keys.A)) movementStash.X--;
-            if (keyboardState.IsKeyDown(Keys.W)) movementStash.Y--;
-            if (keyboardState.IsKeyDown(Keys.S)) movementStash.Y++;
+            if (KeyboardInput.isKeyDown(Keys.D)) movementStash.X++;
+            if (KeyboardInput.isKeyDown(Keys.A)) movementStash.X--;
+            if (KeyboardInput.isKeyDown(Keys.W)) movementStash.Y--;
+            if (KeyboardInput.isKeyDown(Keys.S)) movementStash.Y++;
 
-            if (keyboardState.IsKeyDown(Keys.E)) Camera.Zoom += 0.001f;
-            if (keyboardState.IsKeyDown(Keys.Q)) Camera.Zoom -= 0.001f;
+            if (KeyboardInput.isKeyDown(Keys.E)) Camera.Zoom += 0.001f;
+            if (KeyboardInput.isKeyDown(Keys.Q)) Camera.Zoom -= 0.001f;
 
             Camera.Position = (movementStash * 4) + Camera.Position;
         }

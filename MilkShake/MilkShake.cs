@@ -9,6 +9,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using MilkShakeFramework.Core.Scenes;
+using MilkShakeFramework.IO.Input;
 
 namespace MilkShakeFramework
 {
@@ -43,7 +44,9 @@ namespace MilkShakeFramework
 
         protected override void Update(GameTime gameTime)
         {
+            InputManager.UpdateStart();
             SceneManager.Update(gameTime);
+            InputManager.UpdateEnd();
         }
 
         private void ChangeResolution(int Width, int Height)
