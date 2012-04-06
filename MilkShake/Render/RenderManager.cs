@@ -46,6 +46,11 @@ namespace MilkShakeFramework.Render
             mSpriteBatch.Draw(texture, new Rectangle((int)position.X - (int)cameraOffset().X, (int)position.Y - (int)cameraOffset().Y, width, height), new Rectangle(0, 0, texture.Width, texture.Height), Color.White);
         }
 
+        public void Draw(Vector2 position, Texture2D texture, int width, int height, Rectangle sourceRectangle)
+        {
+            mSpriteBatch.Draw(texture, position, sourceRectangle, Color.White);
+        }
+
         public void End()
         {
             mSpriteBatch.End();

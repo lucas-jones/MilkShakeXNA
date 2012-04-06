@@ -12,7 +12,6 @@ namespace MilkShakeFramework.Core.Game
         private Image mImage;
         private int mWidth, mHeight;
 
-
         public Sprite(string url)
         {
             mImage = new Image(url);
@@ -29,8 +28,8 @@ namespace MilkShakeFramework.Core.Game
         {
             base.Load(content);
 
-            mWidth = (mWidth == 0) ? mImage.Texture.Width : mWidth;
-            mHeight = (mHeight == 0) ? mImage.Texture.Height : mHeight;
+            mWidth = SetValueOrDefault(mWidth, mImage.Texture.Width);
+            mHeight = SetValueOrDefault(mHeight, mImage.Texture.Height);
         }
 
         public override void FixUp()

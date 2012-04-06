@@ -92,6 +92,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Components\TileMap.cs" />
     <Compile Include="Core\Cameras\Camera.cs" />
     <Compile Include="Core\Cameras\CameraManager.cs" />
     <Compile Include="Core\Content\LoadManager.cs" />
@@ -105,9 +106,17 @@
     <Compile Include="Core\Node.cs" />
     <Compile Include="Core\TreeNode.cs" />
     <Compile Include="Globals.cs" />
+    <Compile Include="IO\File\TMX\Components\TMXImageNode.cs" />
+    <Compile Include="IO\File\TMX\Components\TMXLayer.cs" />
+    <Compile Include="IO\File\TMX\Components\TMXMapProperties.cs" />
+    <Compile Include="IO\File\TMX\Components\TMXProperties.cs" />
+    <Compile Include="IO\File\TMX\Components\TMXTileSet.cs" />
+    <Compile Include="IO\File\TMX\TMXGlobals.cs" />
+    <Compile Include="IO\File\TMX\TMXMapFile.cs" />
     <Compile Include="IO\Input\Devices\KeyboardInput.cs" />
     <Compile Include="IO\Input\Devices\MouseInput.cs" />
     <Compile Include="IO\Input\InputManager.cs" />
+    <Compile Include="IO\File\XML\NodeReader.cs" />
     <Compile Include="MilkShake.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Render\Image.cs" />
