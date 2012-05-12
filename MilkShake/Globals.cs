@@ -23,6 +23,9 @@ namespace MilkShakeFramework
         public static bool BackToFrontRender = true;
         public static bool EnabledVSync = true;
 
+        // [Physics]
+        public static float DisplayUnitToSimUnitRatio = 24f;
+
         public static string ContentDirectory = "Content";
     }
 }

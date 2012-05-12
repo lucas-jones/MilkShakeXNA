@@ -20,8 +20,11 @@ namespace MilkShakeFramework.Core.Game
             {
                 Entity entity = (node as Entity);
 
-                entity.SetScene(mScene);
-                if(mScene != null) mScene.EntityAdded(entity);
+                if (mScene != null)
+                {
+                    entity.SetScene(mScene);
+                    mScene.Listener.OnEntityAdded(entity);
+                }
             }
 
             base.AddNode(node);
@@ -36,11 +39,13 @@ namespace MilkShakeFramework.Core.Game
 
         public virtual void Setup()
         {
-            foreach (Entity entity in Nodes) entity.Setup();
+            foreach (Entity entity in Nodes.ToArray()) entity.Setup();
         }
 
         public virtual void Load(LoadManager content)
         {
+            mIsLoaded = true;
+
             foreach (Entity entity in Nodes) entity.Load(content);
         }
 

@@ -13,6 +13,7 @@ namespace MilkShakeFramework.Core.Cameras
         public const float MIN_ZOOM = 0.193f;
 
         private Vector2 mOffset;
+        private float mRotation;
         private float mZoom;
 
         private Rectangle mViewBox;
@@ -37,6 +38,7 @@ namespace MilkShakeFramework.Core.Cameras
 
             mMatrix = Matrix.CreateTranslation(-new Vector3(mWidth / 2, mHeight / 2, 0)) *
                       Matrix.CreateScale(new Vector3(Zoom, Zoom, 1)) *
+                      Matrix.CreateRotationZ(MathHelper.ToRadians(mRotation)) *
                       Matrix.CreateTranslation(new Vector3(mWidth / 2, mHeight / 2, 0));
 
             UpdateViewBox();
@@ -52,6 +54,7 @@ namespace MilkShakeFramework.Core.Cameras
         public int Width { get { return mWidth; } set { mWidth = value; } }
         public int Height { get { return mHeight; } set { mHeight = value; } }
         public float Zoom { get { return mZoom; } set { mZoom = value; } }
+        public float Rotation { get { return mRotation; } set { mRotation = value; } }
         public Vector2 Offset { get { return mOffset; } }
         public Rectangle ViewBox { get { return mViewBox; } }
         public Vector2 Transform { get { return (Position + Offset); } }

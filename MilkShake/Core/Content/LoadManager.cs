@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using MilkShakeFramework.Core.Game;
 using MilkShakeFramework.Core.Scenes;
+using MilkShakeFramework.Core.Scenes.Components;
 
 namespace MilkShakeFramework.Core.Content
 {
@@ -17,7 +18,15 @@ namespace MilkShakeFramework.Core.Content
             mLoadQueue = new Queue<Entity>();
             mSceneLoaded = false;
 
-            //Scene.OnEntityAdded += new EntityEvent(SceneOnEntityAdded);
+                     
+        }
+
+        public void SceneLoaded()
+        {
+            mSceneLoaded = true;
+
+            // Start listening to run time loads
+            Scene.Listener.EntityAdded += new EntityEvent(SceneOnEntityAdded);   
         }
 
         private void SceneOnEntityAdded(Entity node)
@@ -47,11 +56,15 @@ namespace MilkShakeFramework.Core.Content
 
         private void LoadEntity(Entity entity)
         {
+            Console.WriteLine("[Dynamic Load] " + entity.GUID);
+
+            entity.Setup();
             entity.Load(this);
             entity.FixUp();
         }
 
         // [Public]
         public bool IsLoaded { get { return mSceneLoaded; } }
+
     }
 }

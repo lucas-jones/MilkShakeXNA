@@ -1,0 +1,117 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using Krypton.Lights;
+using Krypton;
+using Microsoft.Xna.Framework;
+using MilkShakeFramework.Core.Scenes.Components;
+using Microsoft.Xna.Framework.Graphics;
+using MilkShakeFramework.Core.Game;
+using MilkShakeFramework.Core.Content;
+
+namespace MilkShakeFramework.Components.Lighting.Lights
+{
+    public abstract class Light : GameEntity
+    {
+        private Light2D mLight2D;
+
+        public float Range
+        {
+            get { return mLight2D.Range; }
+            set { mLight2D.Range = value; }
+        }
+
+        public Color Color
+        {
+            get { return mLight2D.Color; }
+            set { mLight2D.Color = value; }
+        }
+
+        public float Fov
+        {
+            get { return mLight2D.Fov; }
+            set { mLight2D.Fov = value; }
+        }
+
+        public float Angle
+        {
+            get { return mLight2D.Angle; }
+            set { mLight2D.Angle = value; }
+        }
+
+        public float Intensity
+        {
+            get { return mLight2D.Intensity; }
+            set { mLight2D.Intensity = value; }
+        }
+
+        public bool IsOn
+        {
+            get { return mLight2D.IsOn; }
+            set { mLight2D.IsOn = value; }
+        }
+
+        public Light()
+        {
+            mLight2D = new Light2D();
+
+            // [Default Values]
+            Range = 400;
+            Color = Color.Red;
+        }
+
+
+        public override void Load(LoadManager content)
+        {
+            base.Load(content);
+            
+            mLight2D.Texture = Texture;
+        }
+
+        public override void FixUp()
+        {
+            base.FixUp();
+
+            LightingComponent.Light.Lights.Add(mLight2D);
+        }
+
+        private LightingComponent LightingComponent
+        {
+            get { return Scene.ComponentManager.GetComponent<LightingComponent>(); }
+        }
+
+        public override Vector2 Position
+        {
+            get
+            {
+                return Position;
+            }
+            set
+            {
+                base.Position = value;
+                mLight2D.Position =  PositionToLightPosition(value);                
+            }
+        }
+
+        public override void Update(GameTime gameTime)
+        {
+            base.Update(gameTime);
+        }
+
+        public virtual Texture2D Texture
+        {
+            get { return LightTextureBuilder.CreateConicLight(MilkShake.Graphics, 512, 8); }
+        }
+
+        private Vector2 PositionToLightPosition(Vector2 aPosition)
+        {
+            Vector2 newPosition = new Vector2();
+            newPosition.X = aPosition.X - Globals.ScreenWidthCenter;
+            newPosition.Y = -aPosition.Y + Globals.ScreenHeightCenter;
+
+            return newPosition;
+        }
+
+    }
+}

@@ -12,12 +12,14 @@ namespace MilkShakeFramework.IO.Input
         {
             MouseInput.UpdateStart();
             KeyboardInput.UpdateStart();
+            PadInput.UpdateStart();
         }
 
         public static void UpdateEnd()
         {
-            MouseInput.UpdateStart();
-            KeyboardInput.UpdateStart();
+            MouseInput.UpdateEnd();
+            KeyboardInput.UpdateEnd();
+            PadInput.UpdateEnd();
         }
     }
 }

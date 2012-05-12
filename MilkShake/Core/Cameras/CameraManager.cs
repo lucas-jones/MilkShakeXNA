@@ -5,6 +5,7 @@ using System.Text;
 using MilkShakeFramework.Core.Content;
 using MilkShakeFramework.Core.Scenes;
 using Microsoft.Xna.Framework;
+using MilkShakeFramework.Core.Scenes.Components;
 
 namespace MilkShakeFramework.Core.Cameras
 {

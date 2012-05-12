@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework.Graphics;
 using MilkShakeFramework.Core.Content;
 using MilkShakeFramework.Core.Scenes;
 using Microsoft.Xna.Framework;
+using MilkShakeFramework.Core.Scenes.Components;
 
 namespace MilkShakeFramework.Render
 {
@@ -48,7 +49,7 @@ namespace MilkShakeFramework.Render
 
         public void Draw(Vector2 position, Texture2D texture, int width, int height, Rectangle sourceRectangle)
         {
-            mSpriteBatch.Draw(texture, position, sourceRectangle, Color.White);
+            mSpriteBatch.Draw(texture, new Vector2((int)position.X - (int)cameraOffset().X, (int)position.Y - (int)cameraOffset().Y), sourceRectangle, Color.White);
         }
 
         public void End()

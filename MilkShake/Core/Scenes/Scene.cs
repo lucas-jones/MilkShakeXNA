@@ -8,16 +8,26 @@ using MilkShakeFramework.Core.Game;
 using Microsoft.Xna.Framework;
 using MilkShakeFramework.Render;
 using Microsoft.Xna.Framework.Graphics;
+using FarseerPhysics.Dynamics;
+using FarseerPhysics.DebugViews;
+using FarseerPhysics;
+using Krypton;
+using MilkShakeFramework.Tools.Physics;
+using MilkShakeFramework.Core.Scenes.Components;
+using MilkShakeFramework.IO.Input.Devices;
 
 namespace MilkShakeFramework.Core.Scenes
 {
-    public delegate void EntityEvent(Entity node);
 
     public class Scene : GameEntity
     {
+        private SceneListener mSceneListener;
+
         private RenderManager mRenderManager;
         private CameraManager mCameraManager;
-        private LoadManager mLoadManager;
+        private LoadManager mLoadManager;   
+
+        private SceneComponentManager mComponentManager;
 
         private RenderTarget2D mRenderTarget;
         private int mRenderWidth, mRenderHeight;
@@ -27,9 +37,17 @@ namespace MilkShakeFramework.Core.Scenes
         {
             SetScene(this);
 
+            mSceneListener = new SceneListener();
+
             mLoadManager = new LoadManager(this);
             mCameraManager = new CameraManager(this);
             mRenderManager = new RenderManager(this);
+
+            mComponentManager = new SceneComponentManager();
+
+            
+            ConvertUnits.SetDisplayUnitToSimUnitRatio(24f);
+            
         }
 
         public override void Setup()
@@ -47,41 +65,32 @@ namespace MilkShakeFramework.Core.Scenes
         internal void LoadScene()
         {
             Load(ContentManager);
+            mLoadManager.SceneLoaded();     
         }
 
         public override void Update(GameTime gameTime)
         {
             mLoadManager.Update();
             mCameraManager.Update(gameTime);
+            Listener.OnUpdate(gameTime);
+
             base.Update(gameTime);
-        }
-
-        // [Events]
-        public event EntityEvent OnEntityAdded;
-        public event EntityEvent OnEntityRemoved;
-
-        public void EntityAdded(Entity entity)
-        {
-            if (OnEntityAdded != null) OnEntityAdded(entity);
-        }
-
-        public void EntityRemoved(Entity entity)
-        {
-            if (OnEntityRemoved != null) OnEntityRemoved(entity);
         }
 
         public override void Draw()
         {
             RenderScene(); // Draws to Target Renderer
-            DrawScene(); // Draws Scene on screen
+            DrawScene();   // Draws Scene on screen            
         }
 
         public void RenderScene()
         {
             RenderManager.SetRenderTarget(mRenderTarget);
-            RenderManager.Begin();
+            mSceneListener.OnPreDraw();
+            RenderManager.Begin();            
             base.Draw();
             RenderManager.End();
+            mSceneListener.OnPostDraw();
             RenderManager.SetRenderTarget(null);
         }
 
@@ -93,8 +102,15 @@ namespace MilkShakeFramework.Core.Scenes
         }
 
         // [Public]
+        public SceneListener Listener { get { return mSceneListener; } }
+        
         public CameraManager CameraManager { get { return mCameraManager; } }
         public LoadManager ContentManager { get { return mLoadManager; } }
+
+
+
+        // Component
+        public SceneComponentManager ComponentManager { get { return mComponentManager; } }
 
         public Camera Camera { get { return mCameraManager.CurrentCamera; } }
         public RenderManager RenderManager { get { return mRenderManager; } }

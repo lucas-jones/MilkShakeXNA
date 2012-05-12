@@ -18,11 +18,14 @@ namespace MilkShakeFramework
         public static GraphicsDeviceManager GraphicsManager;
         public static GraphicsDevice Graphics;
         public static ContentManager ConentManager;
+        public static Game Game;
 
         public MilkShake(int ScreenWidth = Globals.DefaultScreenWidth, int ScreenHeight = Globals.DefaultScreenHeight) : base()
         {
             GraphicsManager = new GraphicsDeviceManager(this);
+
             ConentManager = Content;
+            Game = this;
 
             ChangeResolution(ScreenWidth, ScreenHeight);
         }
@@ -53,6 +56,8 @@ namespace MilkShakeFramework
         {
             GraphicsManager.PreferredBackBufferHeight = Height;
             GraphicsManager.PreferredBackBufferWidth = Width;
+
+            //GraphicsManager.PreferMultiSampling = true;
 
             GraphicsManager.SynchronizeWithVerticalRetrace = Globals.EnabledVSync;
             IsFixedTimeStep = Globals.EnabledVSync;
