@@ -53,6 +53,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Library\Krypton.dll</HintPath>
     </Reference>
+    <Reference Include="LuaInterface, Version=2.0.0.16708, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Library\LuaInterface.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Xna.Framework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
       <Private>False</Private>
     </Reference>
@@ -107,6 +111,11 @@
   <ItemGroup>
     <Compile Include="Components\Lighting\Lights\ConicLight.cs" />
     <Compile Include="Components\Lighting\Lights\PointLight.cs" />
+    <Compile Include="Components\Scripting\IScript.cs" />
+    <Compile Include="Components\Scripting\MilkHooks.cs" />
+    <Compile Include="Components\Scripting\ScriptComponent.cs" />
+    <Compile Include="Components\Scripting\ScriptFunctions.cs" />
+    <Compile Include="Components\Scripting\ScriptNode.cs" />
     <Compile Include="Components\TileMap.cs" />
     <Compile Include="Components\Tile\Tile.cs" />
     <Compile Include="Components\Tile\TileLayer.cs" />

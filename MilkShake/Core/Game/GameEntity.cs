@@ -26,6 +26,27 @@ namespace MilkShakeFramework.Core.Game
             base.SetParent(parent);
         }
 
+        public override void FixUp()
+        {
+            base.FixUp();
+
+            mListener.OnFixup();
+        }
+
+        public override void Load(LoadManager content)
+        {
+            base.Load(content);
+
+            mListener.OnLoad();
+        }
+
+        public override void Setup()
+        {
+            base.Setup();
+
+            mListener.OnSetup();
+        }
+
         public virtual void Update(GameTime gameTime)
         {
             mListener.OnUpdate(gameTime);
@@ -38,9 +59,13 @@ namespace MilkShakeFramework.Core.Game
             foreach (GameEntity gameEntity in Nodes.OfType<GameEntity>().ToArray<GameEntity>()) if (gameEntity.IsLoaded) gameEntity.Draw();
         }
 
+
         // [Public]
         public virtual GameEntityListener Listener { get { return mListener; } }
         public virtual Vector2 Position { get { return mPosition; } set { mPosition = value; }  }
+        public virtual float X { get { return mPosition.X; } set { mPosition = new Vector2(value, mPosition.Y); } }
+        public virtual float Y { get { return mPosition.Y; } set { mPosition = new Vector2(mPosition.X, value); } }
+
         public virtual Vector2 WorldPosition { get { return (Parent as GameEntity).Position + Position; } }
     }
 }

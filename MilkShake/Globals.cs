@@ -27,5 +27,7 @@ namespace MilkShakeFramework
         public static float DisplayUnitToSimUnitRatio = 24f;
 
         public static string ContentDirectory = "Content";
+
+        public static Random Random = new Random();
     }
 }

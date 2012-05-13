@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework;
 
 namespace MilkShakeFramework.Core.Scenes
 {
+    public delegate void GameEntityEvent();
     public delegate void EntityEvent(Entity node);
     public delegate void DrawEvent();
     public delegate void UpdateEvent(GameTime gameTime);

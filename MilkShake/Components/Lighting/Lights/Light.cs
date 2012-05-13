@@ -85,7 +85,7 @@ namespace MilkShakeFramework.Components.Lighting.Lights
         {
             get
             {
-                return Position;
+                return base.Position;
             }
             set
             {
@@ -94,9 +94,37 @@ namespace MilkShakeFramework.Components.Lighting.Lights
             }
         }
 
+        public override float X
+        {
+            get
+            {
+                return base.X;
+            }
+            set
+            {
+                Position = new Vector2(X, Position.Y);
+                base.X = value;
+            }
+        }
+
+        public override float Y
+        {
+            get
+            {
+                return base.Y;
+            }
+            set
+            {
+                Position = new Vector2(Position.X, Y);
+                base.Y = value;
+            }
+        }
+
+
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
+            
         }
 
         public virtual Texture2D Texture
