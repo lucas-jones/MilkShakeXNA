@@ -51,7 +51,7 @@ namespace MilkShakeFramework.Core.Game
 
         public virtual void FixUp()
         {
-            foreach (Entity entity in Nodes) entity.FixUp();
+            foreach (Entity entity in Nodes.ToArray()) entity.FixUp();
         }
 
         // [Public]

@@ -22,7 +22,7 @@ namespace MilkShakeFramework.Core.Scenes.Components
         private Vector2 mGravity;
         private bool mCameraRotationGravity;
 
-        public PhysicsComponent(Scene aScene, Vector2 aGravity) : base(aScene)
+        public PhysicsComponent(Scene aScene, Vector2 aGravity, bool aOptimised = false) : base(aScene)
         {
             ConvertUnits.SetDisplayUnitToSimUnitRatio(24f);
 
@@ -40,28 +40,31 @@ namespace MilkShakeFramework.Core.Scenes.Components
             Scene.Listener.PostDraw[DrawLayer.First] += new DrawEvent(Draw);
 
             // Optimise
-            Settings.AllowSleep = false;
-            Settings.EnableDiagnostics = false;
-            Settings.VelocityIterations = 6;
-            Settings.PositionIterations = 4;
-            Settings.ContinuousPhysics = false;
+			if(aOptimised)
+			{
+         	   	Settings.AllowSleep = true;
+         	   	Settings.EnableDiagnostics = false;
+        	    Settings.VelocityIterations = 6;
+       	     	Settings.PositionIterations = 4;
+       	    	Settings.ContinuousPhysics = false;
+			}
+
         }
 
         public void Update(GameTime gameTime)
         {
-            // [Update Matrix]
-            mProjection = GetProjectionMatrix();
-            mView = GetViewMatrix();
-
             if (mCameraRotationGravity) World.Gravity = GravityFromCameraAngle(mGravity);
 
             // [Update Physics]
             float elapsedTime = Math.Min((float)gameTime.ElapsedGameTime.TotalSeconds, (1f / 30f));
             mWorld.Step(elapsedTime);
+
         }
 
         public void Draw()
         {
+            mView = GetViewMatrix();
+            mProjection = GetProjectionMatrix();
             mDebugView.RenderDebugData(ref mProjection, ref mView);
         }
 

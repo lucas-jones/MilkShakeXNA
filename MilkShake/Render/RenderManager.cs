@@ -29,7 +29,7 @@ namespace MilkShakeFramework.Render
         public void Begin()
         {
             mSpriteBatch.Begin(SpriteSortMode.Immediate,
-                               BlendState.AlphaBlend,
+                               BlendState.NonPremultiplied,
                                SamplerState,
                                DepthStencilState.None,
                                RasterizerState.CullNone,
@@ -52,6 +52,11 @@ namespace MilkShakeFramework.Render
             mSpriteBatch.Draw(texture, new Vector2((int)position.X - (int)cameraOffset().X, (int)position.Y - (int)cameraOffset().Y), sourceRectangle, Color.White);
         }
 
+        public void Draw(Vector2 position, Texture2D texture, int width, int height, Rectangle sourceRectangle, SpriteEffects spriteEffects)
+        {
+            mSpriteBatch.Draw(texture, new Vector2((int)position.X - (int)cameraOffset().X, (int)position.Y - (int)cameraOffset().Y), sourceRectangle, Color.White, 0, Vector2.Zero, Vector2.One, spriteEffects, 0);
+        }
+
         public void End()
         {
             mSpriteBatch.End();
@@ -67,6 +72,7 @@ namespace MilkShakeFramework.Render
             return Scene.Camera.Transform;
         }
 
+        public SpriteBatch SpriteBatch { get { return mSpriteBatch; } }
         public SamplerState SamplerState { get { return mSamplerState; } set { mSamplerState = value; } }
     }
 }

@@ -19,7 +19,7 @@ namespace MilkShakeFramework.Components.Lighting
         {
             mLight = new KryptonEngine(MilkShake.Game, "KryptonEffect");
             mLight.Initialize();
-
+            
             // [Settings]
             mLight.LightMapSize = mLightMapSize;
             mLight.Bluriness = mBluriness;
@@ -27,18 +27,17 @@ namespace MilkShakeFramework.Components.Lighting
             // [Events]
             Scene.Listener.PreDraw[DrawLayer.First] += new DrawEvent(PreDraw);
             Scene.Listener.PostDraw[DrawLayer.Fifth] += new DrawEvent(PostDraw);
-            Scene.Listener.Update += new UpdateEvent(Update);
-        }
-
-        private void Update(GameTime gameTime)
-        {
-            GenerateMatrix(); // Cache?
-
-            mLight.Matrix = mMatrix;
         }
 
         private void PreDraw()
         {
+            GenerateMatrix(); // Cache?
+
+            mLight.AmbientColor = Color.Transparent;
+            
+            mLight.SpriteBatchCompatablityEnabled = false;
+            mLight.Matrix = mMatrix;
+
             mLight.LightMapPrepare();
         }
 

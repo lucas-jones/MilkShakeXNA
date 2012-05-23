@@ -15,9 +15,11 @@ using Krypton;
 using MilkShakeFramework.Tools.Physics;
 using MilkShakeFramework.Core.Scenes.Components;
 using MilkShakeFramework.IO.Input.Devices;
+using MilkShakeFramework.Core.Events;
 
 namespace MilkShakeFramework.Core.Scenes
 {
+
 
     public class Scene : GameEntity
     {
@@ -33,11 +35,14 @@ namespace MilkShakeFramework.Core.Scenes
         private int mRenderWidth, mRenderHeight;
         private int mWidth, mHeight;
 
+        private EventDispatcher mEventDispatcher;
+
         public Scene()
         {
             SetScene(this);
 
             mSceneListener = new SceneListener();
+            mEventDispatcher = new EventDispatcher();
 
             mLoadManager = new LoadManager(this);
             mCameraManager = new CameraManager(this);
@@ -47,7 +52,26 @@ namespace MilkShakeFramework.Core.Scenes
 
             
             ConvertUnits.SetDisplayUnitToSimUnitRatio(24f);
-            
+
+            mEventDispatcher.AddEventListener("test", delegate()
+            {
+                System.Console.Write("Hello, ");
+                System.Console.WriteLine("World!");
+            }, "Lighting");
+
+            mEventDispatcher.AddEventListener("test", delegate()
+            {
+                System.Console.Write("Hello, ");
+                System.Console.WriteLine("World!");
+            }, GetType().Name);
+
+            mEventDispatcher.DispatchEvent("test");
+            Console.WriteLine("DSA");
+        }
+
+        private void Test()
+        {
+            Console.WriteLine("CalleD!");
         }
 
         public override void Setup()
@@ -64,8 +88,11 @@ namespace MilkShakeFramework.Core.Scenes
 
         internal void LoadScene()
         {
+            
             Load(ContentManager);
-            mLoadManager.SceneLoaded();     
+            mLoadManager.SceneLoaded();
+
+            Listener.OnLoad();
         }
 
         public override void Update(GameTime gameTime)
@@ -79,15 +106,18 @@ namespace MilkShakeFramework.Core.Scenes
 
         public override void Draw()
         {
+            
             RenderScene(); // Draws to Target Renderer
-            DrawScene();   // Draws Scene on screen            
+            DrawScene();   // Draws Scene on screen         
+         
         }
 
         public void RenderScene()
         {
             RenderManager.SetRenderTarget(mRenderTarget);
+
             mSceneListener.OnPreDraw();
-            RenderManager.Begin();            
+            RenderManager.Begin();
             base.Draw();
             RenderManager.End();
             mSceneListener.OnPostDraw();
@@ -97,13 +127,18 @@ namespace MilkShakeFramework.Core.Scenes
         private void DrawScene()
         {
             RenderManager.RawBegin();
+            mSceneListener.OnPreSceneRender();
             RenderManager.RawDraw(Position, mRenderTarget, mWidth, mHeight);
+            
             RenderManager.End();
+            mSceneListener.OnPostSceneRender();
         }
 
         // [Public]
         public SceneListener Listener { get { return mSceneListener; } }
-        
+        public EventDispatcher EventDispatcher { get { return mEventDispatcher; } }
+
+
         public CameraManager CameraManager { get { return mCameraManager; } }
         public LoadManager ContentManager { get { return mLoadManager; } }
 
@@ -114,6 +149,8 @@ namespace MilkShakeFramework.Core.Scenes
 
         public Camera Camera { get { return mCameraManager.CurrentCamera; } }
         public RenderManager RenderManager { get { return mRenderManager; } }
+
+        public RenderTarget2D RenderTarget { get { return mRenderTarget; } } 
 
         public int RenderWidth { get { return mRenderWidth; } set { mRenderWidth = value; } }
         public int RenderHeight { get { return mRenderHeight; } set { mRenderHeight = value; } }

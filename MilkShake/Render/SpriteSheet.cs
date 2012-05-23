@@ -22,13 +22,18 @@ namespace MilkShakeFramework.Render
         public override void Load(LoadManager content)
         {
             mTexture2D = MilkShake.ConentManager.Load<Texture2D>(URL);
-
-            base.Load(content);
         }
 
         public void Draw(Vector2 position, int width, int height, Rectangle source)
         {
             RenderManager.Draw(position, Texture, width, height, source);
+        }
+
+        public void Draw(Vector2 position, int width, int height, Rectangle source, bool flipped)
+        {
+            SpriteEffects effects = (flipped) ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
+
+            RenderManager.Draw(position, Texture, width, height, source, effects);
         }
 
         public Texture2D Texture { get { return mTexture2D; } }

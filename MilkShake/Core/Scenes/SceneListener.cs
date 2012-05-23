@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework;
 
 namespace MilkShakeFramework.Core.Scenes
 {
+    public delegate void BasicEvent();
     public delegate void GameEntityEvent();
     public delegate void EntityEvent(Entity node);
     public delegate void DrawEvent();
@@ -18,7 +19,14 @@ namespace MilkShakeFramework.Core.Scenes
         public event EntityEvent EntityRemoved;
 
         public DrawEvent[] PreDraw;
+        public DrawEvent Draw;
         public DrawEvent[] PostDraw;
+
+        public DrawEvent PreSceneRender;
+        public DrawEvent PostSceneRender;
+
+        public BasicEvent LoadContent;
+
 
         public event UpdateEvent Update;
 
@@ -40,7 +48,7 @@ namespace MilkShakeFramework.Core.Scenes
 
         public void OnPreDraw()
         {
-            foreach (DrawEvent drawEvent in PreDraw) if (drawEvent != null) drawEvent();            
+            foreach (DrawEvent drawEvent in PreDraw)if (drawEvent != null) drawEvent();            
         }
 
         public void OnPostDraw()
@@ -48,11 +56,39 @@ namespace MilkShakeFramework.Core.Scenes
             foreach (DrawEvent drawEvent in PostDraw) if (drawEvent != null) drawEvent();
         }
 
-        public void OnUpdate(GameTime gameTime)
+        public void OnPreSceneRender()
         {
-            if (Update != null) Update(gameTime);
+            if (PreSceneRender != null) PreSceneRender();
         }
 
+        public void OnPostSceneRender()
+        {
+            if (PostSceneRender != null) PostSceneRender();
+        }
+
+        public void OnUpdate(GameTime gameTime)
+        {
+            if (Update != null)
+            {
+                //DateTime t1 = DateTime.Now;
+                Update(gameTime);
+                //TimeSpan elapsed = DateTime.Now - t1;
+                //double elapsedMS = elapsed.TotalMilliseconds;
+                //Console.WriteLine("TimeSpent Updating: " + elapsedMS);
+
+            }
+        }
+
+        public void OnLoad()
+        {
+            if (LoadContent != null) LoadContent();
+        }
+
+
+        internal void onDraw()
+        {
+            if (Draw != null) Draw();
+        }
     }
 
     public class DrawLayer

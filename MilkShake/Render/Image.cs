@@ -21,9 +21,7 @@ namespace MilkShakeFramework.Render
 
         public override void Load(LoadManager content)
         {
-            Console.WriteLine("Loaded: " + URL);
             mTexture2D = MilkShake.ConentManager.Load<Texture2D>(URL);
-            base.Load(content);
         }
 
         public void Draw(Vector2 position, int width, int height)

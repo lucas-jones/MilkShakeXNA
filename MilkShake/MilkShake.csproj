@@ -90,6 +90,9 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\Library\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="ProjectMercury">
+      <HintPath>..\Library\ProjectMercury.dll</HintPath>
+    </Reference>
     <Reference Include="System">
       <Private>False</Private>
     </Reference>
@@ -109,22 +112,28 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Components\Effects\Presets\ReflectiveTile.cs" />
     <Compile Include="Components\Lighting\Lights\ConicLight.cs" />
     <Compile Include="Components\Lighting\Lights\PointLight.cs" />
+    <Compile Include="Components\Effects\Effect.cs" />
+    <Compile Include="Components\Effects\EffectsComponent.cs" />
+    <Compile Include="Components\Particles\ParticleEmitter.cs" />
+    <Compile Include="Components\Particles\ParticlesComponent.cs" />
     <Compile Include="Components\Scripting\IScript.cs" />
-    <Compile Include="Components\Scripting\MilkHooks.cs" />
+    <Compile Include="Components\Scripting\ScriptHooks.cs" />
     <Compile Include="Components\Scripting\ScriptComponent.cs" />
     <Compile Include="Components\Scripting\ScriptFunctions.cs" />
     <Compile Include="Components\Scripting\ScriptNode.cs" />
-    <Compile Include="Components\TileMap.cs" />
-    <Compile Include="Components\Tile\Tile.cs" />
-    <Compile Include="Components\Tile\TileLayer.cs" />
-    <Compile Include="Components\Tile\TileEngine.cs" />
+    <Compile Include="Core\Events\EventDispatcher.cs" />
+    <Compile Include="Core\Game\Components\Tile\TileMap.cs" />
+    <Compile Include="Core\Game\Components\Tile\Tile.cs" />
+    <Compile Include="Core\Game\Components\Tile\TileLayer.cs" />
+    <Compile Include="Core\Game\Components\Tile\TileEngine.cs" />
     <Compile Include="Core\Cameras\Camera.cs" />
     <Compile Include="Core\Cameras\CameraManager.cs" />
     <Compile Include="Core\Content\LoadManager.cs" />
-    <Compile Include="Core\Game\Animation\AnimatedSprite.cs" />
-    <Compile Include="Core\Game\Animation\AnimationFile.cs" />
+    <Compile Include="Core\Game\Components\Animation\AnimatedSprite.cs" />
+    <Compile Include="Core\Game\Components\Animation\AnimationFile.cs" />
     <Compile Include="Core\Game\Entity.cs" />
     <Compile Include="Components\Lighting\Lights\Light.cs" />
     <Compile Include="Components\Physics\PhysicsComponent.cs" />
@@ -162,7 +171,6 @@
     <Compile Include="Render\SpriteSheet.cs" />
     <Compile Include="Tools\Tween\Tween.cs" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\Microsoft.Xna.GameStudio.targets" />
   <!--
