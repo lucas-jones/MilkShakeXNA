@@ -24,9 +24,9 @@ namespace MilkShakeFramework.Render
             mTexture2D = MilkShake.ConentManager.Load<Texture2D>(URL);
         }
 
-        public void Draw(Vector2 position, int width, int height)
+        public void Draw(Vector2 position, int width, int height, float rotation, Vector2 origin, Color color)
         {
-            RenderManager.Draw(position, Texture, width, height);
+            RenderManager.Draw(position, Texture, width, height, rotation, origin, color);
         }
 
         public Texture2D Texture { get { return mTexture2D; } }

@@ -2,36 +2,19 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using MilkShakeFramework.Tools.Debug;
 
 namespace MilkShakeFramework.Core.Events
 {
-    public class MilkEvent
-    {
-        private string mEventName;
-        private Delegate mEventFunction;
-        private string mEventhandler;
-
-        public MilkEvent(string eventName, Delegate eventFunction, string eventHandler)
-        {
-            mEventName = eventName;
-            mEventFunction = eventFunction;
-            mEventhandler = eventHandler;
-        }
-
-        public string EventName { get { return mEventName; } }
-        public Delegate EventFunction { get { return mEventFunction; } }
-        public string EventHandler { get { return mEventhandler; } }
-    }
-
     public delegate void MEvent();
 
     public class EventDispatcher
     {
-        private Dictionary<string, List<MilkEvent>> mEventContainer = new Dictionary<string,List<MilkEvent>>();
+        private Dictionary<string, EventContainer> mEventContainer = new Dictionary<string, EventContainer>();
 
         public void AddEventListener(string eventName, MEvent eventFunction, string eventHandler = "Unknown")
         {
-            if (!mEventContainer.ContainsKey(eventName)) mEventContainer.Add(eventName, new List<MilkEvent>());
+            if (!mEventContainer.ContainsKey(eventName)) mEventContainer.Add(eventName, new EventContainer());
 
             mEventContainer[eventName].Add(new MilkEvent(eventName, eventFunction, eventHandler));
         }
@@ -40,21 +23,71 @@ namespace MilkShakeFramework.Core.Events
         {
             if (!mEventContainer.ContainsKey(eventName)) return;
 
-            
-            DateTime currentEventTime = DateTime.Now;
-
-            foreach (MilkEvent milkEvent in mEventContainer[eventName])
-            {
-                DateTime currentTime = DateTime.Now;
-
-                milkEvent.EventFunction.DynamicInvoke();
-
-                TimeSpan elapsed = DateTime.Now - currentTime;
-                Console.WriteLine("[DispatchEvent] Handler: " + milkEvent.EventHandler + " " + elapsed.TotalMilliseconds + "ms");
-            }
-            
-            TimeSpan eventElapsed = DateTime.Now - currentEventTime;
-            Console.WriteLine("[DispatchEvent] Dispatching Event: " + eventName + " " + eventElapsed.TotalMilliseconds + "ms");
+            mEventContainer[eventName].DispatchEvents();
         }
+
+        public Dictionary<string, EventContainer> EventContainer { get { return mEventContainer; } }
+    }
+
+    public class EventContainer
+    {
+        private List<MilkEvent> mMilkEvents;
+        private LogicTimer mLogicTimer;
+
+        public EventContainer()
+        {
+            mMilkEvents = new List<MilkEvent>();
+            mLogicTimer = new LogicTimer();
+        }
+
+        public void DispatchEvents()
+        {
+            mLogicTimer.Start();
+            foreach (MilkEvent milkEvent in mMilkEvents)
+            {
+                milkEvent.Invoke();
+            }
+            mLogicTimer.End();
+        }
+
+        public void Add(MilkEvent aMilkEvent)
+        {
+            mMilkEvents.Add(aMilkEvent);
+        }
+
+        public List<MilkEvent> MilkEvents { get { return mMilkEvents; } }
+        public double TimeSpent { get { return mLogicTimer.TimeSpent; } }
+    }
+
+    public class MilkEvent
+    {
+        private string mEventName;
+        private Delegate mEventFunction;
+        private string mEventhandler;
+
+        // [Debug]
+        private LogicTimer mTimer;
+
+        public MilkEvent(string eventName, Delegate eventFunction, string eventHandler)
+        {
+            mEventName = eventName;
+            mEventFunction = eventFunction;
+            mEventhandler = eventHandler;
+
+            mTimer = new LogicTimer();
+        }
+
+        public void Invoke()
+        {
+            mTimer.Start();
+            mEventFunction.DynamicInvoke();
+            mTimer.End();
+        }
+
+        public string EventName { get { return mEventName; } }
+        public Delegate EventFunction { get { return mEventFunction; } }
+        public string EventHandler { get { return mEventhandler; } }
+
+        public double TimeSpent { get { return mTimer.TimeSpent; } }
     }
 }

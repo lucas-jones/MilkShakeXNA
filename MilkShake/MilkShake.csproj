@@ -53,6 +53,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Library\Krypton.dll</HintPath>
     </Reference>
+    <Reference Include="Lidgren.Network">
+      <HintPath>..\Library\Lidgren.Network.dll</HintPath>
+    </Reference>
     <Reference Include="LuaInterface, Version=2.0.0.16708, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Library\LuaInterface.dll</HintPath>
@@ -90,6 +93,9 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\Library\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="Primitives2D">
+      <HintPath>..\Library\Primitives2D.dll</HintPath>
+    </Reference>
     <Reference Include="ProjectMercury">
       <HintPath>..\Library\ProjectMercury.dll</HintPath>
     </Reference>
@@ -125,7 +131,8 @@
     <Compile Include="Components\Scripting\ScriptFunctions.cs" />
     <Compile Include="Components\Scripting\ScriptNode.cs" />
     <Compile Include="Core\Events\EventDispatcher.cs" />
-    <Compile Include="Core\Game\Components\Tile\TileMap.cs" />
+    <Compile Include="Core\Events\SceneEvents.cs" />
+    <Compile Include="Core\Game\Components\Misc\ScrollingPattern.cs" />
     <Compile Include="Core\Game\Components\Tile\Tile.cs" />
     <Compile Include="Core\Game\Components\Tile\TileLayer.cs" />
     <Compile Include="Core\Game\Components\Tile\TileEngine.cs" />
@@ -141,6 +148,7 @@
     <Compile Include="Core\Scenes\Components\SceneComponentManager.cs" />
     <Compile Include="Core\Scenes\SceneListener.cs" />
     <Compile Include="IO\Input\Devices\PadInput.cs" />
+    <Compile Include="Tools\Debug\LogicTimer.cs" />
     <Compile Include="Tools\Physics\ConvertUnits.cs" />
     <Compile Include="Components\Lighting\LightingComponent.cs" />
     <Compile Include="Core\Scenes\Scene.cs" />
@@ -170,6 +178,7 @@
     <Compile Include="Render\RenderManager.cs" />
     <Compile Include="Render\SpriteSheet.cs" />
     <Compile Include="Tools\Tween\Tween.cs" />
+    <Compile Include="Tools\Utils\Wait.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\Microsoft.Xna.GameStudio.targets" />

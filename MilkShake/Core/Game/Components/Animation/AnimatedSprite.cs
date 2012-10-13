@@ -19,25 +19,32 @@ namespace MilkShakeFramework.Core.Game.Animation
         private int curFrame = 1;
         private float curTime = 0;
 
-        private string curAnimation = "Idle";
+        private string curAnimation = "NotSet";
 
+        // Move?
         private bool mIsFlipped = false;
 
         public AnimatedSprite(string animatedSpriteURL)
         {
             loadAnimationFile(animatedSpriteURL);
+
+            // Default to first animation
+            curAnimation = mAnimationFile.Animations[0].Name;
         }
 
         private void loadAnimationFile(string fileURL)
         {
             mAnimationFile = new AnimationFile(fileURL);
-            mSpriteSheet = new SpriteSheet(mAnimationFile.ImageURL.Split('.')[0]);
+
+            string spriteSheetPath = (fileURL.Split('.')[0]).Replace("content/", "");
+            mSpriteSheet = new SpriteSheet(spriteSheetPath);
             mSpriteSource = new List<Rectangle>();
         }
 
         public override void Setup()
         {
             AddNode(mSpriteSheet);
+
             base.Setup();
         }
 
@@ -73,7 +80,8 @@ namespace MilkShakeFramework.Core.Game.Animation
 
                 if (curFrame > CurrentAnimation.EndFrame - 1)
                 {
-                    curFrame = CurrentAnimation.StartFrame + 1;
+                    if (playMode == PlayMode.Loop) curFrame = CurrentAnimation.StartFrame + 1;
+                    if (playMode == PlayMode.PlayAndPause) curFrame = CurrentAnimation.EndFrame;
                 }
             }
 
@@ -82,8 +90,10 @@ namespace MilkShakeFramework.Core.Game.Animation
             base.Update(gameTime);
         }
 
-        public void SetAnimation(string _AnimationName)
+        public void SetAnimation(string _AnimationName, PlayMode _PlayMode = PlayMode.Loop)
         {
+            playMode = _PlayMode;
+
             if (_AnimationName != curAnimation)
             {
                 curAnimation = _AnimationName;

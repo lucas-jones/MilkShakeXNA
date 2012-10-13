@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
+using MilkShakeFramework.Core.Scenes;
 
 namespace MilkShakeFramework.IO.Input.Devices
 {
@@ -67,6 +68,11 @@ namespace MilkShakeFramework.IO.Input.Devices
         public static Vector2 Position
         {
             get { return new Vector2(mouseState.X, mouseState.Y); }
+        }
+
+        public static Vector2 WorldPosition
+        {
+            get { return SceneManager.CurrentScene.Camera.ScreenToWorld(Position); }
         }
 
         public static int X

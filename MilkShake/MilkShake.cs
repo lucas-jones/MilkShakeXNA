@@ -34,10 +34,16 @@ namespace MilkShakeFramework
         {
             Graphics = GraphicsManager.GraphicsDevice;
 
+            GraphicsManager.PreferMultiSampling = true;
+            GraphicsDevice.PresentationParameters.MultiSampleCount = 16;
+            
+            GraphicsManager.ApplyChanges();
+
             IsMouseVisible = true;
             ConentManager.RootDirectory = Globals.ContentDirectory;
             SceneManager.Setup();
         }
+
 
         protected override void Draw(GameTime gameTime)
         {
@@ -52,13 +58,12 @@ namespace MilkShakeFramework
             InputManager.UpdateEnd();
         }
 
-        private void ChangeResolution(int Width, int Height)
+        private void ChangeResolution(int Width, int Height, bool isFullscreen = false, bool PreferMultiSampling = true)
         {
             GraphicsManager.PreferredBackBufferHeight = Height;
             GraphicsManager.PreferredBackBufferWidth = Width;
-
-            //GraphicsManager.PreferMultiSampling = true;
-
+            GraphicsManager.IsFullScreen = isFullscreen;
+            GraphicsManager.PreferMultiSampling = PreferMultiSampling;
             GraphicsManager.SynchronizeWithVerticalRetrace = Globals.EnabledVSync;
             IsFixedTimeStep = Globals.EnabledVSync;
 

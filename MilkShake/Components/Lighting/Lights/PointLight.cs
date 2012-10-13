@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Krypton;
 using Microsoft.Xna.Framework.Graphics;
+using Krypton.Lights;
 
 namespace MilkShakeFramework.Components.Lighting.Lights
 {
@@ -12,10 +13,10 @@ namespace MilkShakeFramework.Components.Lighting.Lights
         // [Light Settings]
         private int mSize;
 
-        public PointLight(int size)
-            : base()
+        public PointLight(int size, ShadowType type = ShadowType.Solid) : base()
         {
             mSize = size;
+            mLight2D.ShadowType = type;
         }
 
         public override Texture2D Texture

@@ -51,6 +51,11 @@ namespace MilkShakeFramework.Core.Cameras
             mViewBox = new Rectangle((int)inverseOffset.X, (int)inverseOffset.Y, (int)(mWidth * (1 / Zoom)), (int)(mHeight * (1 / Zoom)));
         }
 
+        public Vector2 ScreenToWorld(Vector2 screenPosition)
+        {
+            return Vector2.Transform(screenPosition + (Position * Zoom), Matrix.Invert(Matrix));
+        }
+
         public int Width { get { return mWidth; } set { mWidth = value; } }
         public int Height { get { return mHeight; } set { mHeight = value; } }
         public float Zoom { get { return mZoom; } set { mZoom = value; } }
@@ -61,5 +66,7 @@ namespace MilkShakeFramework.Core.Cameras
         public Matrix Matrix { get { return mMatrix; } }
 
         public override Vector2 WorldPosition { get { return Position + Offset; } }
+
+
     }
 }

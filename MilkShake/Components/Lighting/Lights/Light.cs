@@ -14,7 +14,7 @@ namespace MilkShakeFramework.Components.Lighting.Lights
 {
     public abstract class Light : GameEntity
     {
-        private Light2D mLight2D;
+        internal Light2D mLight2D;
 
         public float Range
         {
@@ -124,7 +124,9 @@ namespace MilkShakeFramework.Components.Lighting.Lights
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
-            
+
+            mLight2D.Position = PositionToLightPosition(WorldPosition);
+
         }
 
         public virtual Texture2D Texture

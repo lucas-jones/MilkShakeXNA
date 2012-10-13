@@ -26,7 +26,7 @@ namespace MilkShakeFramework.Components.Lighting
 
             // [Events]
             Scene.Listener.PreDraw[DrawLayer.First] += new DrawEvent(PreDraw);
-            Scene.Listener.PostDraw[DrawLayer.Fifth] += new DrawEvent(PostDraw);
+            Scene.Listener.PostDraw[DrawLayer.Fourth] += new DrawEvent(PostDraw);
         }
 
         private void PreDraw()
@@ -57,7 +57,7 @@ namespace MilkShakeFramework.Components.Lighting
 
             float xTranslation = -1 * (Scene.Camera.Position.X);
             float yTranslation = 1 * (Scene.Camera.Position.Y);
-           
+
             view = Matrix.CreateTranslation(xTranslation, yTranslation, 0) * Matrix.CreateRotationZ(-MathHelper.ToRadians(Scene.Camera.Rotation));
 
             return view;

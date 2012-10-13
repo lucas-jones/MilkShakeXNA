@@ -52,7 +52,7 @@ namespace MilkShakeFramework.Core.Scenes
 
             
             ConvertUnits.SetDisplayUnitToSimUnitRatio(24f);
-
+            /*
             mEventDispatcher.AddEventListener("test", delegate()
             {
                 System.Console.Write("Hello, ");
@@ -67,6 +67,7 @@ namespace MilkShakeFramework.Core.Scenes
 
             mEventDispatcher.DispatchEvent("test");
             Console.WriteLine("DSA");
+             * */
         }
 
         private void Test()
@@ -113,8 +114,10 @@ namespace MilkShakeFramework.Core.Scenes
         }
 
         public void RenderScene()
-        {
+        {            
             RenderManager.SetRenderTarget(mRenderTarget);
+
+            MilkShake.Graphics.Clear(Globals.ScreenColour);
 
             mSceneListener.OnPreDraw();
             RenderManager.Begin();

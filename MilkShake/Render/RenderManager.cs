@@ -18,7 +18,7 @@ namespace MilkShakeFramework.Render
         public RenderManager(Scene scene) : base(scene)
         {
             mSpriteBatch = new SpriteBatch(MilkShake.Graphics);
-            mSamplerState = SamplerState.LinearClamp;
+            mSamplerState = SamplerState;
         }
 
         public void SetRenderTarget(RenderTarget2D renderTarget)
@@ -42,9 +42,9 @@ namespace MilkShakeFramework.Render
             mSpriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, width, height), new Rectangle(0, 0, texture.Width, texture.Height), Color.White);
         }
 
-        public void Draw(Vector2 position, Texture2D texture, int width, int height)
+        public void Draw(Vector2 position, Texture2D texture, int width, int height, float rotation, Vector2 origin, Color color)
         {
-            mSpriteBatch.Draw(texture, new Rectangle((int)position.X - (int)cameraOffset().X, (int)position.Y - (int)cameraOffset().Y, width, height), new Rectangle(0, 0, texture.Width, texture.Height), Color.White);
+            mSpriteBatch.Draw(texture, new Rectangle((int)position.X - (int)cameraOffset().X, (int)position.Y - (int)cameraOffset().Y, width, height), new Rectangle(0, 0, texture.Width, texture.Height), color, rotation, origin, SpriteEffects.None, 1);
         }
 
         public void Draw(Vector2 position, Texture2D texture, int width, int height, Rectangle sourceRectangle)

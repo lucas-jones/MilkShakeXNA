@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using MilkShakeFramework.IO.File.XML;
-using System.Xml;
-using Newtonsoft.Json.Linq;
+﻿using System.Collections.Generic;
 using System.IO;
+using Newtonsoft.Json.Linq;
 
 namespace MilkShakeFramework.Core.Game.Animation
 {
-
     public class AnimationFile
     {
         public List<Animation> Animations { get { return mAnimations; } }
@@ -29,11 +23,13 @@ namespace MilkShakeFramework.Core.Game.Animation
         public AnimationFile(string xmlLocation)
         {
             mAnimations = new List<Animation>();
+
             ReadJSON(File.ReadAllText(xmlLocation));
         }
 
         private void ReadJSON(string JSON)
         {
+            // Parse raw 
             JToken token = JObject.Parse(JSON);
 
             mImageURL = (string)token.SelectToken("images")[0];
