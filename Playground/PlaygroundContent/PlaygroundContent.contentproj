@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <ProjectGuid>{B2EE0314-4497-4DC4-944B-D776050FE645}</ProjectGuid>
+    <ProjectGuid>{5CF3D429-AC20-41FB-8370-9854AA73700A}</ProjectGuid>
     <ProjectTypeGuids>{96E2B04D-8817-42c6-938A-82C39BA4D311};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
@@ -42,302 +42,669 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Koala.jpg">
-      <Name>Koala</Name>
+    <Compile Include="pattern.png">
+      <Name>pattern</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Tiles\Brown Block.png">
-      <Name>Brown Block</Name>
+    <Compile Include="linetexture.png">
+      <Name>linetexture</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Tiles\Character Boy.png">
-      <Name>Character Boy</Name>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="KryptonEffect.fx">
+      <Name>KryptonEffect</Name>
+      <Importer>EffectImporter</Importer>
+      <Processor>EffectProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="font.spritefont">
+      <Name>font</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Icons\blue_square.png">
+      <Name>blue_square</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Tiles\Character Cat Girl.png">
-      <Name>Character Cat Girl</Name>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Icons\blue_big.png">
+      <Name>blue_big</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Tiles\Character Horn Girl.png">
-      <Name>Character Horn Girl</Name>
+    <Compile Include="Icons\blue_small.png">
+      <Name>blue_small</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Tiles\Character Pink Girl.png">
-      <Name>Character Pink Girl</Name>
+    <Compile Include="Icons\green_big.png">
+      <Name>green_big</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Tiles\Character Princess Girl.png">
-      <Name>Character Princess Girl</Name>
+    <Compile Include="Icons\green_small.png">
+      <Name>green_small</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Tiles\Chest Closed.png">
-      <Name>Chest Closed</Name>
+    <Compile Include="Icons\green_square.png">
+      <Name>green_square</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Tiles\Chest Lid.png">
-      <Name>Chest Lid</Name>
+    <Compile Include="Icons\red_big.png">
+      <Name>red_big</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Tiles\Chest Open.png">
-      <Name>Chest Open</Name>
+    <Compile Include="Icons\red_small.png">
+      <Name>red_small</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Tiles\Dirt Block.png">
-      <Name>Dirt Block</Name>
+    <Compile Include="Icons\red_square.png">
+      <Name>red_square</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Tiles\Door Tall Closed.png">
-      <Name>Door Tall Closed</Name>
+    <Compile Include="Icons\yellow_big.png">
+      <Name>yellow_big</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Tiles\Door Tall Open.png">
-      <Name>Door Tall Open</Name>
+    <Compile Include="Icons\yellow_small.png">
+      <Name>yellow_small</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Tiles\Enemy Bug.png">
-      <Name>Enemy Bug</Name>
+    <Compile Include="Icons\yellow_square.png">
+      <Name>yellow_square</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Tiles\Gem Blue.png">
-      <Name>Gem Blue</Name>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="icecreamtag.png">
+      <Name>icecreamtag</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Tiles\Gem Green.png">
-      <Name>Gem Green</Name>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="bar.png">
+      <Name>bar</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Tiles\Gem Orange.png">
-      <Name>Gem Orange</Name>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Icons2\Add Appointment.png">
+      <Name>Add Appointment</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Tiles\Grass Block.png">
-      <Name>Grass Block</Name>
+    <Compile Include="Icons2\Add Green Button.png">
+      <Name>Add Green Button</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Tiles\Heart.png">
-      <Name>Heart</Name>
+    <Compile Include="Icons2\Add To Favorite.png">
+      <Name>Add To Favorite</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Tiles\Key.png">
-      <Name>Key</Name>
+    <Compile Include="Icons2\Add.png">
+      <Name>Add</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Tiles\Plain Block.png">
-      <Name>Plain Block</Name>
+    <Compile Include="Icons2\Appointment Cool.png">
+      <Name>Appointment Cool</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Tiles\PlanetCuteShadowMockup.jpg">
-      <Name>PlanetCuteShadowMockup</Name>
+    <Compile Include="Icons2\Appointment Urgent.png">
+      <Name>Appointment Urgent</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Tiles\PlanetCuteShadowTest.png">
-      <Name>PlanetCuteShadowTest</Name>
+    <Compile Include="Icons2\Audio CD.png">
+      <Name>Audio CD</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Tiles\Ramp East.png">
-      <Name>Ramp East</Name>
+    <Compile Include="Icons2\Audio Document.png">
+      <Name>Audio Document</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Tiles\Ramp North.png">
-      <Name>Ramp North</Name>
+    <Compile Include="Icons2\Backup Green Button.png">
+      <Name>Backup Green Button</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Tiles\Ramp South.png">
-      <Name>Ramp South</Name>
+    <Compile Include="Icons2\Bandwidth.png">
+      <Name>Bandwidth</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Tiles\Ramp West.png">
-      <Name>Ramp West</Name>
+    <Compile Include="Icons2\Blue Ball.png">
+      <Name>Blue Ball</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Tiles\Rock.png">
-      <Name>Rock</Name>
+    <Compile Include="Icons2\Cancel Red Button.png">
+      <Name>Cancel Red Button</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Tiles\Roof East.png">
-      <Name>Roof East</Name>
+    <Compile Include="Icons2\CD.png">
+      <Name>CD</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Tiles\Roof North East.png">
-      <Name>Roof North East</Name>
+    <Compile Include="Icons2\Clear Green Button.png">
+      <Name>Clear Green Button</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Tiles\Roof North West.png">
-      <Name>Roof North West</Name>
+    <Compile Include="Icons2\Coherence.png">
+      <Name>Coherence</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Tiles\Roof North.png">
-      <Name>Roof North</Name>
+    <Compile Include="Icons2\Desktop.png">
+      <Name>Desktop</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Tiles\Roof South East.png">
-      <Name>Roof South East</Name>
+    <Compile Include="Icons2\Discussion.png">
+      <Name>Discussion</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Tiles\Roof South West.png">
-      <Name>Roof South West</Name>
+    <Compile Include="Icons2\Document.png">
+      <Name>Document</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Tiles\Roof South.png">
-      <Name>Roof South</Name>
+    <Compile Include="Icons2\Donate.png">
+      <Name>Donate</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Tiles\Roof West.png">
-      <Name>Roof West</Name>
+    <Compile Include="Icons2\Eject Blue Button.png">
+      <Name>Eject Blue Button</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Tiles\Selector.png">
-      <Name>Selector</Name>
+    <Compile Include="Icons2\Export To Audio Document.png">
+      <Name>Export To Audio Document</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Tiles\Shadow East.png">
-      <Name>Shadow East</Name>
+    <Compile Include="Icons2\Export To Document.png">
+      <Name>Export To Document</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Tiles\Shadow North East.png">
-      <Name>Shadow North East</Name>
+    <Compile Include="Icons2\Export To Movie Document.png">
+      <Name>Export To Movie Document</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Tiles\Shadow North West.png">
-      <Name>Shadow North West</Name>
+    <Compile Include="Icons2\Export To Picture Document.png">
+      <Name>Export To Picture Document</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Tiles\Shadow North.png">
-      <Name>Shadow North</Name>
+    <Compile Include="Icons2\Favorite.png">
+      <Name>Favorite</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Tiles\Shadow Side West.png">
-      <Name>Shadow Side West</Name>
+    <Compile Include="Icons2\Forward Mail.png">
+      <Name>Forward Mail</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Tiles\Shadow South East.png">
-      <Name>Shadow South East</Name>
+    <Compile Include="Icons2\Fullscreen.png">
+      <Name>Fullscreen</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Tiles\Shadow South West.png">
-      <Name>Shadow South West</Name>
+    <Compile Include="Icons2\Gear Alt.png">
+      <Name>Gear Alt</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Tiles\Shadow South.png">
-      <Name>Shadow South</Name>
+    <Compile Include="Icons2\Gear.png">
+      <Name>Gear</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Tiles\Shadow West.png">
-      <Name>Shadow West</Name>
+    <Compile Include="Icons2\Get Document.png">
+      <Name>Get Document</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Tiles\SpeechBubble.png">
-      <Name>SpeechBubble</Name>
+    <Compile Include="Icons2\Get Info Blue Button.png">
+      <Name>Get Info Blue Button</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Tiles\Star.png">
+    <Compile Include="Icons2\Get Info Purple Button.png">
+      <Name>Get Info Purple Button</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Icons2\Get Mail.png">
+      <Name>Get Mail</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Icons2\Green Ball.png">
+      <Name>Green Ball</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Icons2\Grey Ball.png">
+      <Name>Grey Ball</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Icons2\Help Blue Button.png">
+      <Name>Help Blue Button</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Icons2\Help Purple Button.png">
+      <Name>Help Purple Button</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Icons2\History.png">
+      <Name>History</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Icons2\iChat Alt.png">
+      <Name>iChat Alt</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Icons2\iChat.png">
+      <Name>iChat</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Icons2\Import Audio Document.png">
+      <Name>Import Audio Document</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Icons2\Import Document.png">
+      <Name>Import Document</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Icons2\Import Movie Document.png">
+      <Name>Import Movie Document</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Icons2\Import Picture Document.png">
+      <Name>Import Picture Document</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Icons2\Internet History.png">
+      <Name>Internet History</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Icons2\Mail.png">
+      <Name>Mail</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Icons2\Menu Item.png">
+      <Name>Menu Item</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Icons2\Menu.png">
+      <Name>Menu</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Icons2\Minus Green Button.png">
+      <Name>Minus Green Button</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Icons2\Minus Red Button.png">
+      <Name>Minus Red Button</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Icons2\Movie CD.png">
+      <Name>Movie CD</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Icons2\Movie Document.png">
+      <Name>Movie Document</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Icons2\Mr. Bomb.png">
+      <Name>Mr. Bomb</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Icons2\Network.png">
+      <Name>Network</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Icons2\New Document.png">
+      <Name>New Document</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Icons2\New Mail.png">
+      <Name>New Mail</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Icons2\Orange Ball.png">
+      <Name>Orange Ball</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Icons2\Pause All.png">
+      <Name>Pause All</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Icons2\Pause Blue Button.png">
+      <Name>Pause Blue Button</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Icons2\Pause Green Button.png">
+      <Name>Pause Green Button</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Icons2\Pause.png">
+      <Name>Pause</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Icons2\Picture CD.png">
+      <Name>Picture CD</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Icons2\Picture Document.png">
+      <Name>Picture Document</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Icons2\Play All.png">
+      <Name>Play All</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Icons2\Play Blue Button.png">
+      <Name>Play Blue Button</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Icons2\Play Green Button.png">
+      <Name>Play Green Button</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Icons2\Play.png">
+      <Name>Play</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Icons2\Plugin Green Button.png">
+      <Name>Plugin Green Button</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Icons2\Purple Ball.png">
+      <Name>Purple Ball</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Icons2\Record Button.png">
+      <Name>Record Button</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Icons2\Record Red Button.png">
+      <Name>Record Red Button</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Icons2\Red Ball.png">
+      <Name>Red Ball</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Icons2\Remove Appointment.png">
+      <Name>Remove Appointment</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Icons2\Remove Document.png">
+      <Name>Remove Document</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Icons2\Remove.png">
+      <Name>Remove</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Icons2\Rename Document.png">
+      <Name>Rename Document</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Icons2\Run.png">
+      <Name>Run</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Icons2\Send Document.png">
+      <Name>Send Document</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Icons2\Send Mail.png">
+      <Name>Send Mail</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Icons2\Smiley Blue.png">
+      <Name>Smiley Blue</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Icons2\Smiley Sad Blue.png">
+      <Name>Smiley Sad Blue</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Icons2\Smiley Sad.png">
+      <Name>Smiley Sad</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Icons2\Smiley Star Pink.png">
+      <Name>Smiley Star Pink</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Icons2\Smiley Star Sad.png">
+      <Name>Smiley Star Sad</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Icons2\Smiley Star.png">
+      <Name>Smiley Star</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Icons2\Smiley.png">
+      <Name>Smiley</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Icons2\Spotlight Blue Button.png">
+      <Name>Spotlight Blue Button</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Icons2\Star.png">
       <Name>Star</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Tiles\Stone Block Tall.png">
-      <Name>Stone Block Tall</Name>
+    <Compile Include="Icons2\Stop All.png">
+      <Name>Stop All</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Tiles\Stone Block.png">
-      <Name>Stone Block</Name>
+    <Compile Include="Icons2\Stop Green Button.png">
+      <Name>Stop Green Button</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Tiles\Tree Short.png">
-      <Name>Tree Short</Name>
+    <Compile Include="Icons2\Stop Red Button.png">
+      <Name>Stop Red Button</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Tiles\Tree Tall.png">
-      <Name>Tree Tall</Name>
+    <Compile Include="Icons2\Stop.png">
+      <Name>Stop</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Tiles\Tree Ugly.png">
-      <Name>Tree Ugly</Name>
+    <Compile Include="Icons2\Terminal.png">
+      <Name>Terminal</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Tiles\Wall Block Tall.png">
-      <Name>Wall Block Tall</Name>
+    <Compile Include="Icons2\Transfer Document.png">
+      <Name>Transfer Document</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Tiles\Wall Block.png">
-      <Name>Wall Block</Name>
+    <Compile Include="Icons2\Transfer.png">
+      <Name>Transfer</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Tiles\Water Block.png">
-      <Name>Water Block</Name>
+    <Compile Include="Icons2\Trash Empty.png">
+      <Name>Trash Empty</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Tiles\Window Tall.png">
-      <Name>Window Tall</Name>
+    <Compile Include="Icons2\Trash Full.png">
+      <Name>Trash Full</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Tiles\Wood Block.png">
-      <Name>Wood Block</Name>
+    <Compile Include="Icons2\Universal Binary.png">
+      <Name>Universal Binary</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Icons2\Unread Mail Alt.png">
+      <Name>Unread Mail Alt</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Icons2\Unread Mail.png">
+      <Name>Unread Mail</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Icons2\User.png">
+      <Name>User</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Icons2\Users.png">
+      <Name>Users</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Icons2\Web Browser.png">
+      <Name>Web Browser</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Icons2\Write Document.png">
+      <Name>Write Document</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Icons2\Yellow Ball.png">
+      <Name>Yellow Ball</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="1333040322687.jpg">
-      <Name>background</Name>
+    <Compile Include="se_free_dirt_texture.jpg">
+      <Name>se_free_dirt_texture</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <ProcessorParameters_GenerateMipmaps>True</ProcessorParameters_GenerateMipmaps>
+    </Compile>
+    <Compile Include="se_free_grass_texture.jpg">
+      <Name>se_free_grass_texture</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="se_free_ground_texture.jpg">
+      <Name>se_free_ground_texture</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="se_free_mud_texture.jpg">
+      <Name>se_free_mud_texture</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="se_free_road_texture.jpg">
+      <Name>se_free_road_texture</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="dev.png">
+      <Name>dev</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

@@ -1,21 +1,1209 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
   <Asset Type="Pipeline:BuildItemCollection">
+    <Item>
+      <Source>pattern.png</Source>
+      <Name>pattern</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\pattern.xnb</Output>
+      <Time>2012-10-02T02:13:58.6206289+01:00</Time>
+    </Item>
+    <Item>
+      <Source>linetexture.png</Source>
+      <Name>linetexture</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\linetexture.xnb</Output>
+      <Time>2012-10-08T21:03:13.5120797+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons\blue_square.png</Source>
+      <Name>Icons\blue_square</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons\blue_square.xnb</Output>
+      <Time>2012-10-08T15:51:22.2288555+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons\blue_big.png</Source>
+      <Name>Icons\blue_big</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons\blue_big.xnb</Output>
+      <Time>2012-10-08T15:51:20.5867616+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons\blue_small.png</Source>
+      <Name>Icons\blue_small</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons\blue_small.xnb</Output>
+      <Time>2012-10-08T15:51:20.6097629+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons\green_big.png</Source>
+      <Name>Icons\green_big</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons\green_big.xnb</Output>
+      <Time>2012-10-08T15:51:22.2318557+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons\green_small.png</Source>
+      <Name>Icons\green_small</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons\green_small.xnb</Output>
+      <Time>2012-10-08T15:51:22.2388561+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons\green_square.png</Source>
+      <Name>Icons\green_square</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons\green_square.xnb</Output>
+      <Time>2012-10-08T15:51:22.2428563+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons\red_big.png</Source>
+      <Name>Icons\red_big</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons\red_big.xnb</Output>
+      <Time>2012-10-08T15:51:22.2508568+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons\red_small.png</Source>
+      <Name>Icons\red_small</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons\red_small.xnb</Output>
+      <Time>2012-10-08T15:51:22.254857+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons\red_square.png</Source>
+      <Name>Icons\red_square</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons\red_square.xnb</Output>
+      <Time>2012-10-08T15:51:22.2578572+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons\yellow_big.png</Source>
+      <Name>Icons\yellow_big</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons\yellow_big.xnb</Output>
+      <Time>2012-10-08T15:51:22.2628575+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons\yellow_small.png</Source>
+      <Name>Icons\yellow_small</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons\yellow_small.xnb</Output>
+      <Time>2012-10-08T15:51:22.272858+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons\yellow_square.png</Source>
+      <Name>Icons\yellow_square</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons\yellow_square.xnb</Output>
+      <Time>2012-10-08T15:51:22.2738581+01:00</Time>
+    </Item>
+    <Item>
+      <Source>icecreamtag.png</Source>
+      <Name>icecreamtag</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\icecreamtag.xnb</Output>
+      <Time>2012-02-19T05:31:11+00:00</Time>
+    </Item>
+    <Item>
+      <Source>bar.png</Source>
+      <Name>bar</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\bar.xnb</Output>
+      <Time>2012-10-08T16:34:11.9668361+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Add Appointment.png</Source>
+      <Name>Icons2\Add Appointment</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Add Appointment.xnb</Output>
+      <Time>2012-10-08T16:35:59.0389603+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Add Green Button.png</Source>
+      <Name>Icons2\Add Green Button</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Add Green Button.xnb</Output>
+      <Time>2012-10-08T16:35:59.0409604+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Add To Favorite.png</Source>
+      <Name>Icons2\Add To Favorite</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Add To Favorite.xnb</Output>
+      <Time>2012-10-08T16:35:59.0439606+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Add.png</Source>
+      <Name>Icons2\Add</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Add.xnb</Output>
+      <Time>2012-10-08T16:35:59.0459607+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Appointment Cool.png</Source>
+      <Name>Icons2\Appointment Cool</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Appointment Cool.xnb</Output>
+      <Time>2012-10-08T16:35:59.0479608+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Appointment Urgent.png</Source>
+      <Name>Icons2\Appointment Urgent</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Appointment Urgent.xnb</Output>
+      <Time>2012-10-08T16:35:59.050961+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Audio CD.png</Source>
+      <Name>Icons2\Audio CD</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Audio CD.xnb</Output>
+      <Time>2012-10-08T16:35:59.0539612+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Audio Document.png</Source>
+      <Name>Icons2\Audio Document</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Audio Document.xnb</Output>
+      <Time>2012-10-08T16:35:59.0559613+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Backup Green Button.png</Source>
+      <Name>Icons2\Backup Green Button</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Backup Green Button.xnb</Output>
+      <Time>2012-10-08T16:35:59.0589614+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Bandwidth.png</Source>
+      <Name>Icons2\Bandwidth</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Bandwidth.xnb</Output>
+      <Time>2012-10-08T16:35:59.0599615+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Blue Ball.png</Source>
+      <Name>Icons2\Blue Ball</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Blue Ball.xnb</Output>
+      <Time>2012-10-08T16:35:59.0619616+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Cancel Red Button.png</Source>
+      <Name>Icons2\Cancel Red Button</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Cancel Red Button.xnb</Output>
+      <Time>2012-10-08T16:35:59.0649618+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\CD.png</Source>
+      <Name>Icons2\CD</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\CD.xnb</Output>
+      <Time>2012-10-08T16:35:59.0669619+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Clear Green Button.png</Source>
+      <Name>Icons2\Clear Green Button</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Clear Green Button.xnb</Output>
+      <Time>2012-10-08T16:35:59.068962+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Coherence.png</Source>
+      <Name>Icons2\Coherence</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Coherence.xnb</Output>
+      <Time>2012-10-08T16:35:59.0709621+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Desktop.png</Source>
+      <Name>Icons2\Desktop</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Desktop.xnb</Output>
+      <Time>2012-10-08T16:35:59.0739623+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Discussion.png</Source>
+      <Name>Icons2\Discussion</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Discussion.xnb</Output>
+      <Time>2012-10-08T16:35:59.0759624+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Document.png</Source>
+      <Name>Icons2\Document</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Document.xnb</Output>
+      <Time>2012-10-08T16:35:59.0779625+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Donate.png</Source>
+      <Name>Icons2\Donate</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Donate.xnb</Output>
+      <Time>2012-10-08T16:35:59.0799626+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Eject Blue Button.png</Source>
+      <Name>Icons2\Eject Blue Button</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Eject Blue Button.xnb</Output>
+      <Time>2012-10-08T16:35:59.0829628+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Export To Audio Document.png</Source>
+      <Name>Icons2\Export To Audio Document</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Export To Audio Document.xnb</Output>
+      <Time>2012-10-08T16:35:59.2029697+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Export To Document.png</Source>
+      <Name>Icons2\Export To Document</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Export To Document.xnb</Output>
+      <Time>2012-10-08T16:35:59.2119702+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Export To Movie Document.png</Source>
+      <Name>Icons2\Export To Movie Document</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Export To Movie Document.xnb</Output>
+      <Time>2012-10-08T16:35:59.2269711+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Export To Picture Document.png</Source>
+      <Name>Icons2\Export To Picture Document</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Export To Picture Document.xnb</Output>
+      <Time>2012-10-08T16:35:59.2499724+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Favorite.png</Source>
+      <Name>Icons2\Favorite</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Favorite.xnb</Output>
+      <Time>2012-10-08T16:35:59.2689735+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Forward Mail.png</Source>
+      <Name>Icons2\Forward Mail</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Forward Mail.xnb</Output>
+      <Time>2012-10-08T16:35:59.2919748+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Fullscreen.png</Source>
+      <Name>Icons2\Fullscreen</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Fullscreen.xnb</Output>
+      <Time>2012-10-08T16:35:59.3079757+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Gear Alt.png</Source>
+      <Name>Icons2\Gear Alt</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Gear Alt.xnb</Output>
+      <Time>2012-10-08T16:35:59.3259767+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Gear.png</Source>
+      <Name>Icons2\Gear</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Gear.xnb</Output>
+      <Time>2012-10-08T16:35:59.3439777+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Get Document.png</Source>
+      <Name>Icons2\Get Document</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Get Document.xnb</Output>
+      <Time>2012-10-08T16:35:59.365979+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Get Info Blue Button.png</Source>
+      <Name>Icons2\Get Info Blue Button</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Get Info Blue Button.xnb</Output>
+      <Time>2012-10-08T16:35:59.3889803+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Get Info Purple Button.png</Source>
+      <Name>Icons2\Get Info Purple Button</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Get Info Purple Button.xnb</Output>
+      <Time>2012-10-08T16:35:59.3979808+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Get Mail.png</Source>
+      <Name>Icons2\Get Mail</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Get Mail.xnb</Output>
+      <Time>2012-10-08T16:35:59.4029811+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Green Ball.png</Source>
+      <Name>Icons2\Green Ball</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Green Ball.xnb</Output>
+      <Time>2012-10-08T16:35:59.4069814+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Grey Ball.png</Source>
+      <Name>Icons2\Grey Ball</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Grey Ball.xnb</Output>
+      <Time>2012-10-08T16:35:59.4109816+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Help Blue Button.png</Source>
+      <Name>Icons2\Help Blue Button</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Help Blue Button.xnb</Output>
+      <Time>2012-10-08T16:35:59.4149818+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Help Purple Button.png</Source>
+      <Name>Icons2\Help Purple Button</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Help Purple Button.xnb</Output>
+      <Time>2012-10-08T16:35:59.4199821+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\History.png</Source>
+      <Name>Icons2\History</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\History.xnb</Output>
+      <Time>2012-10-08T16:35:59.4239823+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\iChat Alt.png</Source>
+      <Name>Icons2\iChat Alt</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\iChat Alt.xnb</Output>
+      <Time>2012-10-08T16:35:59.4279826+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\iChat.png</Source>
+      <Name>Icons2\iChat</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\iChat.xnb</Output>
+      <Time>2012-10-08T16:35:59.4319828+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Import Audio Document.png</Source>
+      <Name>Icons2\Import Audio Document</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Import Audio Document.xnb</Output>
+      <Time>2012-10-08T16:35:59.4369831+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Import Document.png</Source>
+      <Name>Icons2\Import Document</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Import Document.xnb</Output>
+      <Time>2012-10-08T16:35:59.4409833+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Import Movie Document.png</Source>
+      <Name>Icons2\Import Movie Document</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Import Movie Document.xnb</Output>
+      <Time>2012-10-08T16:35:59.4449835+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Import Picture Document.png</Source>
+      <Name>Icons2\Import Picture Document</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Import Picture Document.xnb</Output>
+      <Time>2012-10-08T16:35:59.4499838+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Internet History.png</Source>
+      <Name>Icons2\Internet History</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Internet History.xnb</Output>
+      <Time>2012-10-08T16:35:59.453984+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Mail.png</Source>
+      <Name>Icons2\Mail</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Mail.xnb</Output>
+      <Time>2012-10-08T16:35:59.4599844+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Menu Item.png</Source>
+      <Name>Icons2\Menu Item</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Menu Item.xnb</Output>
+      <Time>2012-10-08T16:35:59.4649847+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Menu.png</Source>
+      <Name>Icons2\Menu</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Menu.xnb</Output>
+      <Time>2012-10-08T16:35:59.4719851+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Minus Green Button.png</Source>
+      <Name>Icons2\Minus Green Button</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Minus Green Button.xnb</Output>
+      <Time>2012-10-08T16:35:59.4919862+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Minus Red Button.png</Source>
+      <Name>Icons2\Minus Red Button</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Minus Red Button.xnb</Output>
+      <Time>2012-10-08T16:35:59.5119874+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Movie CD.png</Source>
+      <Name>Icons2\Movie CD</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Movie CD.xnb</Output>
+      <Time>2012-10-08T16:35:59.5339886+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Movie Document.png</Source>
+      <Name>Icons2\Movie Document</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Movie Document.xnb</Output>
+      <Time>2012-10-08T16:35:59.5559899+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Mr. Bomb.png</Source>
+      <Name>Icons2\Mr. Bomb</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Mr. Bomb.xnb</Output>
+      <Time>2012-10-08T16:35:59.575991+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Network.png</Source>
+      <Name>Icons2\Network</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Network.xnb</Output>
+      <Time>2012-10-08T16:35:59.5959922+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\New Document.png</Source>
+      <Name>Icons2\New Document</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\New Document.xnb</Output>
+      <Time>2012-10-08T16:35:59.6139932+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\New Mail.png</Source>
+      <Name>Icons2\New Mail</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\New Mail.xnb</Output>
+      <Time>2012-10-08T16:35:59.6339943+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Orange Ball.png</Source>
+      <Name>Icons2\Orange Ball</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Orange Ball.xnb</Output>
+      <Time>2012-10-08T16:35:59.6529954+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Pause All.png</Source>
+      <Name>Icons2\Pause All</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Pause All.xnb</Output>
+      <Time>2012-10-08T16:35:59.6599958+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Pause Blue Button.png</Source>
+      <Name>Icons2\Pause Blue Button</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Pause Blue Button.xnb</Output>
+      <Time>2012-10-08T16:35:59.6639961+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Pause Green Button.png</Source>
+      <Name>Icons2\Pause Green Button</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Pause Green Button.xnb</Output>
+      <Time>2012-10-08T16:35:59.6689963+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Pause.png</Source>
+      <Name>Icons2\Pause</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Pause.xnb</Output>
+      <Time>2012-10-08T16:35:59.6729966+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Picture CD.png</Source>
+      <Name>Icons2\Picture CD</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Picture CD.xnb</Output>
+      <Time>2012-10-08T16:35:59.6779969+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Picture Document.png</Source>
+      <Name>Icons2\Picture Document</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Picture Document.xnb</Output>
+      <Time>2012-10-08T16:35:59.6819971+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Play All.png</Source>
+      <Name>Icons2\Play All</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Play All.xnb</Output>
+      <Time>2012-10-08T16:35:59.6859973+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Play Blue Button.png</Source>
+      <Name>Icons2\Play Blue Button</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Play Blue Button.xnb</Output>
+      <Time>2012-10-08T16:35:59.6909976+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Play Green Button.png</Source>
+      <Name>Icons2\Play Green Button</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Play Green Button.xnb</Output>
+      <Time>2012-10-08T16:35:59.6949978+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Play.png</Source>
+      <Name>Icons2\Play</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Play.xnb</Output>
+      <Time>2012-10-08T16:35:59.6999981+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Plugin Green Button.png</Source>
+      <Name>Icons2\Plugin Green Button</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Plugin Green Button.xnb</Output>
+      <Time>2012-10-08T16:35:59.7039983+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Purple Ball.png</Source>
+      <Name>Icons2\Purple Ball</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Purple Ball.xnb</Output>
+      <Time>2012-10-08T16:35:59.7089986+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Record Button.png</Source>
+      <Name>Icons2\Record Button</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Record Button.xnb</Output>
+      <Time>2012-10-08T16:35:59.7129989+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Record Red Button.png</Source>
+      <Name>Icons2\Record Red Button</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Record Red Button.xnb</Output>
+      <Time>2012-10-08T16:35:59.7179991+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Red Ball.png</Source>
+      <Name>Icons2\Red Ball</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Red Ball.xnb</Output>
+      <Time>2012-10-08T16:35:59.7229994+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Remove Appointment.png</Source>
+      <Name>Icons2\Remove Appointment</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Remove Appointment.xnb</Output>
+      <Time>2012-10-08T16:35:59.7269997+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Remove Document.png</Source>
+      <Name>Icons2\Remove Document</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Remove Document.xnb</Output>
+      <Time>2012-10-08T16:35:59.7360002+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Remove.png</Source>
+      <Name>Icons2\Remove</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Remove.xnb</Output>
+      <Time>2012-10-08T16:35:59.7560013+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Rename Document.png</Source>
+      <Name>Icons2\Rename Document</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Rename Document.xnb</Output>
+      <Time>2012-10-08T16:35:59.7740023+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Run.png</Source>
+      <Name>Icons2\Run</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Run.xnb</Output>
+      <Time>2012-10-08T16:35:59.7950035+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Send Document.png</Source>
+      <Name>Icons2\Send Document</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Send Document.xnb</Output>
+      <Time>2012-10-08T16:35:59.8140046+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Send Mail.png</Source>
+      <Name>Icons2\Send Mail</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Send Mail.xnb</Output>
+      <Time>2012-10-08T16:35:59.8370059+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Smiley Blue.png</Source>
+      <Name>Icons2\Smiley Blue</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Smiley Blue.xnb</Output>
+      <Time>2012-10-08T16:35:59.8570071+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Smiley Sad Blue.png</Source>
+      <Name>Icons2\Smiley Sad Blue</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Smiley Sad Blue.xnb</Output>
+      <Time>2012-10-08T16:35:59.8770082+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Smiley Sad.png</Source>
+      <Name>Icons2\Smiley Sad</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Smiley Sad.xnb</Output>
+      <Time>2012-10-08T16:35:59.9000095+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Smiley Star Pink.png</Source>
+      <Name>Icons2\Smiley Star Pink</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Smiley Star Pink.xnb</Output>
+      <Time>2012-10-08T16:35:59.9190106+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Smiley Star Sad.png</Source>
+      <Name>Icons2\Smiley Star Sad</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Smiley Star Sad.xnb</Output>
+      <Time>2012-10-08T16:35:59.9240109+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Smiley Star.png</Source>
+      <Name>Icons2\Smiley Star</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Smiley Star.xnb</Output>
+      <Time>2012-10-08T16:35:59.9290112+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Smiley.png</Source>
+      <Name>Icons2\Smiley</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Smiley.xnb</Output>
+      <Time>2012-10-08T16:35:59.9340115+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Spotlight Blue Button.png</Source>
+      <Name>Icons2\Spotlight Blue Button</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Spotlight Blue Button.xnb</Output>
+      <Time>2012-10-08T16:35:59.9400118+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Star.png</Source>
+      <Name>Icons2\Star</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Star.xnb</Output>
+      <Time>2012-10-08T16:35:59.9450121+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Stop All.png</Source>
+      <Name>Icons2\Stop All</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Stop All.xnb</Output>
+      <Time>2012-10-08T16:35:59.9500124+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Stop Green Button.png</Source>
+      <Name>Icons2\Stop Green Button</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Stop Green Button.xnb</Output>
+      <Time>2012-10-08T16:35:59.9550127+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Stop Red Button.png</Source>
+      <Name>Icons2\Stop Red Button</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Stop Red Button.xnb</Output>
+      <Time>2012-10-08T16:35:59.960013+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Stop.png</Source>
+      <Name>Icons2\Stop</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Stop.xnb</Output>
+      <Time>2012-10-08T16:35:59.9650133+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Terminal.png</Source>
+      <Name>Icons2\Terminal</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Terminal.xnb</Output>
+      <Time>2012-10-08T16:35:59.9700136+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Transfer Document.png</Source>
+      <Name>Icons2\Transfer Document</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Transfer Document.xnb</Output>
+      <Time>2012-10-08T16:35:59.9750138+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Transfer.png</Source>
+      <Name>Icons2\Transfer</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Transfer.xnb</Output>
+      <Time>2012-10-08T16:35:59.9810142+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Trash Empty.png</Source>
+      <Name>Icons2\Trash Empty</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Trash Empty.xnb</Output>
+      <Time>2012-10-08T16:35:59.9860145+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Trash Full.png</Source>
+      <Name>Icons2\Trash Full</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Trash Full.xnb</Output>
+      <Time>2012-10-08T16:35:59.9920148+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Universal Binary.png</Source>
+      <Name>Icons2\Universal Binary</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Universal Binary.xnb</Output>
+      <Time>2012-10-08T16:36:00.0090158+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Unread Mail Alt.png</Source>
+      <Name>Icons2\Unread Mail Alt</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Unread Mail Alt.xnb</Output>
+      <Time>2012-10-08T16:36:00.0320171+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Unread Mail.png</Source>
+      <Name>Icons2\Unread Mail</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Unread Mail.xnb</Output>
+      <Time>2012-10-08T16:36:00.0540184+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\User.png</Source>
+      <Name>Icons2\User</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\User.xnb</Output>
+      <Time>2012-10-08T16:36:00.0760196+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Users.png</Source>
+      <Name>Icons2\Users</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Users.xnb</Output>
+      <Time>2012-10-08T16:36:00.1020211+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Web Browser.png</Source>
+      <Name>Icons2\Web Browser</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Web Browser.xnb</Output>
+      <Time>2012-10-08T16:36:00.1260225+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Write Document.png</Source>
+      <Name>Icons2\Write Document</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Write Document.xnb</Output>
+      <Time>2012-10-08T16:36:00.1490238+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Icons2\Yellow Ball.png</Source>
+      <Name>Icons2\Yellow Ball</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\Icons2\Yellow Ball.xnb</Output>
+      <Time>2012-10-08T16:36:00.1730252+01:00</Time>
+    </Item>
+    <Item>
+      <Source>se_free_dirt_texture.jpg</Source>
+      <Name>se_free_dirt_texture</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="GenerateMipmaps">True</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\se_free_dirt_texture.xnb</Output>
+      <Time>2007-10-06T18:18:42+01:00</Time>
+    </Item>
+    <Item>
+      <Source>se_free_grass_texture.jpg</Source>
+      <Name>se_free_grass_texture</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\se_free_grass_texture.xnb</Output>
+      <Time>2007-10-06T18:18:02+01:00</Time>
+    </Item>
+    <Item>
+      <Source>se_free_ground_texture.jpg</Source>
+      <Name>se_free_ground_texture</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\se_free_ground_texture.xnb</Output>
+      <Time>2007-10-06T18:14:44+01:00</Time>
+    </Item>
+    <Item>
+      <Source>se_free_mud_texture.jpg</Source>
+      <Name>se_free_mud_texture</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\se_free_mud_texture.xnb</Output>
+      <Time>2007-10-06T18:13:28+01:00</Time>
+    </Item>
+    <Item>
+      <Source>se_free_road_texture.jpg</Source>
+      <Name>se_free_road_texture</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\se_free_road_texture.xnb</Output>
+      <Time>2007-10-06T18:15:58+01:00</Time>
+    </Item>
+    <Item>
+      <Source>dev.png</Source>
+      <Name>dev</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\dev.xnb</Output>
+      <Time>2012-10-09T20:49:28.6410745+01:00</Time>
+    </Item>
+    <Item>
+      <Source>KryptonEffect.fx</Source>
+      <Name>KryptonEffect</Name>
+      <Importer>EffectImporter</Importer>
+      <Processor>EffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\KryptonEffect.xnb</Output>
+      <Time>2012-10-07T15:59:23+01:00</Time>
+    </Item>
+    <Item>
+      <Source>font.spritefont</Source>
+      <Name>font</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\font.xnb</Output>
+      <Time>2012-10-08T14:26:11.2709981+01:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
       <TargetProfile>Reach</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\lucas.jones\Dropbox\MilkShake Engine\Playground\PlaygroundContent\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\lucas.jones\Dropbox\MilkShake Engine\Playground\Playground\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\lucas.jones\Dropbox\MilkShake Engine\Playground\PlaygroundContent\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\lucas.jones\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Dropbox\MilkShake Engine\Playground\PlaygroundContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Dropbox\MilkShake Engine\Playground\Playground\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Dropbox\MilkShake Engine\Playground\PlaygroundContent\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Dropbox\MilkShake Engine\Playground\Playground\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
+        <Value>2010-08-23T13:41:18+01:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
+        <Value>2010-08-23T13:41:18+01:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
+        <Value>2010-08-23T13:41:18+01:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
+        <Value>2010-08-23T13:41:18+01:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
+        <Value>2010-08-23T13:41:18+01:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
+        <Value>2010-08-23T13:41:18+01:00</Value>
+      </Assembly>
+      <Assembly>
         <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2011-09-20T13:38:18.4268345+01:00</Value>
+        <Value>2012-02-25T22:27:07.7809385+00:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>

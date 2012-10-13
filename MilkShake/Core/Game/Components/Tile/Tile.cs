@@ -76,7 +76,7 @@ namespace MilkShakeFramework.Components.Tile
             {
                 // Lava
                 // Addparica
-                /*
+                
                 AddNode(new ConicLight(512, 8)
                     {
                         Position = WorldPosition + new Vector2(0, 32),
@@ -84,7 +84,7 @@ namespace MilkShakeFramework.Components.Tile
                         Intensity = 0.3f,
                         Color = new Color(255, 0 , 0)
                     });
-                */
+                
 
                 
             }
@@ -141,6 +141,7 @@ namespace MilkShakeFramework.Components.Tile
                     mBodyRight.Position = ConvertUnits.ToSimUnits(WorldPosition + new Vector2(32, 32));
 
                     mBodyTop.Friction = 0.3f;
+                    mBodyTop.UserData = "floor";
                     //mBodyTop.LinearDamping = 0
 
                     if (mID == 30) mBodyTop.Restitution = 1f;
@@ -150,9 +151,9 @@ namespace MilkShakeFramework.Components.Tile
                     mBodyLeft.LinearDamping = 0;
                     mBodyLeft.Friction = 0;
 
-                    if (mID == 5)
+                    if (mID == 31)
                     {
-                        mBodyTop.Friction = 0.01F;
+                        mBodyTop.Friction = 0.1F;
 
                         if (Scene.ComponentManager.HasComponent<EffectsComponent>())
                         {
@@ -233,6 +234,56 @@ namespace MilkShakeFramework.Components.Tile
         }
 
 
+
+        public ShadowHull Hull { get { return mShadowHull; } }
+    }
+
+    public class PolygonHull : Entity
+    {
+        private ShadowHull mShadowHull;
+
+        public PolygonHull(Vector2 position, List<Vector2> points)
+        {
+
+         
+
+            Vector2[] pointsArray = points.ToArray();
+
+            for (int i = 0; i < pointsArray.Length; i++)
+            {
+                pointsArray[i] = worldToShadow(pointsArray[i]);
+            }
+
+            //Array.Reverse(pointsArray);
+            ShadowHull pHull = ShadowHull.CreateConvex(ref pointsArray);
+            
+            Vector2 newPosition = new Vector2();
+            newPosition.X = position.X - Globals.ScreenWidthCenter;
+            newPosition.Y = -position.Y + Globals.ScreenHeightCenter;
+
+            pHull.Position = newPosition;
+
+            mShadowHull = pHull;
+        }
+
+        private Vector2 worldToShadow(Vector2 position)
+        {
+            Vector2 newPosition = new Vector2();
+            newPosition.X = position.X; ;
+            newPosition.Y = Globals.ScreenHeight - position.Y;
+            //newPosition.Y = 0;
+
+            return newPosition;
+        }
+
+        public void setPosition(Vector2 position)
+        {
+            Vector2 newPosition = new Vector2();
+            newPosition.X = position.X - Globals.ScreenWidthCenter;
+            newPosition.Y = -position.Y + Globals.ScreenHeightCenter;
+
+            mShadowHull.Position = newPosition;
+        }
 
         public ShadowHull Hull { get { return mShadowHull; } }
     }
