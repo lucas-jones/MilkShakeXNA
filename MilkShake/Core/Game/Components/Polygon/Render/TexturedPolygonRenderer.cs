@@ -67,5 +67,7 @@ namespace MilkShakeFramework.Core.Game.Components.Polygon.Render
             _effect.TextureEnabled = true;
             _effect.Texture = _image.Texture;
         }
+
+        public float Scale { get { return _scale; } set { _scale = value; } }
     }
 }

@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual C# Express 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MilkShake", "MilkShake\MilkShake.csproj", "{0DCD3FF8-3A59-4EBC-B32C-F090350C354C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Playground", "Playground\Playground\Playground.csproj", "{82D7D3E0-840C-4748-9323-CE0BED3CC785}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Playground", "Playground\Playground\Playground.csproj", "{8A596477-A55A-42A3-B736-2E6477ACFF1A}"
 EndProject
-Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "PlaygroundContent", "Playground\PlaygroundContent\PlaygroundContent.contentproj", "{B2EE0314-4497-4DC4-944B-D776050FE645}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlaygroundContent", "Playground\PlaygroundContent\PlaygroundContent.contentproj", "{5CF3D429-AC20-41FB-8370-9854AA73700A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,12 +17,12 @@ Global
 		{0DCD3FF8-3A59-4EBC-B32C-F090350C354C}.Debug|x86.Build.0 = Debug|x86
 		{0DCD3FF8-3A59-4EBC-B32C-F090350C354C}.Release|x86.ActiveCfg = Release|x86
 		{0DCD3FF8-3A59-4EBC-B32C-F090350C354C}.Release|x86.Build.0 = Release|x86
-		{82D7D3E0-840C-4748-9323-CE0BED3CC785}.Debug|x86.ActiveCfg = Debug|x86
-		{82D7D3E0-840C-4748-9323-CE0BED3CC785}.Debug|x86.Build.0 = Debug|x86
-		{82D7D3E0-840C-4748-9323-CE0BED3CC785}.Release|x86.ActiveCfg = Release|x86
-		{82D7D3E0-840C-4748-9323-CE0BED3CC785}.Release|x86.Build.0 = Release|x86
-		{B2EE0314-4497-4DC4-944B-D776050FE645}.Debug|x86.ActiveCfg = Debug|x86
-		{B2EE0314-4497-4DC4-944B-D776050FE645}.Release|x86.ActiveCfg = Release|x86
+		{8A596477-A55A-42A3-B736-2E6477ACFF1A}.Debug|x86.ActiveCfg = Debug|x86
+		{8A596477-A55A-42A3-B736-2E6477ACFF1A}.Debug|x86.Build.0 = Debug|x86
+		{8A596477-A55A-42A3-B736-2E6477ACFF1A}.Release|x86.ActiveCfg = Release|x86
+		{8A596477-A55A-42A3-B736-2E6477ACFF1A}.Release|x86.Build.0 = Release|x86
+		{5CF3D429-AC20-41FB-8370-9854AA73700A}.Debug|x86.ActiveCfg = Debug|x86
+		{5CF3D429-AC20-41FB-8370-9854AA73700A}.Release|x86.ActiveCfg = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

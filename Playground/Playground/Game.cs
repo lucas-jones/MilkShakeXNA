@@ -26,6 +26,7 @@ using Lidgren.Network;
 using MilkShakeFramework.Core.Game.Components.Polygon;
 using MilkShakeFramework.Core.Game.Components.Polygon.Render;
 using MilkShakeFramework.Tools;
+using MilkShakeFramework.Core.Game.Components.Polygon.Modify;
 
 namespace Playground
 {
@@ -41,6 +42,8 @@ namespace Playground
             SceneManager.ChangeScreen("BasicScene");
         }
     }
+
+    
 
     public class BasicScene : Scene
     {
@@ -66,7 +69,7 @@ namespace Playground
             uiBackground.AddNode(new ScrollingPattern());
             uiForground.AddNode(icecreamTag = new UISprite("icecreamtag") { Position = new Vector2(Globals.ScreenWidth - 112, Globals.ScreenHeight - 46) });
             
-            //uiForground.AddNode(new Sprite("bar") { Height = Globals.ScreenHeight });
+            uiForground.AddNode(new Sprite("bar") { Height = Globals.ScreenHeight });
             
             uiForground.AddNode(buttonGroup = new VGroup() { Position = new Vector2(5, 5) });
             buttonGroup.AddNode(new UISprite("Icons2//Add"));
@@ -92,13 +95,15 @@ namespace Playground
             quad.Add(new Vector2(0, 200));
             quad.Add(new Vector2(200, 200));
             quad.Add(new Vector2(200, 0));
-            quad.Add(new Vector2(200, 100));
+            //quad.Add(new Vector2(200, 100));
           
 
             //AddNode(PolygonFactory.Quad(200, 200));
-            //Polygon poly = new Polygon(PolygonDataFactory.PolygonFromPoints(quad), new TexturedPolygonRenderer("se_free_dirt_texture")) { Position = new Vector2(100, 100) };
-            Polygon poly = new Polygon(PolygonDataFactory.PolygonFromPoints(quad), new BasicPolygonRenderer(Color.White, true)) { Position = new Vector2(100, 100) };
+            Polygon poly = new Polygon(PolygonDataFactory.PolygonFromPoints(quad), new TexturedPolygonRenderer("se_free_grass_texture") { Scale = 1.5f }) { Position = new Vector2(100, 100) };
             poly.AddNode(new EditPolygonModifier());
+            poly.AddNode(new WireframePolygonModifier());
+            poly.AddNode(new LightPolygonModifier());
+            poly.AddNode(new PhysicsPolygonModifier());
             AddNode(poly);//
 
             //AddNode(new Polygon(PolygonFactory.PolygonFromPoints(quad), Color.Green));
@@ -129,7 +134,7 @@ namespace Playground
 
             if (KeyboardInput.isKeyDown(Keys.Space))
             {
-                Body mBody = BodyFactory.CreateCircle(PhysicsComponent.World, ConvertUnits.ToSimUnits(5), 0.1f);
+                Body mBody = BodyFactory.CreateRectangle(PhysicsComponent.World, ConvertUnits.ToSimUnits(5), ConvertUnits.ToSimUnits(5), 0.1f);
                 mBody.Position = ConvertUnits.ToSimUnits(MouseInput.Position);
                 mBody.BodyType = BodyType.Dynamic;
                 mBody.Friction = 0.2f;

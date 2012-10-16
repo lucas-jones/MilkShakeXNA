@@ -9,6 +9,7 @@ using FarseerPhysics.Common;
 using Triangulator;
 using MilkShakeFramework.Core.Content;
 using MilkShakeFramework.Core.Game.Components.Polygon.Render;
+using MilkShakeFramework.Core.Scenes;
 
 namespace MilkShakeFramework.Core.Game.Components.Polygon
 {
@@ -20,6 +21,8 @@ namespace MilkShakeFramework.Core.Game.Components.Polygon
         private short[] _indices;
 
         private PolygonRenderer _renderer;
+
+        public BasicEvent OnRendererRefresh;
 
         public Polygon(PolygonData polygonData, PolygonRenderer renderer) : base()
         {
@@ -43,6 +46,8 @@ namespace MilkShakeFramework.Core.Game.Components.Polygon
         public void UpdateRenderer()
         {
             _renderer.GenerateRenderer(_vertices, _indices);
+
+            if (OnRendererRefresh != null) OnRendererRefresh();
         }
 
         // [Helpers]
@@ -51,5 +56,6 @@ namespace MilkShakeFramework.Core.Game.Components.Polygon
 
         public PolygonRenderer Renderer { get { return _renderer; } }
         public Vector2[] Vertices { get { return _vertices; } }
+        public short[] Indices { get { return _indices; } }
     }
 }

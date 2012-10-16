@@ -136,6 +136,9 @@
     <Compile Include="Core\Events\EventDispatcher.cs" />
     <Compile Include="Core\Events\SceneEvents.cs" />
     <Compile Include="Core\Game\Components\Misc\ScrollingPattern.cs" />
+    <Compile Include="Core\Game\Components\Polygon\Modify\LightPolygonModifier.cs" />
+    <Compile Include="Core\Game\Components\Polygon\Modify\PhysicsPolygonModifier.cs" />
+    <Compile Include="Core\Game\Components\Polygon\Modify\WireFramePolygonModifier.cs" />
     <Compile Include="Core\Game\Components\Polygon\Polygon.cs" />
     <Compile Include="Core\Game\Components\Polygon\PolygonData.cs" />
     <Compile Include="Core\Game\Components\Polygon\PolygonFactory.cs" />

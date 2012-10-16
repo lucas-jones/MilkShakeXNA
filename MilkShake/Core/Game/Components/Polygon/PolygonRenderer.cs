@@ -45,6 +45,6 @@ namespace MilkShakeFramework.Core.Game.Components.Polygon
             return projection;
         }
 
-        public Polygon Polygon { get { return (Polygon)Parent; } }
+        public virtual Polygon Polygon { get { return (Polygon)Parent; } }
     }
 }

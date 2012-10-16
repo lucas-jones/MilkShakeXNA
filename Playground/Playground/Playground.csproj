@@ -129,6 +129,7 @@
     <Compile Include="Tools\UILayery.cs" />
     <Compile Include="Tools\UISprite.cs" />
     <Compile Include="Tools\VGroup.cs" />
+    <Compile Include="Tools\WireframePolygonModifier.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Game.ico" />
