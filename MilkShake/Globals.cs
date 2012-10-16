@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace MilkShakeFramework
 {
@@ -29,5 +30,11 @@ namespace MilkShakeFramework
         public static string ContentDirectory = "Content";
 
         public static Random Random = new Random();
+
+        public static RasterizerState WireframeState = new RasterizerState()
+        {
+            CullMode = CullMode.None,
+            FillMode = FillMode.WireFrame
+        };
     }
 }

@@ -25,7 +25,7 @@ namespace Playground.Tools
      * http://stackoverflow.com/questions/4527040/render-arbitrary-polygon-with-xna
      */
 
-    public class Polygon : GameEntity
+    public class DraftPolygon : GameEntity
     {
         private List<Vector2> points;
         private Texture2D lineTexture;

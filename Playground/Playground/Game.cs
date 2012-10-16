@@ -23,6 +23,9 @@ using FarseerPhysics.Dynamics;
 using MilkShakeFramework.Tools.Physics;
 using FarseerPhysics.Controllers;
 using Lidgren.Network;
+using MilkShakeFramework.Core.Game.Components.Polygon;
+using MilkShakeFramework.Core.Game.Components.Polygon.Render;
+using MilkShakeFramework.Tools;
 
 namespace Playground
 {
@@ -83,8 +86,22 @@ namespace Playground
 
             AddNode(uiForground);
             AddNode(uiBackground);
-            AddNode(new Polygon());
 
+            List<Vector2> quad = new List<Vector2>();
+            quad.Add(Vector2.Zero);
+            quad.Add(new Vector2(0, 200));
+            quad.Add(new Vector2(200, 200));
+            quad.Add(new Vector2(200, 0));
+            quad.Add(new Vector2(200, 100));
+          
+
+            //AddNode(PolygonFactory.Quad(200, 200));
+            //Polygon poly = new Polygon(PolygonDataFactory.PolygonFromPoints(quad), new TexturedPolygonRenderer("se_free_dirt_texture")) { Position = new Vector2(100, 100) };
+            Polygon poly = new Polygon(PolygonDataFactory.PolygonFromPoints(quad), new BasicPolygonRenderer(Color.White, true)) { Position = new Vector2(100, 100) };
+            poly.AddNode(new EditPolygonModifier());
+            AddNode(poly);//
+
+            //AddNode(new Polygon(PolygonFactory.PolygonFromPoints(quad), Color.Green));
             //AddNode(playerOne);
             //AddNode(playerTwo);
            //  planet = BodyFactory.CreateCircle(PhysicsComponent.World, ConvertUnits.ToSimUnits(50), 0.1f);

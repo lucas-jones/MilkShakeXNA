@@ -116,6 +116,9 @@
     <Reference Include="System.Net">
       <Private>False</Private>
     </Reference>
+    <Reference Include="Triangulator">
+      <HintPath>..\Library\Triangulator.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Components\Effects\Presets\ReflectiveTile.cs" />
@@ -133,6 +136,12 @@
     <Compile Include="Core\Events\EventDispatcher.cs" />
     <Compile Include="Core\Events\SceneEvents.cs" />
     <Compile Include="Core\Game\Components\Misc\ScrollingPattern.cs" />
+    <Compile Include="Core\Game\Components\Polygon\Polygon.cs" />
+    <Compile Include="Core\Game\Components\Polygon\PolygonData.cs" />
+    <Compile Include="Core\Game\Components\Polygon\PolygonFactory.cs" />
+    <Compile Include="Core\Game\Components\Polygon\Render\BasicPolygonRenderer.cs" />
+    <Compile Include="Core\Game\Components\Polygon\PolygonRenderer.cs" />
+    <Compile Include="Core\Game\Components\Polygon\Render\TexturedPolygonRenderer.cs" />
     <Compile Include="Core\Game\Components\Tile\Tile.cs" />
     <Compile Include="Core\Game\Components\Tile\TileLayer.cs" />
     <Compile Include="Core\Game\Components\Tile\TileEngine.cs" />
@@ -177,6 +186,7 @@
     <Compile Include="Render\Renderer.cs" />
     <Compile Include="Render\RenderManager.cs" />
     <Compile Include="Render\SpriteSheet.cs" />
+    <Compile Include="Core\Game\Components\Polygon\PolygonModifier.cs" />
     <Compile Include="Tools\Tween\Tween.cs" />
     <Compile Include="Tools\Utils\Wait.cs" />
   </ItemGroup>
