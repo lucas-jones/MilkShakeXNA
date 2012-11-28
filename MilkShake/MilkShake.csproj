@@ -46,7 +46,8 @@
     <Reference Include="DebugViewXNA">
       <HintPath>..\Library\DebugViewXNA.dll</HintPath>
     </Reference>
-    <Reference Include="FarseerPhysicsXNA">
+    <Reference Include="FarseerPhysicsXNA, Version=3.3.4672.39520, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Library\FarseerPhysicsXNA.dll</HintPath>
     </Reference>
     <Reference Include="Krypton, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
@@ -128,6 +129,8 @@
     <Compile Include="Components\Effects\EffectsComponent.cs" />
     <Compile Include="Components\Particles\ParticleEmitter.cs" />
     <Compile Include="Components\Particles\ParticlesComponent.cs" />
+    <Compile Include="Components\Physics\BuoyancyController.cs" />
+    <Compile Include="Components\Physics\PhysicsUtils.cs" />
     <Compile Include="Components\Scripting\IScript.cs" />
     <Compile Include="Components\Scripting\ScriptHooks.cs" />
     <Compile Include="Components\Scripting\ScriptComponent.cs" />
@@ -135,7 +138,26 @@
     <Compile Include="Components\Scripting\ScriptNode.cs" />
     <Compile Include="Core\Events\EventDispatcher.cs" />
     <Compile Include="Core\Events\SceneEvents.cs" />
+    <Compile Include="Core\Game\Components\Distortion\Distortion.cs" />
+    <Compile Include="Core\Game\Components\Misc\TimeLine.cs" />
+    <Compile Include="Core\Game\Components\Polygon\GiftWrap\GiftWrapQuad.cs" />
+    <Compile Include="Core\Game\Components\Polygon\GiftWrap\GiftWrapRenderer.cs" />
+    <Compile Include="Core\Game\Components\Polygon\GiftWrap\Render\BasicGiftWrapRenderer.cs" />
+    <Compile Include="Core\Game\Components\Polygon\GiftWrap\Render\TextureGiftWrapRenderer.cs" />
+    <Compile Include="Core\Game\Components\UI\UILayer.cs" />
+    <Compile Include="Core\Game\Components\UI\UISprite.cs" />
+    <Compile Include="Core\Game\Components\UI\VGroup.cs" />
+    <Compile Include="Core\Game\Components\Water\Modify\SplashWaterModifier.cs" />
+    <Compile Include="Core\Game\Components\Water\Render\BasicWaterRenderer.cs" />
+    <Compile Include="Core\Game\Components\Water\Water.cs" />
+    <Compile Include="Core\Game\Components\Water\WaterColumn.cs" />
+    <Compile Include="Core\Game\Components\Water\WaterModifier.cs" />
+    <Compile Include="Core\Game\Components\Water\Modify\PhysicsWaterModifier.cs" />
+    <Compile Include="Core\Game\Components\Water\WaterRenderer.cs" />
+    <Compile Include="Core\Game\Components\Water\Modify\WaveWaterModifier.cs" />
+    <Compile Include="Render\LineDraw.cs" />
     <Compile Include="Core\Game\Components\Misc\ScrollingPattern.cs" />
+    <Compile Include="Core\Game\Components\Polygon\GiftWrap\GiftWrapPolygonModifier.cs" />
     <Compile Include="Core\Game\Components\Polygon\Modify\LightPolygonModifier.cs" />
     <Compile Include="Core\Game\Components\Polygon\Modify\PhysicsPolygonModifier.cs" />
     <Compile Include="Core\Game\Components\Polygon\Modify\WireFramePolygonModifier.cs" />
@@ -191,10 +213,17 @@
     <Compile Include="Render\SpriteSheet.cs" />
     <Compile Include="Core\Game\Components\Polygon\PolygonModifier.cs" />
     <Compile Include="Tools\Tween\Tween.cs" />
+    <Compile Include="Tools\Utils\MathUtils.cs" />
+    <Compile Include="Tools\Utils\Modifiers.cs" />
     <Compile Include="Tools\Utils\Wait.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\Microsoft.Xna.GameStudio.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
   <!--
       To modify your build process, add your task inside one of the targets below and uncomment it. 
       Other similar extension points exist, see Microsoft.Common.targets.

@@ -23,6 +23,7 @@ namespace MilkShakeFramework
         public static Color ScreenColour = Color.Salmon;
         public static bool BackToFrontRender = true;
         public static bool EnabledVSync = true;
+        public static int MultiSampleRate = 1;
 
         // [Physics]
         public static float DisplayUnitToSimUnitRatio = 24f;

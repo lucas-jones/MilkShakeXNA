@@ -24,6 +24,7 @@ namespace MilkShakeFramework.Render
         public void SetRenderTarget(RenderTarget2D renderTarget)
         {
             MilkShake.Graphics.SetRenderTarget(renderTarget);
+            //MilkShake.GraphicsManager.PreferMultiSampling = true;
         }
 
         public void Begin()
@@ -37,9 +38,9 @@ namespace MilkShakeFramework.Render
                                Scene.Camera.Matrix);
         }
 
-        public void RawDraw(Vector2 position, Texture2D texture, int width, int height)
+        public void RawDraw(Vector2 position, Texture2D texture, int width, int height, Color color)
         {
-            mSpriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, width, height), new Rectangle(0, 0, texture.Width, texture.Height), Color.White);
+            mSpriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, width, height), new Rectangle(0, 0, texture.Width, texture.Height), color);
         }
 
         public void Draw(Vector2 position, Texture2D texture, int width, int height, float rotation, Vector2 origin, Color color)

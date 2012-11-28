@@ -94,5 +94,11 @@ namespace MilkShakeFramework.IO.Input.Devices
         {
             prvMouseState = mouseState;
         }
+
+        public static bool IsInBounds()
+        {
+            Rectangle screenRectangle = new Rectangle(0, 0, Globals.ScreenWidth, Globals.ScreenHeight);
+            return screenRectangle.Intersects(new Rectangle((int)X, (int)Y, 1, 1));
+        }
     }
 }

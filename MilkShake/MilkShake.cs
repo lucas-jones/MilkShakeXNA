@@ -34,8 +34,8 @@ namespace MilkShakeFramework
         {
             Graphics = GraphicsManager.GraphicsDevice;
 
-            GraphicsManager.PreferMultiSampling = true;
-            GraphicsDevice.PresentationParameters.MultiSampleCount = 16;
+            //GraphicsManager.PreferMultiSampling = true;
+            //GraphicsDevice.PresentationParameters.MultiSampleCount = 16;
             
             GraphicsManager.ApplyChanges();
 
@@ -58,14 +58,14 @@ namespace MilkShakeFramework
             InputManager.UpdateEnd();
         }
 
-        private void ChangeResolution(int Width, int Height, bool isFullscreen = false, bool PreferMultiSampling = true)
+        private void ChangeResolution(int Width, int Height, bool isFullscreen = false, bool PreferMultiSampling = false)
         {
             GraphicsManager.PreferredBackBufferHeight = Height;
             GraphicsManager.PreferredBackBufferWidth = Width;
             GraphicsManager.IsFullScreen = isFullscreen;
-            GraphicsManager.PreferMultiSampling = PreferMultiSampling;
-            GraphicsManager.SynchronizeWithVerticalRetrace = Globals.EnabledVSync;
-            IsFixedTimeStep = Globals.EnabledVSync;
+            //GraphicsManager.PreferMultiSampling = PreferMultiSampling;
+            //GraphicsManager.SynchronizeWithVerticalRetrace = Globals.EnabledVSync;
+            //IsFixedTimeStep = Globals.EnabledVSync;
 
             Globals.ScreenWidth = Width;
             Globals.ScreenHeight = Height;

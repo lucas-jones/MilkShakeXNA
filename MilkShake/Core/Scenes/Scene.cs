@@ -34,6 +34,7 @@ namespace MilkShakeFramework.Core.Scenes
         private RenderTarget2D mRenderTarget;
         private int mRenderWidth, mRenderHeight;
         private int mWidth, mHeight;
+        private Color mColor;
 
         private EventDispatcher mEventDispatcher;
 
@@ -49,30 +50,9 @@ namespace MilkShakeFramework.Core.Scenes
             mRenderManager = new RenderManager(this);
 
             mComponentManager = new SceneComponentManager();
-
-            
+                        
             ConvertUnits.SetDisplayUnitToSimUnitRatio(24f);
-            /*
-            mEventDispatcher.AddEventListener("test", delegate()
-            {
-                System.Console.Write("Hello, ");
-                System.Console.WriteLine("World!");
-            }, "Lighting");
-
-            mEventDispatcher.AddEventListener("test", delegate()
-            {
-                System.Console.Write("Hello, ");
-                System.Console.WriteLine("World!");
-            }, GetType().Name);
-
-            mEventDispatcher.DispatchEvent("test");
-            Console.WriteLine("DSA");
-             * */
-        }
-
-        private void Test()
-        {
-            Console.WriteLine("CalleD!");
+            mColor = Color.White;
         }
 
         public override void Setup()
@@ -82,7 +62,7 @@ namespace MilkShakeFramework.Core.Scenes
             mRenderWidth = SetValueOrDefault(mRenderWidth, Globals.ScreenWidth);
             mRenderHeight = SetValueOrDefault(mRenderHeight, Globals.ScreenHeight);
 
-            mRenderTarget = new RenderTarget2D(MilkShake.Graphics, mRenderWidth, mRenderHeight); // Setup
+            mRenderTarget = new RenderTarget2D(MilkShake.Graphics, mRenderWidth, mRenderHeight, true, SurfaceFormat.Color, DepthFormat.Depth16, Globals.MultiSampleRate, RenderTargetUsage.PreserveContents); // Setup
 
             base.Setup();
         }
@@ -131,8 +111,7 @@ namespace MilkShakeFramework.Core.Scenes
         {
             RenderManager.RawBegin();
             mSceneListener.OnPreSceneRender();
-            RenderManager.RawDraw(Position, mRenderTarget, mWidth, mHeight);
-            
+            RenderManager.RawDraw(Position, mRenderTarget, mWidth, mHeight, mColor);            
             RenderManager.End();
             mSceneListener.OnPostSceneRender();
         }
@@ -160,5 +139,9 @@ namespace MilkShakeFramework.Core.Scenes
 
         public int Width { get { return mWidth; } set { mWidth = value; } }
         public int Height { get { return mHeight; } set { mHeight = value; } }
+
+        public Color Color { get { return mColor; } set { mColor = value; } }
+
+        public override Vector2 WorldPosition { get { return Position; } }
     }
 }

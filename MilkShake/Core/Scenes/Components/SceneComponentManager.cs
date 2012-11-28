@@ -53,7 +53,7 @@ namespace MilkShakeFramework.Core.Scenes.Components
                 if (sceneComponent.GetType() == typeof(T)) return (T)(object)sceneComponent;
             }
 
-            throw new Exception("Component dosn't exists");
+            throw new Exception("Component " + typeof(T).Name + " dosn't exists");
         }
 
     }
