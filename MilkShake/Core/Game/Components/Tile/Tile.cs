@@ -1,22 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using MilkShakeFramework.Core.Game;
-using MilkShakeFramework.Render;
-using Microsoft.Xna.Framework;
+﻿using System.Collections.Generic;
+using FarseerPhysics.Common;
 using FarseerPhysics.Dynamics;
 using FarseerPhysics.Factories;
 using Krypton;
-using MilkShakeFramework.Tools.Physics;
-using MilkShakeFramework.Core.Scenes.Components;
-using MilkShakeFramework.Components.Lighting;
-using FarseerPhysics.Common;
-using MilkShakeFramework.Components.Lighting.Lights;
-using MilkShakeFramework.IO.Input.Devices;
-using MilkShakeFramework.Components.Particles;
+using Microsoft.Xna.Framework;
 using MilkShakeFramework.Components.Effects;
 using MilkShakeFramework.Components.Effects.Presets;
+using MilkShakeFramework.Components.Lighting;
+using MilkShakeFramework.Components.Lighting.Lights;
+using MilkShakeFramework.Core.Game;
+using MilkShakeFramework.Core.Scenes.Components;
+using MilkShakeFramework.Render;
+using MilkShakeFramework.Tools.Physics;
 
 namespace MilkShakeFramework.Components.Tile
 {
@@ -46,7 +41,7 @@ namespace MilkShakeFramework.Components.Tile
             mY = y;
             mID = ID;
 
-            Position = new Vector2(x * 64, y * 64);
+            Position = new Vector2(x * 32, y * 32);
             mSpriteSheet = new SpriteSheet("tiles1");
         }
 
@@ -61,16 +56,19 @@ namespace MilkShakeFramework.Components.Tile
         {
             base.FixUp();
 
+
             if (mTiles == null)
             {
                 mTiles = new List<Rectangle>();
                
-                for (int y = 0; y < mSpriteSheet.Texture.Height / 64; y++)
-                for (int x = 0; x < mSpriteSheet.Texture.Width / 64; x++)
+                for (int y = 0; y < mSpriteSheet.Texture.Height / 32; y++)
+                for (int x = 0; x < mSpriteSheet.Texture.Width / 32; x++)
                 {
-                    mTiles.Add(new Rectangle(x * 64, y * 64, 64, 64));
+                    mTiles.Add(new Rectangle(x * 32, y * 32, 32, 32));
                 }
             }
+
+            /*
 
             if (ID == 15)
             {
@@ -98,14 +96,15 @@ namespace MilkShakeFramework.Components.Tile
                     effectComponent.AddEffect(new ReflectiveTileEffect(this));
                 }
             }
+            */
 
-            if (ID != -1 && ID != 15)
+            if (ID == 124)
             {
                 if (Scene.ComponentManager.HasComponent<PhysicsComponent>())
                 {
 
-                    float fullWidth = ConvertUnits.ToSimUnits(65);
-                    float halfWidth = ConvertUnits.ToSimUnits(65 / 2);
+                    float fullWidth = ConvertUnits.ToSimUnits(32);
+                    float halfWidth = ConvertUnits.ToSimUnits(32 / 2);
 
 
 
@@ -135,10 +134,12 @@ namespace MilkShakeFramework.Components.Tile
                     mBodyLeft = BodyFactory.CreatePolygon(Scene.ComponentManager.GetComponent<PhysicsComponent>().World, left, 1);
                     mBodyRight = BodyFactory.CreatePolygon(Scene.ComponentManager.GetComponent<PhysicsComponent>().World, right, 1);
 
-                    mBodyTop.Position = ConvertUnits.ToSimUnits(WorldPosition + new Vector2(32, 32));
-                    mBodyBottom.Position = ConvertUnits.ToSimUnits(WorldPosition + new Vector2(32, 32));
-                    mBodyLeft.Position = ConvertUnits.ToSimUnits(WorldPosition + new Vector2(32, 32));
-                    mBodyRight.Position = ConvertUnits.ToSimUnits(WorldPosition + new Vector2(32, 32));
+                    fullWidth = 32 / 2;
+
+                    mBodyTop.Position = ConvertUnits.ToSimUnits(WorldPosition + new Vector2(fullWidth, fullWidth));
+                    mBodyBottom.Position = ConvertUnits.ToSimUnits(WorldPosition + new Vector2(fullWidth, fullWidth));
+                    mBodyLeft.Position = ConvertUnits.ToSimUnits(WorldPosition + new Vector2(fullWidth, fullWidth));
+                    mBodyRight.Position = ConvertUnits.ToSimUnits(WorldPosition + new Vector2(fullWidth, fullWidth));
 
                     mBodyTop.Friction = 0.3f;
                     mBodyTop.UserData = "floor";
@@ -151,33 +152,27 @@ namespace MilkShakeFramework.Components.Tile
                     mBodyLeft.LinearDamping = 0;
                     mBodyLeft.Friction = 0;
 
-                    if (mID == 31)
-                    {
-                        mBodyTop.Friction = 0.1F;
+                 
 
-                        if (Scene.ComponentManager.HasComponent<EffectsComponent>())
+                        if (Scene.ComponentManager.HasComponent<LightingComponent>())
                         {
-                            EffectsComponent effectComponent = Scene.ComponentManager.GetComponent<EffectsComponent>();
 
-                            effectComponent.AddEffect(new ReflectiveTileEffect(this, 0.1f));
+                            LightingComponent lightComponent = Scene.ComponentManager.GetComponent<LightingComponent>();
+                            mBasicHull = new BasicHull(WorldPosition, new Vector2(32, 32));
+
+                            lightComponent.Light.Hulls.Add(mBasicHull.Hull);
                         }
-                    }
-                   // mBodyTop.Friction = 0.5f;
-
-
                     
-                }
+                    // mBodyTop.Friction = 0.5f;
 
-                if(Scene.ComponentManager.HasComponent<LightingComponent>())
-                {
 
-                    LightingComponent lightComponent = Scene.ComponentManager.GetComponent<LightingComponent>();
-                    mBasicHull = new BasicHull(WorldPosition, new Vector2(64, 64));
 
-                    lightComponent.Light.Hulls.Add(mBasicHull.Hull);
                 }
                 
-            }            
+             
+                
+            }
+           // }            
         }
 
         public override void Update(GameTime gameTime)
@@ -196,9 +191,11 @@ namespace MilkShakeFramework.Components.Tile
         {
             base.Draw();
 
-            if (mID != -1) mSpriteSheet.Draw(Position, 64, 64, mTiles[mID]);
+            if (mID > mTiles.Count) mID = 0;
 
-            if (mID == 6) mBasicHull.Hull.Opacity = 0.7f;
+            if (mID != -1) mSpriteSheet.Draw(Position, 32, 32, mTiles[mID]);
+
+            //if (mID == 6) mBasicHull.Hull.Opacity = 0.7f;
 
         }
         

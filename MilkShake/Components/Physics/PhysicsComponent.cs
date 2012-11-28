@@ -21,12 +21,14 @@ namespace MilkShakeFramework.Core.Scenes.Components
 
         private Vector2 mGravity;
         private bool mCameraRotationGravity;
+        private float mMultiplier;
 
         public PhysicsComponent(Scene aScene, Vector2 aGravity, bool aOptimised = false) : base(aScene)
         {
             ConvertUnits.SetDisplayUnitToSimUnitRatio(24f);
 
             mGravity = aGravity;
+            mMultiplier = 1;
             mWorld = new World(mGravity);
 
             mDebugView = new DebugViewXNA(mWorld);
@@ -38,11 +40,11 @@ namespace MilkShakeFramework.Core.Scenes.Components
             // [Add Listeners]
             Scene.Listener.Update += new UpdateEvent(Update);
             Scene.Listener.PostDraw[DrawLayer.First] += new DrawEvent(Draw);
-
+            Settings.AllowSleep = false;
             // Optimise
 			if(aOptimised)
 			{
-         	   	Settings.AllowSleep = true;
+         	   	Settings.AllowSleep = false;
          	   	Settings.EnableDiagnostics = false;
         	    Settings.VelocityIterations = 6;
        	     	Settings.PositionIterations = 4;
@@ -57,7 +59,7 @@ namespace MilkShakeFramework.Core.Scenes.Components
 
             // [Update Physics]
             float elapsedTime = Math.Min((float)gameTime.ElapsedGameTime.TotalSeconds, (1f / 30f));
-            mWorld.Step(elapsedTime);
+            mWorld.Step(elapsedTime * mMultiplier);
 
         }
 

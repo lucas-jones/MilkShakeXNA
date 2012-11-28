@@ -126,7 +126,6 @@ namespace MilkShakeFramework.Components.Lighting.Lights
             base.Update(gameTime);
 
             mLight2D.Position = PositionToLightPosition(WorldPosition);
-
         }
 
         public virtual Texture2D Texture
