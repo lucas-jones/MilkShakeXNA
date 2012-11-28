@@ -1,16 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using MilkShakeFramework.Core.Scenes;
-using Microsoft.Xna.Framework;
-using MilkShakeFramework.Components.Tile;
-using MilkShakeFramework.Components.Lighting;
 using Krypton;
+using Microsoft.Xna.Framework;
+using MilkShakeFramework.Components.Lighting;
+using MilkShakeFramework.Components.Tile;
+using MilkShakeFramework.Core.Scenes;
 
 namespace MilkShakeFramework.Core.Game.Components.Polygon.Modify
 {
-    // PhysicsPolygonAddon?
     public class LightPolygonModifier : PolygonModifier
     {
         private List<ShadowHull> _shadowHulls = new List<ShadowHull>();

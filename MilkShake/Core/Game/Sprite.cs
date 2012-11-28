@@ -84,6 +84,7 @@ namespace MilkShakeFramework.Core.Game
 
         public Image Image { get { return mImage; } set { mImage = value; } }
         public Color Color { get { return mColor; } set { mColor = value; } }
+        public float Alpha { get { return mColor.A; } set { mColor.A = (byte)(value * 255); } }
 
         public int Width { get { return mWidth; } set { mWidth = value; } }
         public int Height { get { return mHeight; } set { mHeight = value; } }

@@ -10,5 +10,6 @@ namespace MilkShakeFramework.Core.Game.Components.Polygon
     {
         public Vector2[] Verticies;
         public short[] Indicies;
+        public List<Vector2> Points;
     }
 }

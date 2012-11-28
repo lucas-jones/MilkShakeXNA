@@ -17,21 +17,18 @@ namespace MilkShakeFramework.Core.Game.Components.Polygon
 
     public class Polygon : GameEntity
     {
-        private Vector2[] _vertices;
-        private short[] _indices;
-
+        private PolygonData _polygonData;
         private PolygonRenderer _renderer;
 
         public BasicEvent OnRendererRefresh;
 
         public Polygon(PolygonData polygonData, PolygonRenderer renderer) : base()
         {
-            _vertices = polygonData.Verticies;
-            _indices = polygonData.Indicies;
+            _polygonData = polygonData;
             _renderer = renderer;
 
             // Should auto loaded... needs removing
-            _renderer.Load(null);
+            //_renderer.Load(null);
             
             AddNode(renderer);
         }
@@ -45,7 +42,7 @@ namespace MilkShakeFramework.Core.Game.Components.Polygon
 
         public void UpdateRenderer()
         {
-            _renderer.GenerateRenderer(_vertices, _indices);
+            _renderer.GenerateRenderer(_polygonData.Verticies, _polygonData.Indicies);
 
             if (OnRendererRefresh != null) OnRendererRefresh();
         }
@@ -55,7 +52,12 @@ namespace MilkShakeFramework.Core.Game.Components.Polygon
         public Polygon(PolygonData polygonData, Color color) : this(polygonData, new BasicPolygonRenderer(color)) { }
 
         public PolygonRenderer Renderer { get { return _renderer; } }
-        public Vector2[] Vertices { get { return _vertices; } }
-        public short[] Indices { get { return _indices; } }
+
+        // [Helpers]
+        public Vector2[] Vertices { get { return _polygonData.Verticies; } }
+        public short[] Indices { get { return _polygonData.Indicies; } }
+        public List<Vector2> Points { get { return _polygonData.Points; }  }
+
+        public PolygonData PolygonData { get { return _polygonData; } }
     }
 }

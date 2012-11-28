@@ -14,6 +14,7 @@ namespace MilkShakeFramework.Core.Game.Components.Polygon.Render
         private BasicEffect _effect;
         private VertexPositionColorTexture[] _renderVerticies;
 
+
         private Image _image;
         private float _scale;
 
@@ -57,6 +58,8 @@ namespace MilkShakeFramework.Core.Game.Components.Polygon.Render
                 pass.Apply();
                 MilkShake.GraphicsManager.GraphicsDevice.DrawUserIndexedPrimitives<VertexPositionColorTexture>(PrimitiveType.TriangleList, _renderVerticies, 0, _renderVerticies.Length, _renderIndices, 0, _renderIndices.Length / 3, VertexPositionColorTexture.VertexDeclaration);
             }
+
+            base.Draw();
         }
 
         public override void Update(GameTime gameTime)

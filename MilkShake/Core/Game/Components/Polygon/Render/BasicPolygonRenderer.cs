@@ -5,6 +5,7 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MilkShakeFramework.Core.Content;
+using MilkShakeFramework.Core.Scenes;
 
 namespace MilkShakeFramework.Core.Game.Components.Polygon.Render
 {
@@ -31,7 +32,18 @@ namespace MilkShakeFramework.Core.Game.Components.Polygon.Render
             // [Needed?]
             _effect.VertexColorEnabled = true;
             _effect.DiffuseColor = Color.White.ToVector3();
+
+            
         }
+
+        public override void FixUp()
+        {
+            base.FixUp();
+            Scene.Listener.PostDraw[DrawLayer.First] += PostDraw;
+        }
+
+        public Color DiffuseColor { get { return new Color(_effect.DiffuseColor); } set { _effect.DiffuseColor = value.ToVector3(); } }
+        public float Alpha { get { return _effect.Alpha; } set { _effect.Alpha = value; } }
 
         public override void GenerateRenderer(Vector2[] _verticies, short[] _indices)
         {
@@ -39,7 +51,7 @@ namespace MilkShakeFramework.Core.Game.Components.Polygon.Render
             _renderVerticies = Array.ConvertAll<Vector2, VertexPositionColor>(_verticies, v => new VertexPositionColor(new Vector3(Polygon.WorldPosition + v, 0), _color));
         }
 
-        public override void Draw()
+        public void PostDraw()
         {
             // Cache raster state
             RasterizerState currentRasterstate = MilkShake.Graphics.RasterizerState;
@@ -58,12 +70,19 @@ namespace MilkShakeFramework.Core.Game.Components.Polygon.Render
 
             // Revert
             if (_wireFrame) MilkShake.Graphics.RasterizerState = currentRasterstate;
+
+            //base.Draw();
         }
 
         public override void Update(GameTime gameTime)
         {
             _effect.Projection = GetProjectionMatrix();
             _effect.View = GetViewMatrix();
+
+
+
         }
+
+
     }
 }

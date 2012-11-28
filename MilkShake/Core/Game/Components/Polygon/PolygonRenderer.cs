@@ -12,7 +12,16 @@ namespace MilkShakeFramework.Core.Game.Components.Polygon
 
         public virtual void GenerateRenderer(Vector2[] _verticies, short[] _indices)
         {
-            throw new Exception("Not overriden!");
+            throw new Exception("[Override]");
+        }
+
+        public override void Draw()
+        {
+            base.Draw();
+
+            // Revert to normal rendering
+            Scene.RenderManager.End();
+            Scene.RenderManager.Begin();
         }
 
         // [Sort out..]

@@ -20,7 +20,7 @@ namespace MilkShakeFramework.Core.Game.Components.Polygon
             // Convert int[] -> short[]
             short[] sourceShortIndicies = Array.ConvertAll<int, short>(sourceIntIndicies, p => (short)p);
 
-            return new PolygonData() { Verticies = sourceVerticies, Indicies = sourceShortIndicies };
+            return new PolygonData() { Verticies = sourceVerticies, Indicies = sourceShortIndicies, Points = _points };
         }
 
         public static PolygonData Tri(int _width, int _height)
@@ -30,6 +30,7 @@ namespace MilkShakeFramework.Core.Game.Components.Polygon
             sourceVerticies[1] = new Vector2(_width, 0);
             sourceVerticies[2] = new Vector2(_width, _height);
 
+            Array.Reverse(sourceVerticies);
 
             short[] sourceIndicies = new short[3];
             sourceIndicies[0] = 0;
@@ -37,6 +38,17 @@ namespace MilkShakeFramework.Core.Game.Components.Polygon
             sourceIndicies[2] = 2;
 
             return new PolygonData() { Verticies = sourceVerticies, Indicies = sourceIndicies };
+        }
+
+        public static PolygonData Quad(int _width, int _height)
+        {
+            List<Vector2> quad = new List<Vector2>();
+            quad.Add(Vector2.Zero);
+            quad.Add(new Vector2(0, _height));
+            quad.Add(new Vector2(_width, _height));
+            quad.Add(new Vector2(_width, 0));
+
+            return PolygonFromPoints(quad);
         }
     }
 }
