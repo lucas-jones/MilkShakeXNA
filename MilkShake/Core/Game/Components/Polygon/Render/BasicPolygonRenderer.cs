@@ -39,7 +39,6 @@ namespace MilkShakeFramework.Core.Game.Components.Polygon.Render
         public override void FixUp()
         {
             base.FixUp();
-            Scene.Listener.PostDraw[DrawLayer.First] += PostDraw;
         }
 
         public Color DiffuseColor { get { return new Color(_effect.DiffuseColor); } set { _effect.DiffuseColor = value.ToVector3(); } }
@@ -51,8 +50,8 @@ namespace MilkShakeFramework.Core.Game.Components.Polygon.Render
             _renderVerticies = Array.ConvertAll<Vector2, VertexPositionColor>(_verticies, v => new VertexPositionColor(new Vector3(Polygon.WorldPosition + v, 0), _color));
         }
 
-        public void PostDraw()
-        {
+        public override void  Draw()
+        { 	
             // Cache raster state
             RasterizerState currentRasterstate = MilkShake.Graphics.RasterizerState;
 
@@ -71,7 +70,7 @@ namespace MilkShakeFramework.Core.Game.Components.Polygon.Render
             // Revert
             if (_wireFrame) MilkShake.Graphics.RasterizerState = currentRasterstate;
 
-            //base.Draw();
+           // base.Draw();
         }
 
         public override void Update(GameTime gameTime)

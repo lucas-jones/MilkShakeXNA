@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using Microsoft.Xna.Framework;
 
 namespace MilkShakeFramework.Tools.Utils
@@ -10,9 +7,8 @@ namespace MilkShakeFramework.Tools.Utils
     {
         public static float AngleBetweenVectors(Vector2 a, Vector2 b)
         {
-            float angle = (float)Math.Atan2((double)(a.Y - b.Y),
-                                            (double)(a.X - b.X));
-            return angle;
+            return (float)Math.Atan2(a.Y - b.Y,
+                                     a.X - b.X);
         }
 
         public static Vector2 AngleToV2(float angle, float length)
@@ -21,6 +17,14 @@ namespace MilkShakeFramework.Tools.Utils
             direction.X = (float)Math.Cos(angle) * length;
             direction.Y = (float)Math.Sin(angle) * length;
             return direction;
+        }
+
+        public static Vector2 SmoothStep(Vector2 value1, Vector2 value2, float amount)
+        {
+            float X = MathHelper.SmoothStep(value1.X, value2.X, amount);
+            float Y = MathHelper.SmoothStep(value1.Y, value2.Y, amount);
+
+            return new Vector2(X, Y);
         }
     }
 }

@@ -16,28 +16,28 @@ using MilkShakeFramework.Tools.Physics;
 using MilkShakeFramework.Core.Scenes.Components;
 using MilkShakeFramework.IO.Input.Devices;
 using MilkShakeFramework.Core.Events;
+using MilkShakeFramework.Tools.Tween;
 
 namespace MilkShakeFramework.Core.Scenes
 {
-
-
     public class Scene : GameEntity
     {
         private SceneListener mSceneListener;
 
         private RenderManager mRenderManager;
         private CameraManager mCameraManager;
-        private LoadManager mLoadManager;   
+        private LoadManager mLoadManager;
 
         private SceneComponentManager mComponentManager;
 
         private RenderTarget2D mRenderTarget;
         private int mRenderWidth, mRenderHeight;
         private int mWidth, mHeight;
+        private Color mClearColour;
         private Color mColor;
 
         private EventDispatcher mEventDispatcher;
-
+        
         public Scene()
         {
             SetScene(this);
@@ -49,10 +49,18 @@ namespace MilkShakeFramework.Core.Scenes
             mCameraManager = new CameraManager(this);
             mRenderManager = new RenderManager(this);
 
+            TweenerManager.Boot();
+
             mComponentManager = new SceneComponentManager();
                         
             ConvertUnits.SetDisplayUnitToSimUnitRatio(24f);
             mColor = Color.White;
+            mClearColour = Globals.ScreenColour;
+        }
+
+        public Scene(Color clearColor) : this()
+        {
+            mClearColour = clearColor;
         }
 
         public override void Setup()
@@ -62,7 +70,7 @@ namespace MilkShakeFramework.Core.Scenes
             mRenderWidth = SetValueOrDefault(mRenderWidth, Globals.ScreenWidth);
             mRenderHeight = SetValueOrDefault(mRenderHeight, Globals.ScreenHeight);
 
-            mRenderTarget = new RenderTarget2D(MilkShake.Graphics, mRenderWidth, mRenderHeight, true, SurfaceFormat.Color, DepthFormat.Depth16, Globals.MultiSampleRate, RenderTargetUsage.PreserveContents); // Setup
+            mRenderTarget = new RenderTarget2D(MilkShake.Graphics, mRenderWidth, mRenderHeight, false, SurfaceFormat.Color, DepthFormat.Depth16, Globals.MultiSampleRate, RenderTargetUsage.PreserveContents); // Setup
 
             base.Setup();
         }
@@ -80,6 +88,7 @@ namespace MilkShakeFramework.Core.Scenes
         {
             mLoadManager.Update();
             mCameraManager.Update(gameTime);
+            TweenerManager.Update(gameTime);
             Listener.OnUpdate(gameTime);
 
             base.Update(gameTime);
@@ -97,7 +106,7 @@ namespace MilkShakeFramework.Core.Scenes
         {            
             RenderManager.SetRenderTarget(mRenderTarget);
 
-            MilkShake.Graphics.Clear(Globals.ScreenColour);
+            MilkShake.Graphics.Clear(mClearColour);
 
             mSceneListener.OnPreDraw();
             RenderManager.Begin();
@@ -141,6 +150,7 @@ namespace MilkShakeFramework.Core.Scenes
         public int Height { get { return mHeight; } set { mHeight = value; } }
 
         public Color Color { get { return mColor; } set { mColor = value; } }
+        public Color ClearColor { get { return mClearColour; } set { mClearColour = value; } }
 
         public override Vector2 WorldPosition { get { return Position; } }
     }

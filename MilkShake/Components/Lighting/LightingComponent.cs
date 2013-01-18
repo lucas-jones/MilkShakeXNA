@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Krypton;
+﻿using Krypton;
 using Microsoft.Xna.Framework;
-using MilkShakeFramework.Core.Cameras;
 using MilkShakeFramework.Core.Scenes;
 using MilkShakeFramework.Core.Scenes.Components;
 

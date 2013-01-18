@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework;
 using MilkShakeFramework.Core.Scenes;
 using MilkShakeFramework.Core.Scenes.Components;
 using MilkShakeFramework.Tools.Physics;
+using MilkShakeFramework.Components.Physics;
 
 namespace MilkShakeFramework.Core.Game.Components.Polygon.Modify
 {
@@ -36,7 +37,9 @@ namespace MilkShakeFramework.Core.Game.Components.Polygon.Modify
 
             _physicsBody = BodyFactory.CreateCompoundPolygon(PhysicsComponent.World, vers, 1);
             _physicsBody.Position = ConvertUnits.ToSimUnits(Position);
-            _physicsBody.BodyType = BodyType.Dynamic;
+            _physicsBody.BodyType = BodyType.Static;
+            _physicsBody.Friction = 2;
+            _physicsBody.UserData = new IgnoreWater();
         }
 
         public override void Update(GameTime gameTime)

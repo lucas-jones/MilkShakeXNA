@@ -12,6 +12,9 @@ using FarseerPhysics.Common;
 
 namespace MilkShakeFramework.Components.Physics
 {
+    public class IgnoreWater
+    { }
+
     public sealed class BuoyancyController : Controller
     {
         /// <summary>
@@ -90,6 +93,13 @@ namespace MilkShakeFramework.Components.Physics
             foreach (KeyValuePair<int, Body> kv in _uniqueBodies)
             {
                 Body body = kv.Value;
+
+                if (body.UserData is IgnoreWater)
+                {
+                    if (body.LinearVelocity.Y > 0) body.LinearVelocity *= 0.9f;
+                    body.ApplyForce(new Vector2(0, -World.Gravity.Y));
+                    continue;
+                }
 
                 Vector2 areac = Vector2.Zero;
                 Vector2 massc = Vector2.Zero;

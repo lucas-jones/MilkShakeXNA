@@ -13,8 +13,9 @@ namespace MilkShakeFramework.Core.Game
         private Vector2 mOriginalPosition;
         private Vector2 mSpeed;
 
-        public ParalaxSprite(string url) : base(url)
+        public ParalaxSprite(string url, float xSpeed = 0.5f, float ySpeed = 1) : base(url)
         {
+            mSpeed = new Vector2(xSpeed, ySpeed);
         }
 
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
@@ -45,12 +46,18 @@ namespace MilkShakeFramework.Core.Game
         private int mWidth, mHeight;
         private float mRotation;
         private Vector2 mOrigin;
+        private Vector2 mScale;
         private Color mColor;
+        private bool mAutoCenter;
 
         public Sprite(string url)
         {
+            Name = url;
+
             mImage = new Image(url);
             mColor = Color.White;
+            mScale = new Vector2(1, 1);
+            mAutoCenter = false;
         }
 
         public override void Setup()
@@ -71,15 +78,17 @@ namespace MilkShakeFramework.Core.Game
         public override void FixUp()
         {
             base.FixUp();
-        }
 
-      
+            if(AutoCenter)
+            {
+                Origin = new Vector2(Width / 2, Height / 2);
+            }
+        }      
 
         public override void Draw()
         {
-            mImage.Draw(WorldPosition, mWidth, mHeight, mRotation, mOrigin, mColor);
-
             base.Draw();
+            mImage.Draw(WorldPosition, mWidth, mHeight, mRotation, mOrigin, mColor, mScale.X, mScale.Y);
         }
 
         public Image Image { get { return mImage; } set { mImage = value; } }
@@ -91,6 +100,8 @@ namespace MilkShakeFramework.Core.Game
 
         public Vector2 Origin { get { return mOrigin; } set { mOrigin = value; } }
         public float Rotation { get { return mRotation; } set { mRotation = value; } }
+        public Vector2 Scale { get { return mScale; } set { mScale = value; } }
+        public bool AutoCenter { get { return mAutoCenter; } set { mAutoCenter = value; } }
 
         public Rectangle BoundingBox { get { return new Rectangle((int)Position.X, (int)Position.Y, Width, Height); } }
     }

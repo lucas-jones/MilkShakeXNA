@@ -60,6 +60,7 @@ namespace MilkShakeFramework.Core.Game.Components.Polygon.Render
             }
 
             base.Draw();
+
         }
 
         public override void Update(GameTime gameTime)

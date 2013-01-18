@@ -31,19 +31,19 @@ namespace MilkShakeFramework.Core.Game.Components.Water.Render
         {
             base.Load(content);
 
-            int vertSize = Water.WaterColumns.Length * 6;
+            int vertSize = Water.WaterColumns.Length * 12;
 
-            float interval = Water.Width / 6;
+            float interval = Water.Width / Water.WaterColumns.Length;
 
             _renderVerticies = new VertexPositionColor[vertSize];
             int index = 0;
-            for (int i = 0; i < vertSize; i += 6)
+            for (int i = 0; i < vertSize; i += 12)
             {
                 Vector2 topLeft = new Vector2(interval * index, 0);
                 Vector2 bottomLeft = new Vector2(interval * index, Water.Height);
 
-                Vector2 topRight = new Vector2(interval * (index + 1), 0);
-                Vector2 bottomRight = new Vector2(interval * (index + 1), Water.Height);
+                Vector2 topRight = new Vector2((index + 1) * interval, 0);
+                Vector2 bottomRight = new Vector2((index + 1) * interval, Water.Height);
 
                 index++;
                 _renderVerticies[i] = new VertexPositionColor(new Vector3(topLeft, 0), _topColor);
@@ -53,7 +53,19 @@ namespace MilkShakeFramework.Core.Game.Components.Water.Render
                 _renderVerticies[i + 3] = new VertexPositionColor(new Vector3(topRight, 0), _topColor);
                 _renderVerticies[i + 4] = new VertexPositionColor(new Vector3(bottomRight, 0), _bottomColor);
                 _renderVerticies[i + 5] = new VertexPositionColor(new Vector3(bottomLeft, 0), _bottomColor);
+
+                Color outline = new Color(105, 211, 206);
+                // Outline
+                _renderVerticies[i + 6] = new VertexPositionColor(new Vector3(topLeft, 0), outline);
+                _renderVerticies[i + 7] = new VertexPositionColor(new Vector3(topRight, 0), outline);
+                _renderVerticies[i + 8] = new VertexPositionColor(new Vector3(topLeft - new Vector2(0, 10), 0), outline);
+
+                _renderVerticies[i + 9] = new VertexPositionColor(new Vector3(topRight, 0), outline);
+                _renderVerticies[i + 10] = new VertexPositionColor(new Vector3(topRight - new Vector2(0, 10), 0), outline);
+                _renderVerticies[i + 11] = new VertexPositionColor(new Vector3(topLeft - new Vector2(0, 10), 0), outline);
             }
+
+            Console.WriteLine("Total: " + index);
 
             // -----------------------
 
@@ -74,6 +86,10 @@ namespace MilkShakeFramework.Core.Game.Components.Water.Render
             }
 
             base.Draw();
+
+            // Revert to normal rendering
+            Scene.RenderManager.End();
+            Scene.RenderManager.Begin();
         }
 
         public override void Update(GameTime gameTime)
@@ -82,7 +98,7 @@ namespace MilkShakeFramework.Core.Game.Components.Water.Render
             _effect.View = GetViewMatrix();
 
             int index = 0;
-            for (int i = 0; i < _renderVerticies.Length - 6; i += 6)
+            for (int i = 0; i < _renderVerticies.Length - 12; i += 12)
             {
                 float leftHeight = Water.Height - Water.GetHeight(index);
                 float rightHeight = Water.Height - Water.GetHeight(index + 1);
@@ -92,6 +108,17 @@ namespace MilkShakeFramework.Core.Game.Components.Water.Render
                 _renderVerticies[i].Position.Y = leftHeight;
                 _renderVerticies[i + 1].Position.Y = rightHeight;
                 _renderVerticies[i + 3].Position.Y = rightHeight;
+
+
+                // 6 7 9
+                _renderVerticies[i + 6].Position.Y = leftHeight;
+                _renderVerticies[i + 7].Position.Y = rightHeight;
+                _renderVerticies[i + 9].Position.Y = rightHeight;
+
+                /// 8 10 11
+                _renderVerticies[i + 8].Position.Y = leftHeight + 4;
+                _renderVerticies[i + 10].Position.Y = rightHeight + 4;
+                _renderVerticies[i + 11].Position.Y = leftHeight + 4;
             }
         }
 

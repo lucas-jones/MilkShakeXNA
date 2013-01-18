@@ -60,10 +60,10 @@ namespace MilkShakeFramework.Components.Scripting
 
         private void attatchListeners(GameEntity gameEntity)
         {
-            gameEntity.Listener.Setup += new GameEntityEvent(() => { dispatchEvent(EVENT_SETUP); });
-            gameEntity.Listener.Load += new GameEntityEvent(() => { dispatchEvent(EVENT_LOAD); });
-            gameEntity.Listener.Fixup += new GameEntityEvent(() => { dispatchEvent(EVENT_FIXUP); });
-            gameEntity.Listener.Update += new UpdateEvent((GameTime gametime) => { MilkHooks.TriggerEvent(EVENT_UPDATE, gametime); });
+            gameEntity.Listener.Setup   += () => dispatchEvent(EVENT_SETUP);
+            gameEntity.Listener.Load    += () => dispatchEvent(EVENT_LOAD);
+            gameEntity.Listener.Fixup   += () => dispatchEvent(EVENT_FIXUP);
+            gameEntity.Listener.Update  += (GameTime gametime) => MilkHooks.TriggerEvent(EVENT_UPDATE, gametime);
         }
 
         private void dispatchEvent(string eventName, params object[] arguments)

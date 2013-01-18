@@ -163,7 +163,7 @@ namespace MilkShakeFramework.Core.Game.Components.Polygon.GiftWrap.Render
                 }
             }
 
-            //base.Draw();
+            base.Draw();
         }
 
         private float curTime;

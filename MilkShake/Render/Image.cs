@@ -21,8 +21,16 @@ namespace MilkShakeFramework.Render
 
         public override void Load(LoadManager content)
         {
-            mTexture2D = MilkShake.ConentManager.Load<Texture2D>(URL);
-            
+            try
+            {
+                mTexture2D = MilkShake.ConentManager.Load<Texture2D>(URL);
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine("Missing Texture " + URL);
+                mTexture2D = MilkShake.ConentManager.Load<Texture2D>("DEV");                
+            }
+
             base.Load(content);
         }
 
@@ -31,9 +39,14 @@ namespace MilkShakeFramework.Render
             Draw(position, Texture.Width, Texture.Height, 0, Vector2.Zero, Color.White);
         }
 
-        public void Draw(Vector2 position, int width, int height, float rotation, Vector2 origin, Color color)
+        public void Draw(Vector2 position, Color color)
         {
-            RenderManager.Draw(position, Texture, width, height, rotation, origin, color);
+            Draw(position, Texture.Width, Texture.Height, 0, Vector2.Zero, color);
+        }
+
+        public void Draw(Vector2 position, int width, int height, float rotation, Vector2 origin, Color color, float scaleX = 1, float scaleY = 1)
+        {
+            RenderManager.Draw(position, Texture, width, height, rotation, origin, color, scaleX, scaleY);
         }
 
         public Texture2D Texture { get { return mTexture2D; } }

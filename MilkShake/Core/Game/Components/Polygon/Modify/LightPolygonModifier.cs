@@ -31,7 +31,7 @@ namespace MilkShakeFramework.Core.Game.Components.Polygon.Modify
                 List<short> currentIndie = Polygon.Indices.ToList<short>().GetRange(index * 3, 3);
                 List<Vector2> currentVerts = new List<Vector2>();
 
-                currentIndie.ForEach(i => currentVerts.Add(Polygon.Vertices[i]));
+                currentIndie.ForEach(i => currentVerts.Add(Polygon.Vertices[i] + Polygon.WorldPosition));
                 currentVerts.Reverse();
 
                 PolygonHull hull = new PolygonHull(WorldPosition, currentVerts.ToList<Vector2>());

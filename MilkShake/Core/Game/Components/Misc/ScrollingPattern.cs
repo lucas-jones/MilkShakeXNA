@@ -15,7 +15,7 @@ namespace MilkShakeFramework.Core.Game.Components.Misc
 
         public override void Setup()
         {
-            image = new Image("top_1");
+            image = new Image("pattern");
             AddNode(image);
 
             base.Setup();

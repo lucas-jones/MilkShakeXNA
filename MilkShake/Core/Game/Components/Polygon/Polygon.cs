@@ -30,7 +30,7 @@ namespace MilkShakeFramework.Core.Game.Components.Polygon
             // Should auto loaded... needs removing
             //_renderer.Load(null);
             
-            AddNode(renderer);
+            if(renderer != null) AddNode(renderer);
         }
 
         public override void FixUp()
@@ -42,7 +42,7 @@ namespace MilkShakeFramework.Core.Game.Components.Polygon
 
         public void UpdateRenderer()
         {
-            _renderer.GenerateRenderer(_polygonData.Verticies, _polygonData.Indicies);
+            if(_renderer != null) _renderer.GenerateRenderer(_polygonData.Verticies, _polygonData.Indicies);
 
             if (OnRendererRefresh != null) OnRendererRefresh();
         }

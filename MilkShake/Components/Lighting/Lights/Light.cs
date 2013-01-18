@@ -46,6 +46,13 @@ namespace MilkShakeFramework.Components.Lighting.Lights
             set { mLight2D.Intensity = value; }
         }
 
+        public float Alpha
+        {
+            get { return mLight2D.Color.A / 255; }
+            // Wtf..
+            set { mLight2D.Color = new Color(mLight2D.Color.ToVector3()) { A = (byte)(value * 255) }; }
+        }
+
         public bool IsOn
         {
             get { return mLight2D.IsOn; }
@@ -58,7 +65,6 @@ namespace MilkShakeFramework.Components.Lighting.Lights
 
             // [Default Values]
             Range = 400;
-            Color = Color.Red;
         }
 
 
@@ -135,11 +141,11 @@ namespace MilkShakeFramework.Components.Lighting.Lights
 
         private Vector2 PositionToLightPosition(Vector2 aPosition)
         {
-            Vector2 newPosition = new Vector2();
-            newPosition.X = aPosition.X - Globals.ScreenWidthCenter;
-            newPosition.Y = -aPosition.Y + Globals.ScreenHeightCenter;
-
-            return newPosition;
+            return new Vector2
+            {
+                X = aPosition.X - Globals.ScreenWidthCenter,
+                Y = -aPosition.Y + Globals.ScreenHeightCenter
+            };
         }
 
     }

@@ -4,8 +4,6 @@ using FarseerPhysics.Dynamics;
 using FarseerPhysics.Factories;
 using Krypton;
 using Microsoft.Xna.Framework;
-using MilkShakeFramework.Components.Effects;
-using MilkShakeFramework.Components.Effects.Presets;
 using MilkShakeFramework.Components.Lighting;
 using MilkShakeFramework.Components.Lighting.Lights;
 using MilkShakeFramework.Core.Game;

@@ -28,6 +28,7 @@ namespace MilkShakeFramework.Core.Game.Components.Water
         {
             _width = width;
             _height = height;
+            _renderer = renderer;
 
             _tension = tension;
             _dampening = dampening;
@@ -45,12 +46,12 @@ namespace MilkShakeFramework.Core.Game.Components.Water
                 };
             }
 
+            // Apply basic water renderer if non set
             if (renderer == null) renderer = new BasicWaterRenderer();
-            AddNode(renderer);
 
-            AddNode(new BasicWaterRenderer());
-            AddNode(new PhysicsWaterModifier());
-            AddNode(new SplashWaterModifier());
+            AddNode(renderer);
+            //AddNode(new PhysicsWaterModifier());
+            //AddNode(new SplashWaterModifier(5));
         }
 
         public void Splash(float xPosition, float speed)

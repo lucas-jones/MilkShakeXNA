@@ -120,13 +120,15 @@
     <Reference Include="Triangulator">
       <HintPath>..\Library\Triangulator.dll</HintPath>
     </Reference>
+    <Reference Include="XNATweeners">
+      <HintPath>..\Library\XNATweeners.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Components\Effects\Presets\ReflectiveTile.cs" />
     <Compile Include="Components\Lighting\Lights\ConicLight.cs" />
     <Compile Include="Components\Lighting\Lights\PointLight.cs" />
-    <Compile Include="Components\Effects\Effect.cs" />
-    <Compile Include="Components\Effects\EffectsComponent.cs" />
+    <Compile Include="Components\PostProccessing\PostProcessingEffect.cs" />
+    <Compile Include="Components\PostProccessing\PostProcessingComponent.cs" />
     <Compile Include="Components\Particles\ParticleEmitter.cs" />
     <Compile Include="Components\Particles\ParticlesComponent.cs" />
     <Compile Include="Components\Physics\BuoyancyController.cs" />
@@ -138,7 +140,13 @@
     <Compile Include="Components\Scripting\ScriptNode.cs" />
     <Compile Include="Core\Events\EventDispatcher.cs" />
     <Compile Include="Core\Events\SceneEvents.cs" />
-    <Compile Include="Core\Game\Components\Distortion\Distortion.cs" />
+    <Compile Include="Components\PostProccessing\Presets\DistortionPP.cs" />
+    <Compile Include="Core\Filters\Filter.cs" />
+    <Compile Include="Core\Game\3DSprite.cs" />
+    <Compile Include="Core\Game\Components\Misc\CameraDebugModifier.cs" />
+    <Compile Include="Core\Game\Components\Misc\InfiniteSprite.cs" />
+    <Compile Include="Core\Game\Components\Misc\Layer.cs" />
+    <Compile Include="Core\Game\Components\Misc\RedirectDraw.cs" />
     <Compile Include="Core\Game\Components\Misc\TimeLine.cs" />
     <Compile Include="Core\Game\Components\Polygon\GiftWrap\GiftWrapQuad.cs" />
     <Compile Include="Core\Game\Components\Polygon\GiftWrap\GiftWrapRenderer.cs" />
@@ -212,10 +220,13 @@
     <Compile Include="Render\RenderManager.cs" />
     <Compile Include="Render\SpriteSheet.cs" />
     <Compile Include="Core\Game\Components\Polygon\PolygonModifier.cs" />
-    <Compile Include="Tools\Tween\Tween.cs" />
+    <Compile Include="Tools\Tween\Interpolators\FloatInterpolator.cs" />
+    <Compile Include="Tools\Tween\Interpolator.cs" />
+    <Compile Include="Tools\Tween\Interpolators\Vector2Interpolator.cs" />
+    <Compile Include="Tools\Tween\Interpolators\Vector3Interpolator.cs" />
+    <Compile Include="Tools\Tween\TweenerManager.cs" />
     <Compile Include="Tools\Utils\MathUtils.cs" />
     <Compile Include="Tools\Utils\Modifiers.cs" />
-    <Compile Include="Tools\Utils\Wait.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

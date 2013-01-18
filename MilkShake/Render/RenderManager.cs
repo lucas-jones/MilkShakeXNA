@@ -7,6 +7,7 @@ using MilkShakeFramework.Core.Content;
 using MilkShakeFramework.Core.Scenes;
 using Microsoft.Xna.Framework;
 using MilkShakeFramework.Core.Scenes.Components;
+using MilkShakeFramework.IO.Input.Devices;
 
 namespace MilkShakeFramework.Render
 {
@@ -14,6 +15,7 @@ namespace MilkShakeFramework.Render
     {
         private SpriteBatch mSpriteBatch;
         private SamplerState mSamplerState;
+        
 
         public RenderManager(Scene scene) : base(scene)
         {
@@ -27,10 +29,10 @@ namespace MilkShakeFramework.Render
             //MilkShake.GraphicsManager.PreferMultiSampling = true;
         }
 
-        public void Begin()
+        public void Begin(BlendState blendState)
         {
             mSpriteBatch.Begin(SpriteSortMode.Immediate,
-                               BlendState.NonPremultiplied,
+                               blendState,
                                SamplerState,
                                DepthStencilState.None,
                                RasterizerState.CullNone,
@@ -38,19 +40,32 @@ namespace MilkShakeFramework.Render
                                Scene.Camera.Matrix);
         }
 
+        public void Begin(Effect effect = null)
+        {
+            mSpriteBatch.Begin(SpriteSortMode.Immediate,
+                               BlendState.AlphaBlend,
+                               SamplerState,
+                               DepthStencilState.None,
+                               RasterizerState.CullNone,
+                               effect,
+                               Scene.Camera.Matrix);
+        }
+
+       
+
         public void RawDraw(Vector2 position, Texture2D texture, int width, int height, Color color)
         {
             mSpriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, width, height), new Rectangle(0, 0, texture.Width, texture.Height), color);
         }
 
-        public void Draw(Vector2 position, Texture2D texture, int width, int height, float rotation, Vector2 origin, Color color)
+        public void Draw(Vector2 position, Texture2D texture, int width, int height, float rotation, Vector2 origin, Color color, float scaleX = 1, float scaleY = 1)
         {
-            mSpriteBatch.Draw(texture, new Rectangle((int)position.X - (int)cameraOffset().X, (int)position.Y - (int)cameraOffset().Y, width, height), new Rectangle(0, 0, texture.Width, texture.Height), color, rotation, origin, SpriteEffects.None, 1);
+            mSpriteBatch.Draw(texture, new Rectangle((int)position.X - (int)cameraOffset().X, (int)position.Y - (int)cameraOffset().Y, (int)(width * scaleX), (int)(height * scaleY)), new Rectangle(0, 0, texture.Width, texture.Height), color, rotation, origin, SpriteEffects.None, 1);
         }
 
         public void Draw(Vector2 position, Texture2D texture, int width, int height, Rectangle sourceRectangle)
         {
-            mSpriteBatch.Draw(texture, new Vector2((int)position.X - (int)cameraOffset().X, (int)position.Y - (int)cameraOffset().Y), sourceRectangle, Color.White);
+            mSpriteBatch.Draw(texture, new Rectangle((int)position.X - (int)cameraOffset().X, (int)position.Y - (int)cameraOffset().Y, width, height), sourceRectangle, Color.White);
         }
 
         public void Draw(Vector2 position, Texture2D texture, int width, int height, Rectangle sourceRectangle, SpriteEffects spriteEffects)
@@ -65,7 +80,7 @@ namespace MilkShakeFramework.Render
 
         public void RawBegin()
         {
-            mSpriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState, DepthStencilState.None, RasterizerState.CullNone);
+            mSpriteBatch.Begin(SpriteSortMode.Immediate, BlendState.NonPremultiplied, SamplerState, DepthStencilState.None, RasterizerState.CullNone, null, Matrix.Identity /* Matrix.CreateScale(MouseInput.X / 100f) */ );
         }
 
         public Vector2 cameraOffset()
