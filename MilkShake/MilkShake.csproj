@@ -127,6 +127,7 @@
   <ItemGroup>
     <Compile Include="Components\Lighting\Lights\ConicLight.cs" />
     <Compile Include="Components\Lighting\Lights\PointLight.cs" />
+    <Compile Include="Components\Physics\RayCastUtils.cs" />
     <Compile Include="Components\PostProccessing\PostProcessingEffect.cs" />
     <Compile Include="Components\PostProccessing\PostProcessingComponent.cs" />
     <Compile Include="Components\Particles\ParticleEmitter.cs" />
@@ -190,6 +191,7 @@
     <Compile Include="Core\Scenes\Components\SceneComponentManager.cs" />
     <Compile Include="Core\Scenes\SceneListener.cs" />
     <Compile Include="IO\Input\Devices\PadInput.cs" />
+    <Compile Include="Render\TextDraw.cs" />
     <Compile Include="Tools\Debug\LogicTimer.cs" />
     <Compile Include="Tools\Physics\ConvertUnits.cs" />
     <Compile Include="Components\Lighting\LightingComponent.cs" />

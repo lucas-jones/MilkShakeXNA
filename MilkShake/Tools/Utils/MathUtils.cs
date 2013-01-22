@@ -19,6 +19,11 @@ namespace MilkShakeFramework.Tools.Utils
             return direction;
         }
 
+        public static float V2ToAngle(Vector2 direction)
+        {
+            return (float)Math.Atan2(direction.Y, direction.X);
+        }
+
         public static Vector2 SmoothStep(Vector2 value1, Vector2 value2, float amount)
         {
             float X = MathHelper.SmoothStep(value1.X, value2.X, amount);
