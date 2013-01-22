@@ -36,7 +36,7 @@ namespace MilkShakeFramework.Components.Physics
             else return pointB;
         }
 
-        public static RayCastResult ClosestRayCast(Vector2 pointA, Vector2 pointB, LineDraw lineDraw = null)
+        public static RayCastResult ClosestRayCast(Vector2 pointA, Vector2 pointB, Func<Fixture, Boolean> filter = null, LineDraw lineDraw = null)
         {
             float minFrac = float.MaxValue;
 
@@ -46,12 +46,15 @@ namespace MilkShakeFramework.Components.Physics
 
             PhysicsComponent.World.RayCast((fixture, point, normal, fraction) =>
             {
-                if (fraction < minFrac)
+                if (filter == null || filter(fixture))
                 {
-                    minFrac = fraction;
-                    hasCollision = true;
-                    collisionPoint = ConvertUnits.ToDisplayUnits(point);
-                    collisionNormal = normal;
+                    if (fraction < minFrac)
+                    {
+                        minFrac = fraction;
+                        hasCollision = true;
+                        collisionPoint = ConvertUnits.ToDisplayUnits(point);
+                        collisionNormal = normal;
+                    }
                 }
 
                 return 1;
