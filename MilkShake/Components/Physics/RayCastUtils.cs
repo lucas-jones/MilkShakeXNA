@@ -71,7 +71,19 @@ namespace MilkShakeFramework.Components.Physics
             return new RayCastResult() { Collision = hasCollision, CollisionPoint = collisionPoint, Normal = collisionNormal };
         }
 
-
         public static PhysicsComponent PhysicsComponent { get { return SceneManager.CurrentScene.ComponentManager.GetComponent<PhysicsComponent>(); } }
+    }
+
+    public class RaycastFilters
+    {
+        public static Func<Fixture, Boolean> OnlyFixture(Fixture fixture)
+        {
+            return (compareFix) => compareFix == fixture;
+        }
+
+        public static Func<Fixture, Boolean> OnlyBodyType(BodyType bodyType)
+        {
+            return (compareFix) => compareFix.Body.BodyType == bodyType;
+        }
     }
 }
