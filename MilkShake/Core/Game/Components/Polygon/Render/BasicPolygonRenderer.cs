@@ -14,6 +14,7 @@ namespace MilkShakeFramework.Core.Game.Components.Polygon.Render
         private BasicEffect _effect;
         private VertexPositionColor[] _renderVerticies;
 
+
         private Color _color;
         private bool _wireFrame;
 
@@ -31,8 +32,9 @@ namespace MilkShakeFramework.Core.Game.Components.Polygon.Render
 
             // [Needed?]
             _effect.VertexColorEnabled = true;
-            _effect.DiffuseColor = Color.White.ToVector3();
-
+            _effect.DiffuseColor = _color.ToVector3();
+            
+            _effect.Alpha = (_color.A / 255);
             
         }
 

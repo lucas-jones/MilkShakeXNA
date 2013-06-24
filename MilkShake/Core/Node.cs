@@ -12,6 +12,7 @@ namespace MilkShakeFramework.Core
         ITreeNode Parent { get; }
 
         void SetParent(ITreeNode parent);
+        void Destroy();
     }
 
     public class Node : INode
@@ -31,6 +32,11 @@ namespace MilkShakeFramework.Core
             if (Parent != null) Parent.RemoveNode(this);
 
             mParent = node;
+        }
+
+        public virtual void Destroy()
+        {
+
         }
 
         // [Public]

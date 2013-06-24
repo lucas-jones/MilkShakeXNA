@@ -56,11 +56,14 @@ namespace MilkShakeFramework.Core.Content
 
         private void LoadEntity(Entity entity)
         {
-            Console.WriteLine("[Dynamic Load] " + entity.GUID);
+            //Console.WriteLine("[Dynamic Load] " + entity.GUID);
 
-            entity.Setup();
-            entity.Load(this);
-            entity.FixUp();
+            if (!entity.IsLoaded)
+            {
+                entity.Setup();
+                entity.Load(this);
+                entity.FixUp();
+            }
         }
 
         // [Public]

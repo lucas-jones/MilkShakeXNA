@@ -9,6 +9,8 @@ using FarseerPhysics.Dynamics;
 using FarseerPhysics.Collision.Shapes;
 using FarseerPhysics;
 using FarseerPhysics.Common;
+using MilkShakeFramework.Core.Game;
+using MilkShakeFramework.Tools.Physics;
 
 namespace MilkShakeFramework.Components.Physics
 {
@@ -147,7 +149,7 @@ namespace MilkShakeFramework.Components.Physics
                 body.ApplyForce(dragForce, areac);
 
                 //Angular drag
-                body.ApplyTorque(-body.Inertia / body.Mass * area * body.AngularVelocity * AngularDragCoefficient);
+                //body.ApplyTorque(-body.Inertia / body.Mass * area * body.AngularVelocity * AngularDragCoefficient);
             }
         }
     }

@@ -5,6 +5,7 @@ using System.Text;
 using MilkShakeFramework.Core.Scenes.Components;
 using MilkShakeFramework.Core.Scenes;
 using Microsoft.Xna.Framework;
+using MilkShakeFramework.Render;
 using MilkShakeFramework.Tools.Physics;
 using MilkShakeFramework.Core.Game.Components.Misc;
 using MilkShakeFramework.Tools.Utils;
@@ -17,6 +18,12 @@ namespace MilkShakeFramework.Components.Physics
         public bool Collision;
         public Vector2 CollisionPoint;
         public Vector2 Normal;
+        public Fixture Fixture;
+
+        public override string ToString()
+        {
+            return "{ Collision = " + Collision + " }";
+        }
     }
 
     public class RayCastUtils
@@ -40,6 +47,7 @@ namespace MilkShakeFramework.Components.Physics
         {
             float minFrac = float.MaxValue;
 
+            Fixture collisionFixture = null;
             Vector2 collisionPoint = pointB;
             bool hasCollision = false;
             Vector2 collisionNormal = Vector2.Zero;
@@ -54,6 +62,7 @@ namespace MilkShakeFramework.Components.Physics
                         hasCollision = true;
                         collisionPoint = ConvertUnits.ToDisplayUnits(point);
                         collisionNormal = normal;
+                        collisionFixture = fixture;
                     }
                 }
 
@@ -65,10 +74,10 @@ namespace MilkShakeFramework.Components.Physics
                 lineDraw.DrawLine(pointA, pointB, Color.White);
                 if (hasCollision) lineDraw.DrawLine(pointA, collisionPoint, Color.Red);
 
-                if (hasCollision) lineDraw.DrawLine(collisionPoint, collisionPoint + (collisionNormal * 10), Color.Blue);
+                if (hasCollision) lineDraw.DrawLine(collisionPoint, collisionPoint + (collisionNormal * 30), Color.Blue);
             }
 
-            return new RayCastResult() { Collision = hasCollision, CollisionPoint = collisionPoint, Normal = collisionNormal };
+            return new RayCastResult() { Collision = hasCollision, CollisionPoint = collisionPoint, Normal = collisionNormal, Fixture = collisionFixture };
         }
 
         public static PhysicsComponent PhysicsComponent { get { return SceneManager.CurrentScene.ComponentManager.GetComponent<PhysicsComponent>(); } }

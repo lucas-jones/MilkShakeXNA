@@ -35,7 +35,16 @@ namespace MilkShakeFramework.IO.Input.Devices
 
         public static PadState GetPad(PlayerIndex index)
         {
+            if (_padStates == null) Boot();
+
             return _padStates.Find((pad) => pad.PlayerIndex == index);
+        }
+
+        public static List<PadState> GetAllPads()
+        {
+            if (_padStates == null) Boot();
+
+            return _padStates;
         }
     }
 
@@ -78,12 +87,17 @@ namespace MilkShakeFramework.IO.Input.Devices
             return false;
         }
 
-        public bool isKeyReleased(Buttons button)
+        public bool isButtonReleased(Buttons button)
         {
             if (_prvState.IsButtonDown(button) && _curState.IsButtonUp(button))
                 return true;
 
             return false;
+        }
+
+        public void Rumble(float left, float right)
+        {
+            GamePad.SetVibration(PlayerIndex, left, right);
         }
 
         public PlayerIndex PlayerIndex { get { return _index; } }

@@ -76,8 +76,7 @@ namespace MilkShakeFramework.Core.Scenes
         }
 
         internal void LoadScene()
-        {
-            
+        {            
             Load(ContentManager);
             mLoadManager.SceneLoaded();
 
@@ -92,6 +91,8 @@ namespace MilkShakeFramework.Core.Scenes
             Listener.OnUpdate(gameTime);
 
             base.Update(gameTime);
+
+            Console.WriteLine(Nodes.Count);
         }
 
         public override void Draw()
@@ -110,7 +111,11 @@ namespace MilkShakeFramework.Core.Scenes
 
             mSceneListener.OnPreDraw();
             RenderManager.Begin();
+
+            if(Filter != null) Filter.Begin();
             base.Draw();
+            if (Filter != null) Filter.End();
+
             RenderManager.End();
             mSceneListener.OnPostDraw();
             RenderManager.SetRenderTarget(null);
@@ -124,6 +129,10 @@ namespace MilkShakeFramework.Core.Scenes
             RenderManager.End();
             mSceneListener.OnPostSceneRender();
         }
+
+        
+        
+        
 
         // [Public]
         public SceneListener Listener { get { return mSceneListener; } }

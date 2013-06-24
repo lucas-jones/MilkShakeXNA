@@ -1,45 +1,41 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using MilkShakeFramework.Core.Scenes.Components;
+using MilkShakeFramework.Components.PostProccessing.Presets;
 using MilkShakeFramework.Core.Scenes;
-using MilkShakeFramework.Core.Game.Components.Distortion;
 using MilkShakeFramework.Core.Game;
-using MilkShakeFramework.IO.Input.Devices;
-using Microsoft.Xna.Framework.Input;
+using MilkShakeFramework.Core.Scenes.Components;
 using Microsoft.Xna.Framework;
-using MilkShakeFramework.Components.Particles;
 
-namespace MilkShakeFramework.Components.Effects
+namespace MilkShakeFramework.Components.PostProccessing
 {
-
     public class ShockWave : Sprite
     {
         private Vector2 _startingPosition;
 
-        public ShockWave(Vector2 staringPosition)
-            : base("shockwave3")
+        public ShockWave(Vector2 staringPosition, float alpha = 1) : base("Scene//Levels//Images//shockwave3")
         {
             _startingPosition = staringPosition;
-            
-            Alpha = 1;
+
+            Alpha = alpha;
+        }
+
+        public override void FixUp()
+        {
+            base.FixUp();
+
+            Width = 0;
+            Height = 0;
         }
 
         public override void Update(GameTime gameTime)
         {
-            if (KeyboardInput.isKeyDown(Keys.Y))
-            {
+
                 Width += 40;
                 Height += 40;
-            }
+
             Position = _startingPosition - new Vector2(Width / 2, Height / 2);
 
-            if (Height > 6000)
-            {
-                Height = 0;
-                Width = 0;
-            }
+  
             base.Update(gameTime);
         }
     }
@@ -47,7 +43,7 @@ namespace MilkShakeFramework.Components.Effects
     public class EffectsComponent : SceneComponent
     {
         private List<PostProcessingEffect> mEffects;
-        public DistortionEffect effecta;
+        public DistortionLayer effecta;
         public EffectsComponent(Scene scene) : base(scene)
         {
             mEffects = new List<PostProcessingEffect>();

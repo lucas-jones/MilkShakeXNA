@@ -20,6 +20,5 @@ namespace MilkShakeFramework.Components.Physics
             
             return PolygonTools.CreatePolygon(data, polygonTexture.Width);
         }
-
     }
 }

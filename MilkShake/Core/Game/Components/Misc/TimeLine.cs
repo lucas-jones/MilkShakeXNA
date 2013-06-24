@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework;
 
 namespace MilkShakeFramework.Core.Game.Components.Misc
 {
-    public class TimeLine : GameEntity
+    public class EventTimer : GameEntity
     {
         private float _maxCycleTime;
         private float _curCycleTime;
@@ -16,7 +16,7 @@ namespace MilkShakeFramework.Core.Game.Components.Misc
 
         private Dictionary<int, List<BasicEvent>> _timeLineEvents;
 
-        public TimeLine(float cycleTime)
+        public EventTimer(float cycleTime)
         {
             _maxCycleTime = cycleTime;
             _prvPercent = -1;
@@ -36,8 +36,6 @@ namespace MilkShakeFramework.Core.Game.Components.Misc
         {
             _curCycleTime += gameTime.ElapsedGameTime.Milliseconds;
 
-            //Console.WriteLine(CurrentPercent);
-
             if (CurrentPercent != _prvPercent)
             {
                 if (CurrentPercent == _prvPercent + 1) // Time correctly
@@ -46,7 +44,7 @@ namespace MilkShakeFramework.Core.Game.Components.Misc
                 }
                 else // Frame Skip
                 {
-                    for (int percent = _prvPercent + 1; percent < CurrentPercent; percent++)
+                    for (int percent = _prvPercent + 1; percent <= CurrentPercent; percent++)
                     {
                         CallTimeLineEvents(percent);
                     }

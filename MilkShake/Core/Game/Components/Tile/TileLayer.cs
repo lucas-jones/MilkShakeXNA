@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using MilkShakeFramework.Core.Game;
-using MilkShakeFramework.IO.File.TMX.Components;
+﻿using MilkShakeFramework.IO.File.TMX.Components;
 
-namespace MilkShakeFramework.Components.Tile
+namespace MilkShakeFramework.Core.Game.Components.Tile
 {
     public class TileLayer : GameEntity
     {

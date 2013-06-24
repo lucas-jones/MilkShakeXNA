@@ -1,2 +1,4 @@
-C:\Users\Lucas\Dropbox\MilkShake Engine\Playground\PlaygroundContent\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Dropbox\MilkShake Engine\Playground\PlaygroundContent\obj\x86\Debug\PlaygroundContent.contentprojResolveAssemblyReference.cache
 C:\Users\lucas.jones\Dropbox\MilkShake Engine\Playground\PlaygroundContent\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Lucas\Dropbox\MilkShake Engine\Playground\PlaygroundContent\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Lupas\Dropbox\MilkShake Engine\Playground\PlaygroundContent\obj\x86\Debug\ResolveAssemblyReference.cache

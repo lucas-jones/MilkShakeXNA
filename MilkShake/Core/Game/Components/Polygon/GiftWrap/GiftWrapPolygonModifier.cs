@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using MilkShakeFramework.Core.Scenes;
-using MilkShakeFramework.Core.Game.Components.Polygon.GiftWrap;
 using MilkShakeFramework.Tools.Utils;
 
-namespace MilkShakeFramework.Core.Game.Components.Polygon.Modify
+namespace MilkShakeFramework.Core.Game.Components.Polygon.GiftWrap
 {
     public class GiftWrapPolygonModifier : PolygonModifier
     {

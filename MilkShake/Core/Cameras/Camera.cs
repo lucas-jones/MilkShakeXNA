@@ -9,12 +9,20 @@ namespace MilkShakeFramework.Core.Cameras
 {
     public class Camera : GameEntity
     {
+        private static readonly Random random = new Random();
+
         public const float MAX_ZOOM = 2;
         public const float MIN_ZOOM = 0.193f;
 
         private Vector2 mOffset;
         private float mRotation;
         private float mZoom;
+
+        private bool mShaking;
+        private float mShakeMagnitude;
+        private float mShakeDuration;
+        private float mShakeTimer;
+        private Vector2 mShakeOffset;
 
         private Rectangle mViewBox;
         private Matrix mMatrix;
@@ -36,6 +44,36 @@ namespace MilkShakeFramework.Core.Cameras
         {
             base.Update(gameTime);
 
+            if (mShaking)
+            {
+                // Move our timer ahead based on the elapsed time
+                mShakeTimer += (float)gameTime.ElapsedGameTime.TotalSeconds;
+
+                // If we're at the max duration, we're not going to be shaking anymore
+                if (mShakeTimer >= mShakeDuration)
+                {
+                    mShaking = false;
+                    mShakeTimer = mShakeDuration;
+                    Position = mShakeStoredPosition;
+                }
+
+                // Compute our progress in a [0, 1] range
+                float progress = mShakeTimer / mShakeDuration;
+
+                // Compute our magnitude based on our maximum value and our progress. This causes
+                // the shake to reduce in magnitude as time moves on, giving us a smooth transition
+                // back to being stationary. We use progress * progress to have a non-linear fall 
+                // off of our magnitude. We could switch that with just progress if we want a linear 
+                // fall off.
+                float magnitude = mShakeMagnitude * (1f - (progress * progress));
+
+                // Generate a new offset vector with three random values and our magnitude
+                mShakeOffset = new Vector2(NextFloat(), NextFloat()) * magnitude;
+
+                // If we're shaking, add our offset to our position and target
+                Position = mShakeStoredPosition + mShakeOffset;
+            }
+
             mMatrix = Matrix.CreateTranslation(-new Vector3(mWidth / 2, mHeight / 2, 0)) *
                       Matrix.CreateScale(new Vector3(Zoom, Zoom, 1)) *
                       Matrix.CreateRotationZ(MathHelper.ToRadians(mRotation)) *
@@ -50,6 +88,28 @@ namespace MilkShakeFramework.Core.Cameras
 
             mViewBox = new Rectangle((int)inverseOffset.X, (int)inverseOffset.Y, (int)(mWidth * (1 / Zoom)), (int)(mHeight * (1 / Zoom)));
         }
+
+        private float NextFloat()
+        {
+            return (float)random.NextDouble() * 2f - 1f;
+        }
+        private Vector2 mShakeStoredPosition;
+        public void Shake(float magnitude, float duration)
+        {
+            mShakeStoredPosition = Position;
+
+            // We're now shaking
+            mShaking = true;
+
+            // Store our magnitude and duration
+            mShakeMagnitude = magnitude;
+            mShakeDuration = duration;
+
+            // Reset our timer
+            mShakeTimer = 0f;
+        }
+
+
 
         public Vector2 ScreenToWorld(Vector2 screenPosition)
         {

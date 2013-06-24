@@ -15,8 +15,8 @@ namespace Playground.Tools
         private Image _anchorImage, _anchorSelectedImage;
 
         private int _selectedVertIndex = -1;
-
-        public EditPolygonModifier() : base(true)
+        // Store points ofr moficiation
+        public EditPolygonModifier() 
         {
             _anchorImage = new Image("icons//blue_big");
             _anchorSelectedImage = new Image("icons//red_big");
@@ -30,7 +30,7 @@ namespace Playground.Tools
             base.FixUp();
 
             // Render outside the Polygon render loop?
-            Scene.Listener.PostDraw[DrawLayer.Fifth] += PostDraw;
+            Scene.Listener.PostDraw[DrawLayer.Fourth] += PostDraw;
         }
 
         private float Distance(Vector2 a, Vector2 b)
@@ -64,10 +64,14 @@ namespace Playground.Tools
             else
             {
                 Polygon.Vertices[_selectedVertIndex] = MouseInput.Position - Polygon.WorldPosition;
-                Polygon.UpdateRenderer();
+                
+
+                
+
 
                 if (MouseInput.isLeftReleased())
                 {
+                    Polygon.UpdateRenderer();
                     _selectedVertIndex = -1;
                 }
             }

@@ -3,11 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
+using System.Threading;
+using System.ComponentModel;
 
 namespace MilkShakeFramework.Core.Scenes
 {
+    public delegate void SceneChangeEvent(Scene scene);
+
     public static class SceneManager
     {
+        public static SceneChangeEvent OnSceneChange;
+        public static event SceneChangeEvent OnSceneLoadStart;
+        public static event SceneChangeEvent OnSceneLoadComplete;
+        public static event SceneChangeEvent OnSceneLoadEnd;
+        
         private static Dictionary<string, Scene> mScenes;
         private static string mCurrentScreenKey;
 
@@ -42,13 +51,50 @@ namespace MilkShakeFramework.Core.Scenes
         {
             if (!mScenes.ContainsKey(key)) throw new Exception("Screen name dosn't exists.");
 
+            if (mCurrentScreenKey != null && mScenes.ContainsKey(mCurrentScreenKey)) CurrentScene.TearDown();
+
             mCurrentScreenKey = key;
 
             if (!CurrentScene.ContentManager.IsLoaded)
             {
                 CurrentScene.Setup();
                 CurrentScene.LoadScene();
-                CurrentScene.FixUp();
+            }
+
+            CurrentScene.FixUp();
+
+            if (OnSceneChange != null) OnSceneChange(CurrentScene);
+            
+        }
+
+        public static void LoadScreenTheaded(string key, BasicEvent onComplete)
+        {
+            Scene sceneToLoad = Scenes[key];
+
+            if (!sceneToLoad.ContentManager.IsLoaded)
+            {
+                BackgroundWorker backgroundLoad = new BackgroundWorker();
+
+                backgroundLoad.DoWork += (sender, args) =>
+                {
+                    if (SceneManager.OnSceneLoadStart != null) SceneManager.OnSceneLoadStart(sceneToLoad);
+
+                    sceneToLoad.Setup();
+                    sceneToLoad.LoadScene();
+                };
+
+                backgroundLoad.RunWorkerCompleted += (sender, args) =>
+                {
+                    if (SceneManager.OnSceneLoadEnd != null) SceneManager.OnSceneLoadEnd(sceneToLoad);
+
+                    onComplete();
+                };
+
+                backgroundLoad.RunWorkerAsync();
+            }
+            else
+            {
+                onComplete();
             }
         }
 

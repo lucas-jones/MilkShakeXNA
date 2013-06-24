@@ -39,8 +39,6 @@ namespace MilkShakeFramework.Core.Game.Components.Misc
 
             Vector2 offset = new Vector2((int)(Position.X / _image.Texture.Width), (int)(Position.Y / _image.Texture.Height));
 
-            Console.WriteLine(offset);
-
             Vector2 pos = WorldPosition - (offset * new Vector2(_image.Texture.Width, _image.Texture.Height));
             
             for (int x = -1; x < _xCount; x++)

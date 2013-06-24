@@ -5,13 +5,11 @@ using FarseerPhysics.Factories;
 using Krypton;
 using Microsoft.Xna.Framework;
 using MilkShakeFramework.Components.Lighting;
-using MilkShakeFramework.Components.Lighting.Lights;
-using MilkShakeFramework.Core.Game;
-using MilkShakeFramework.Core.Scenes.Components;
+using MilkShakeFramework.Components.Physics;
 using MilkShakeFramework.Render;
 using MilkShakeFramework.Tools.Physics;
 
-namespace MilkShakeFramework.Components.Tile
+namespace MilkShakeFramework.Core.Game.Components.Tile
 {
     public class Tile : GameEntity
     {
@@ -31,7 +29,7 @@ namespace MilkShakeFramework.Components.Tile
         private Body mBodyLeft;
         private Body mBodyRight;
 
-        private BasicHull mBasicHull;
+        private RectangleHull mBasicHull;
 
         public Tile(int x, int y, int ID)
         {
@@ -156,7 +154,7 @@ namespace MilkShakeFramework.Components.Tile
                         {
 
                             LightingComponent lightComponent = Scene.ComponentManager.GetComponent<LightingComponent>();
-                            mBasicHull = new BasicHull(WorldPosition, new Vector2(32, 32));
+                            //mBasicHull = new RectangleHull(WorldPosition, new Vector2(32, 32));
 
                             lightComponent.Light.Hulls.Add(mBasicHull.Hull);
                         }
@@ -203,20 +201,27 @@ namespace MilkShakeFramework.Components.Tile
    
 
 
-    public class BasicHull : Entity
+    public class RectangleHull : GameEntity
     {
         private ShadowHull mShadowHull;
 
-        public BasicHull(Vector2 position, Vector2 size)
+        public RectangleHull(Vector2 position, float size, float angle)
         {
             Vector2 newPosition = new Vector2();
-            newPosition.X = position.X - Globals.ScreenWidthCenter + (size.X / 2);
-            newPosition.Y = -position.Y + Globals.ScreenHeightCenter - (size.Y / 2);
+            newPosition.X = position.X - Globals.ScreenWidthCenter + (size / 2);
+            newPosition.Y = -position.Y + Globals.ScreenHeightCenter - (size / 2);
 
-            ShadowHull pHull = ShadowHull.CreateRectangle(size);
-            pHull.Position = newPosition;
+            mShadowHull = ShadowHull.CreateRectangle(new Vector2(size));
+            mShadowHull.Position = newPosition;
+            mShadowHull.Angle = angle;
 
-            mShadowHull = pHull;
+        }
+
+        public override void FixUp()
+        {
+            base.FixUp();
+
+            Scene.ComponentManager.GetComponent<LightingComponent>().Light.Hulls.Add(mShadowHull);
         }
 
         public void setPosition(Vector2 position, Vector2 size)

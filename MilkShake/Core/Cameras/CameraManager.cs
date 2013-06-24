@@ -11,18 +11,36 @@ namespace MilkShakeFramework.Core.Cameras
 {
     public class CameraManager : SceneComponent
     {
-        private Camera mCurrentCamera;
+        public const string DEFAULT_CAMERA_NAME = "Default";
+
+        public string CurrentCameraKey { get; private set; }
+        public Camera CurrentCamera { get { return Cameras[CurrentCameraKey]; } }
+
+        public Dictionary<string, Camera> Cameras { get; private set; }
 
         public CameraManager(Scene scene) : base(scene)
         {
-            mCurrentCamera = new Camera();
+            Cameras = new Dictionary<string, Camera>();
+
+            AddCamera(DEFAULT_CAMERA_NAME, new Camera());
+            SetCamera(DEFAULT_CAMERA_NAME);
         }
 
         public void Update(GameTime gameTime)
         {
-            mCurrentCamera.Update(gameTime);
+            CurrentCamera.Update(gameTime);
         }
 
-        public Camera CurrentCamera { get { return mCurrentCamera;  } }
+        public void AddCamera(string Name, Camera Camera)
+        {
+            Cameras.Add(Name, Camera);
+        }
+
+        public void SetCamera(string Name)
+        {
+            if (!Cameras.ContainsKey(Name)) throw new Exception("Camera not found!");
+
+            CurrentCameraKey = Name;
+        }
     }
 }

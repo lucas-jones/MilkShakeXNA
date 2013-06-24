@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using FarseerPhysics.Dynamics;
 using FarseerPhysics.Factories;
+using MilkShakeFramework.Components.Physics;
 using MilkShakeFramework.Tools.Physics;
 using Microsoft.Xna.Framework;
 using MilkShakeFramework.Core.Scenes.Components;
@@ -37,6 +38,7 @@ namespace MilkShakeFramework.Core.Game.Components.Water.Modify
             _splashTrigger.BodyType = BodyType.Static;
             _splashTrigger.IsSensor = true;
             _splashTrigger.OnCollision += new OnCollisionEventHandler(onBodyHitWater);
+            _splashTrigger.UserData = this;
         }
 
         private bool onBodyHitWater(Fixture fixtureA, Fixture fixtureB, Contact contact)

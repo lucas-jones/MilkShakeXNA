@@ -77,7 +77,7 @@ namespace MilkShakeFramework.Core.Game
                     
                     effect.View = view;
                     effect.Projection = projection;
-                    effect.World = Matrix.CreateScale(2.5f) * Matrix.CreateRotationX(MathHelper.ToRadians(-180)) *
+                    effect.World = Matrix.CreateScale(Scale) * Matrix.CreateRotationX(MathHelper.ToRadians(-180)) *
         Matrix.CreateRotationZ(MathHelper.ToRadians(timePassed * 10)) * transforms[mesh.ParentBone.Index] *
                                     Matrix.CreateTranslation(new Vector3(WorldPosition.X - Scene.Camera.X, 0, WorldPosition.Y - Scene.Camera.Y));
                 }
@@ -87,5 +87,7 @@ namespace MilkShakeFramework.Core.Game
             Scene.RenderManager.SpriteBatch.End();
             Scene.RenderManager.Begin();
         }
+
+        public float Scale = 2.5f;
     }
 }

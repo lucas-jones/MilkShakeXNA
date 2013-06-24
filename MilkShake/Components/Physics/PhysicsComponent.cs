@@ -1,18 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using FarseerPhysics.Dynamics;
 using Microsoft.Xna.Framework;
-using MilkShakeFramework.Core.Game;
 using FarseerPhysics.DebugViews;
+using MilkShakeFramework.Core.Scenes;
+using MilkShakeFramework.Core.Scenes.Components;
 using MilkShakeFramework.Tools.Physics;
 using FarseerPhysics;
 
-namespace MilkShakeFramework.Core.Scenes.Components
+namespace MilkShakeFramework.Components.Physics
 {
     public class PhysicsComponent : SceneComponent
     {
+        public static PhysicsComponent GetInstance()
+        {
+            return SceneManager.CurrentScene.ComponentManager.GetComponent<PhysicsComponent>(); ;
+        }
+
         private World mWorld;
         private DebugViewXNA mDebugView;
 
@@ -21,14 +24,13 @@ namespace MilkShakeFramework.Core.Scenes.Components
 
         private Vector2 mGravity;
         private bool mCameraRotationGravity;
-        private float mMultiplier;
 
         public PhysicsComponent(Scene aScene, Vector2 aGravity, bool aOptimised = false) : base(aScene)
         {
             ConvertUnits.SetDisplayUnitToSimUnitRatio(24f);
 
             mGravity = aGravity;
-            mMultiplier = 1;
+            Multiplier = 1;
             mWorld = new World(mGravity);
 
             mDebugView = new DebugViewXNA(mWorld);
@@ -59,8 +61,8 @@ namespace MilkShakeFramework.Core.Scenes.Components
 
             // [Update Physics]
             float elapsedTime = Math.Min((float)gameTime.ElapsedGameTime.TotalSeconds, (1f / 30f));
-            mWorld.Step(elapsedTime * mMultiplier);
-
+            mWorld.Step(elapsedTime * Multiplier);
+            Console.WriteLine(Multiplier);
         }
 
         public void Draw()
@@ -112,5 +114,6 @@ namespace MilkShakeFramework.Core.Scenes.Components
         public World World { get { return mWorld; } }
         public bool CameraRotationGravity { get { return mCameraRotationGravity; } set { mCameraRotationGravity = value; } }
         public bool DrawDebug { get { return mDebugView.Enabled; } set { mDebugView.Enabled = value; } }
+        public float Multiplier { get; set; }
     }
 }

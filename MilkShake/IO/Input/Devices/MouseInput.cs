@@ -13,10 +13,15 @@ namespace MilkShakeFramework.IO.Input.Devices
         public static MouseState mouseState = Mouse.GetState();
         private static MouseState prvMouseState = mouseState;
 
+        public static int ScrollChange()
+        {
+            return mouseState.ScrollWheelValue - prvMouseState.ScrollWheelValue;
+        }
+
         #region Left Button
         public static bool isLeftClicked()
         {
-            if (prvMouseState.LeftButton == ButtonState.Released && mouseState.LeftButton == ButtonState.Pressed)
+            if (IsInBounds() && prvMouseState.LeftButton == ButtonState.Released && mouseState.LeftButton == ButtonState.Pressed)
                 return true;
 
             return false;
@@ -24,7 +29,7 @@ namespace MilkShakeFramework.IO.Input.Devices
 
         public static bool isLeftDown()
         {
-            if (prvMouseState.LeftButton == ButtonState.Pressed)
+            if (IsInBounds() && prvMouseState.LeftButton == ButtonState.Pressed)
                 return true;
 
             return false;
@@ -32,7 +37,7 @@ namespace MilkShakeFramework.IO.Input.Devices
 
         public static bool isLeftReleased()
         {
-            if (prvMouseState.LeftButton == ButtonState.Pressed && mouseState.LeftButton == ButtonState.Released)
+            if (IsInBounds() && prvMouseState.LeftButton == ButtonState.Pressed && mouseState.LeftButton == ButtonState.Released)
                 return true;
 
             return false;
@@ -42,7 +47,7 @@ namespace MilkShakeFramework.IO.Input.Devices
         #region Right Button
         public static bool isRightClicked()
         {
-            if (prvMouseState.RightButton == ButtonState.Released && mouseState.RightButton == ButtonState.Pressed)
+            if (IsInBounds() && prvMouseState.RightButton == ButtonState.Released && mouseState.RightButton == ButtonState.Pressed)
                 return true;
 
             return false;
@@ -50,7 +55,7 @@ namespace MilkShakeFramework.IO.Input.Devices
 
         public static bool isRightDown()
         {
-            if (prvMouseState.RightButton == ButtonState.Pressed)
+            if (IsInBounds() && prvMouseState.RightButton == ButtonState.Pressed)
                 return true;
 
             return false;
@@ -58,7 +63,7 @@ namespace MilkShakeFramework.IO.Input.Devices
 
         public static bool isRightReleased()
         {
-            if (prvMouseState.RightButton == ButtonState.Pressed && mouseState.RightButton == ButtonState.Released)
+            if (IsInBounds() && prvMouseState.RightButton == ButtonState.Pressed && mouseState.RightButton == ButtonState.Released)
                 return true;
 
             return false;
@@ -93,6 +98,11 @@ namespace MilkShakeFramework.IO.Input.Devices
         public static void UpdateEnd()
         {
             prvMouseState = mouseState;
+        }
+
+        public static Rectangle WorldBoundingBox
+        {
+            get { return new Rectangle((int)WorldPosition.X, (int)WorldPosition.Y, 1, 1); }
         }
 
         public static bool IsInBounds()

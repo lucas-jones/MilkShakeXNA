@@ -2,7 +2,7 @@
 using System.IO;
 using Newtonsoft.Json.Linq;
 
-namespace MilkShakeFramework.Core.Game.Animation
+namespace MilkShakeFramework.Core.Game.Components.Animation
 {
     public class AnimationFile
     {

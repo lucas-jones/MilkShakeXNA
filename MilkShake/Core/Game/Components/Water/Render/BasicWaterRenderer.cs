@@ -78,10 +78,15 @@ namespace MilkShakeFramework.Core.Game.Components.Water.Render
 
         public override void Draw()
         {
+            // Wireframe
+            /* 
+            RasterizerState rasterizerState = new RasterizerState();
+            rasterizerState.FillMode = FillMode.WireFrame;
+            MilkShake.Graphics.RasterizerState = rasterizerState;
+            */
             foreach (EffectPass pass in _effect.CurrentTechnique.Passes)
             {
                 pass.Apply();
-
                 MilkShake.GraphicsManager.GraphicsDevice.DrawUserPrimitives(PrimitiveType.TriangleList, _renderVerticies, 0, _renderVerticies.Length / 3, VertexPositionColor.VertexDeclaration);       
             }
 

@@ -48,7 +48,7 @@ namespace MilkShakeFramework.Core.Game.Components.Polygon
         }
 
         // [Helpers]
-        public Polygon(PolygonData polygonData) : this(polygonData, new BasicPolygonRenderer(Color.White)) { }
+        //public Polygon(PolygonData polygonData) : this(polygonData, new BasicPolygonRenderer(Color.White)) { }
         public Polygon(PolygonData polygonData, Color color) : this(polygonData, new BasicPolygonRenderer(color)) { }
 
         public PolygonRenderer Renderer { get { return _renderer; } }

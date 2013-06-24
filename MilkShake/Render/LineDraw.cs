@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using MilkShakeFramework.Render;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MilkShakeFramework.Core.Scenes;
+using MilkShakeFramework.Tools.Maths;
 
-namespace MilkShakeFramework.Core.Game.Components.Misc
+namespace MilkShakeFramework.Render
 {
     public struct Line
     {
@@ -59,6 +57,14 @@ namespace MilkShakeFramework.Core.Game.Components.Misc
             _lines.Enqueue(new Line(_pointA, _pointB, _color));
         }
 
+        public void DrawRectangle(RotatedRectangle _rectangle, Color _color)
+        {
+            DrawLine(_rectangle.UpperLeftCorner(), _rectangle.UpperRightCorner(), _color);
+            DrawLine(_rectangle.UpperRightCorner(), _rectangle.LowerRightCorner(), _color);
+            DrawLine(_rectangle.LowerRightCorner(), _rectangle.LowerLeftCorner(), _color);
+            DrawLine(_rectangle.LowerLeftCorner(), _rectangle.UpperLeftCorner(), _color);
+        }
+
         public void DrawRectangle(Rectangle _rectangle, Color _color)
         {
             _lines.Enqueue(new Line(new Vector2(_rectangle.X, _rectangle.Y), new Vector2(_rectangle.X + _rectangle.Width, _rectangle.Y), _color));
@@ -85,9 +91,9 @@ namespace MilkShakeFramework.Core.Game.Components.Misc
 
             Scene.RenderManager.Begin();
             Scene.RenderManager.SpriteBatch.Draw(_lineImage.Texture, _pointA, null, color,
-                             (float)Math.Atan2(_pointB.Y - _pointA.Y, _pointB.X - _pointA.X),
-                             new Vector2(0f, (float)_lineImage.Texture.Height / 2),
-                             new Vector2(Vector2.Distance(_pointA, _pointB), 1f),
+                             (float)Math.Atan2((int)(_pointB.Y - _pointA.Y), (int)(_pointB.X - _pointA.X)),
+                             new Vector2(0f, (int)(float)_lineImage.Texture.Height / 2),
+                             new Vector2((int)Vector2.Distance(_pointA, _pointB), 1f),
                              SpriteEffects.None, 0f);
 
             Scene.RenderManager.End();

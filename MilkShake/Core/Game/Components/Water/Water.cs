@@ -9,6 +9,7 @@ using MilkShakeFramework.Core.Game.Components.Water.Render;
 using MilkShakeFramework.Tools.Physics;
 using MilkShakeFramework.Core.Scenes.Components;
 using MilkShakeFramework.Core.Game.Components.Water.Modify;
+using MilkShakeFramework.Tools.Maths;
 
 namespace MilkShakeFramework.Core.Game.Components.Water
 {
@@ -50,8 +51,6 @@ namespace MilkShakeFramework.Core.Game.Components.Water
             if (renderer == null) renderer = new BasicWaterRenderer();
 
             AddNode(renderer);
-            //AddNode(new PhysicsWaterModifier());
-            //AddNode(new SplashWaterModifier(5));
         }
 
         public void Splash(float xPosition, float speed)
@@ -102,6 +101,14 @@ namespace MilkShakeFramework.Core.Game.Components.Water
             }
 
             base.Update(gameTime);
+        }
+
+        public override RotatedRectangle BoundingBox
+        {
+            get
+            {
+                return new RotatedRectangle((int)WorldPosition.X, (int)WorldPosition.Y, Width, Height);
+            }
         }
 
         public WaterColumn[] WaterColumns { get { return _columns; } }

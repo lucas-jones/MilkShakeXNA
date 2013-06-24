@@ -14,7 +14,7 @@ namespace MilkShakeFramework.Core.Game
 
         public Entity() { }
 
-        public override void AddNode(INode node)
+        public override void AddNode(INode node, int index = -1)
         {
             if (node is Entity)
             {
@@ -23,11 +23,35 @@ namespace MilkShakeFramework.Core.Game
                 if (mScene != null)
                 {
                     entity.SetScene(mScene);
-                    mScene.Listener.OnEntityAdded(entity);
+                }
+                else
+                {
+                    // [ToDo] Should AddNodes be allowed in contructor.. This causes an issue where the Scene is not set untill after it created;
+                    // so the entity never calls OnEntityAdded -> Scene never finds out about this eneity.
+
+                    // Maybe parent isn't added to scene!
+
+                    //throw new Exception("Added node in constructor!");
+                    Console.WriteLine("Warning: " + entity.Name + " [" + entity.GetType().Name + "] Added nodes before Scene was set!");
                 }
             }
 
-            base.AddNode(node);
+            base.AddNode(node, index);
+
+            if (node is Entity)
+            {
+                if (mScene != null)
+                {
+                    mScene.Listener.OnEntityAdded(node as Entity);
+                }
+            }
+        }
+
+        public override void RemoveNode(INode gameObject)
+        {
+            base.RemoveNode(gameObject);
+
+            mScene.Listener.OnEntityRemoved(gameObject as Entity);
         }
 
         public void SetScene(Scene scene)
@@ -44,18 +68,23 @@ namespace MilkShakeFramework.Core.Game
 
         public virtual void Load(LoadManager content)
         {
-            mIsLoaded = true;
-
             foreach (Entity entity in Nodes) entity.Load(content);
         }
 
         public virtual void FixUp()
         {
             foreach (Entity entity in Nodes.ToArray()) entity.FixUp();
+
+            mIsLoaded = true;
+        }
+
+        public virtual void TearDown()
+        {
+            foreach (Entity entity in Nodes.ToArray()) entity.TearDown();
         }
 
         // [Public]
         public Scene Scene { get { return mScene; } }
-        public Boolean IsLoaded { get { return mIsLoaded; } }
+        public Boolean IsLoaded { get { return mIsLoaded; } set { mIsLoaded = value; } }
     }
 }

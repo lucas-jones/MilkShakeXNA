@@ -42,20 +42,11 @@ namespace MilkShakeFramework.Core.Game.Components.UI
         public void NewDraw()
         {
             Scene.RenderManager.RawBegin();
+            Scene.RenderManager.IsRawDraw = true;
             base.Draw();
+            Scene.RenderManager.IsRawDraw = false;
             Scene.RenderManager.End();
         }
 
-        public override Vector2 Position
-        {
-            get
-            {
-                return Scene.Camera.Position; // Freeze in place
-            }
-            set
-            {
-                base.Position = value;
-            }
-        }
     }
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
+using MilkShakeFramework.Components.Physics;
 using MilkShakeFramework.Core.Content;
 using MilkShakeFramework.IO.Input.Devices;
 using Microsoft.Xna.Framework.Input;

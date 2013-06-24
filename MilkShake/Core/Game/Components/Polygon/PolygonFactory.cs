@@ -9,13 +9,35 @@ namespace MilkShakeFramework.Core.Game.Components.Polygon
 {
     public class PolygonDataFactory
     {
-        public static PolygonData PolygonFromPoints(List<Vector2> _points)
+        public static PolygonData PolygonFromPointTest(List<Vector2> _points)
         {
             Vector2[] sourceVerticies;
             int[] sourceIntIndicies;
 
             // [Clean up namespace]
-            Triangulator.Triangulator.Triangulate(_points.ToArray(), WindingOrder.Clockwise, out sourceVerticies, out sourceIntIndicies);
+            Vector2[] pointsArray = Triangulator.Triangulator.EnsureWindingOrder(_points.ToArray(), WindingOrder.CounterClockwise);
+            pointsArray = Triangulator.Triangulator.ReverseWindingOrder(pointsArray);
+
+            Triangulator.Triangulator.Triangulate(pointsArray, WindingOrder.CounterClockwise, out sourceVerticies, out sourceIntIndicies);
+
+            // Convert int[] -> short[]
+            short[] sourceShortIndicies = Array.ConvertAll<int, short>(sourceIntIndicies, p => (short)p);
+
+            return new PolygonData() { Verticies = sourceVerticies, Indicies = sourceShortIndicies, Points = _points };
+        }
+
+        public static PolygonData PolygonFromPoints(List<Vector2> _points)
+        {
+            return PolygonFromPointsOrder(_points, WindingOrder.Clockwise);
+        }
+
+        public static PolygonData PolygonFromPointsOrder(List<Vector2> _points, WindingOrder _order = WindingOrder.Clockwise)
+        {
+            Vector2[] sourceVerticies;
+            int[] sourceIntIndicies;
+            
+            // [Clean up namespace]
+            Triangulator.Triangulator.Triangulate(_points.ToArray(), _order, out sourceVerticies, out sourceIntIndicies);
 
             // Convert int[] -> short[]
             short[] sourceShortIndicies = Array.ConvertAll<int, short>(sourceIntIndicies, p => (short)p);

@@ -57,6 +57,8 @@ namespace MilkShakeFramework.Render
 
         private void RenderText(Text text)
         {
+            text.Message = text.Message ?? "Null";
+
             if (text.Shadow)
             {
                 Scene.RenderManager.SpriteBatch.DrawString(_spriteFont, text.Message, text.Position + new Vector2(1, 0), Color.Black);

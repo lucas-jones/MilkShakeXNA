@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using MilkShakeFramework.IO.File.TMX;
-using MilkShakeFramework.Core.Game;
 using MilkShakeFramework.IO.File.TMX.Components;
-using MilkShakeFramework.Core;
 
-namespace MilkShakeFramework.Components.Tile
+namespace MilkShakeFramework.Core.Game.Components.Tile
 {
 
 
@@ -59,7 +54,7 @@ namespace MilkShakeFramework.Components.Tile
         }
 
 
-        public override void AddNode(INode node)
+        public override void AddNode(INode node, int index = -1)
         {
             if (node is TileLayer) Layers.Add(node as TileLayer);
 

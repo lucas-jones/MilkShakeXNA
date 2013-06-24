@@ -15,9 +15,13 @@ namespace MilkShakeFramework.Components.Particles
         private String mAssetURL;
         private ParticleEffect mParticleEffect;
 
+        public bool AutoTrigger { get; set; }
+
         public ParticleEmitter(string _AssetURL)
         {
-            mAssetURL = _AssetURL;            
+            mAssetURL = _AssetURL;
+            AutoTrigger = false;
+            Visible = true;
         }
 
         public override void Load(LoadManager content)
@@ -30,7 +34,11 @@ namespace MilkShakeFramework.Components.Particles
             foreach (Emitter emitter in mParticleEffect)
             {
                 // Fix
-                emitter.ParticleTexture = MilkShake.ConentManager.Load<Texture2D>("distort_part");
+
+                String fileName = mAssetURL.Split('/')[mAssetURL.Split('/').Length - 1];
+                String folderURL = mAssetURL.Replace(fileName, "");
+
+                emitter.ParticleTexture = MilkShake.ConentManager.Load<Texture2D>(folderURL + emitter.ParticleTextureAssetName);
                 if (!emitter.Initialised) emitter.Initialise();
                 //EmitterBlendMode.
             }
@@ -39,25 +47,29 @@ namespace MilkShakeFramework.Components.Particles
 
         public override void Draw()
         {
-            base.Draw();
-            Scene.RenderManager.End();
+            if (Visible)
+            {
+                base.Draw();
+                Scene.RenderManager.End();
 
-            Matrix blankMatrix = Matrix.Identity;            
-            Vector3 cameraPosition = new Vector3(0, 0, 0);
-
-            Matrix view = Scene.Camera.Matrix;
-
-            Matrix mMatrix = GetViewMatrix() * GetProjectionMatrix();
-            //Matrix mMatrix = Matrix.Identity;
-            mMatrix.Translation = new Vector3(Scene.Camera.Position, 0);
+                Matrix mMatrix = Matrix.CreateTranslation(new Vector3(-(Scene.Camera.Position + Globals.ScreenCenter), 0)) * Matrix.CreateScale(Scene.Camera.Zoom) * Matrix.CreateTranslation(new Vector3(Globals.ScreenCenter, 0));
 
 
-            ParticleComponent.ParticleRenderer.RenderEffect(mParticleEffect, ref mMatrix);
-            
+                Scene.RenderManager.Begin(mMatrix);
 
-            //ParticleComponent.ParticleRenderer.RenderEffect(mParticleEffect, ref view, ref blankMatrix, ref blankMatrix, ref cameraPosition);
 
-            Scene.RenderManager.Begin();
+
+
+                //ParticleComponent.ParticleRenderer.RenderEmitter(mParticleEffect[0], ref mMatrix);
+
+
+                ParticleComponent.ParticleRenderer.RenderEffect(mParticleEffect, Scene.RenderManager.SpriteBatch);
+
+                Scene.RenderManager.End();
+                Scene.RenderManager.Begin();
+
+            }
+            //Scene.RenderManager.Begin();
         }
 
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
@@ -67,12 +79,12 @@ namespace MilkShakeFramework.Components.Particles
             float deltaSeconds = (float)gameTime.ElapsedGameTime.TotalSeconds;
             mParticleEffect.Update(deltaSeconds);
 
-            if (MouseInput.isLeftClicked()) Trigger();            
+            if(AutoTrigger) Trigger();            
         }
 
         public void Trigger()
         {
-            mParticleEffect.Trigger(Vector2.Zero);
+            mParticleEffect.Trigger(WorldPosition);
         }
 
 
@@ -109,5 +121,7 @@ namespace MilkShakeFramework.Components.Particles
         public ParticleEffect ParticleEffect { get { return mParticleEffect; } }
         public bool HasParticle { get { return Scene.ComponentManager.HasComponent<ParticlesComponent>(); } }
         public ParticlesComponent ParticleComponent { get { return Scene.ComponentManager.GetComponent<ParticlesComponent>(); } }
+
+        public bool Visible { get; set; }
     }
 }

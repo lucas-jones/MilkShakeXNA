@@ -1,20 +1,87 @@
 ﻿using System;
-using MilkShakeFramework.Render;
-using MilkShakeFramework.Core.Scenes;
+using MilkShakeFramework.Core.Game;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MilkShakeFramework.IO.Input.Devices;
+using MilkShakeFramework.Render;
+using MilkShakeFramework.Tools.Maths;
 
-using MilkShakeFramework.Components.Effects;
-
-namespace MilkShakeFramework.Core.Game.Components.Distortion
+namespace MilkShakeFramework.Components.PostProccessing.Presets
 {
     //
     // DistortionLayer!!!!! Add entitys to it
     // This as an entity = multiple layers of distortion on different depths
     // Which entitys can get added to for saving
     //
-    public class DistortionEffect : PostProcessingEffect
+    public class WaterFall : GameEntity
+    {
+        private Image _waterImage;
+
+        public int XCount { get; set; }
+        public int YCount { get; set; }
+
+        public float Speed { get; set; }
+
+        public float ScaleX { get; set; }
+        public float ScaleY { get; set; }
+
+        public WaterFall()
+        {
+            AddNode(_waterImage = new Image("Scene//Levels//Images//waterfall_distort"));
+
+            XCount = 1;
+            YCount = 2;
+
+            Speed = 10;
+
+            //Width = 241;
+            //Height = 48;
+
+            ScaleX = 1;
+            ScaleY = 1;
+        }
+
+        public override void FixUp()
+        {
+            base.FixUp();
+
+            
+        }
+
+        private float yOffset;
+
+        public override void Update(GameTime gameTime)
+        {
+            yOffset += Speed;
+
+            if (yOffset > (48 * ScaleY))
+            {
+                yOffset = 0;
+            }
+
+            base.Update(gameTime);
+        }
+
+        public override void Draw()
+        {
+            for (int Y = 0; Y < YCount; Y++)
+            {
+                Vector2 offset = WorldPosition + new Vector2(0, Y * (48 * ScaleY) + yOffset - ((48 * ScaleY) * (YCount / 2)));
+
+                _waterImage.Draw(offset, _waterImage.Texture.Width, _waterImage.Texture.Height, 0, Vector2.Zero, Color.White, ScaleX, ScaleY);    
+            }
+        }
+
+        public override RotatedRectangle BoundingBox
+        {
+            get
+            {
+                return new RotatedRectangle((int)WorldPosition.X, (int)WorldPosition.Y, (int)(241 * ScaleX), (int)(48 * ScaleY));
+            }
+        }
+    }
+
+    public class DistortionLayer : PostProcessingEffect
     {
         private Image _image;
         private SpriteBatch spriteBatch;
@@ -28,24 +95,18 @@ namespace MilkShakeFramework.Core.Game.Components.Distortion
         EffectTechnique distortTechnique;
         private const float blurAmount = 20f;
 
-        public DistortionEffect()
-            : base()
+        public DistortionLayer()  : base()
         {
-            //_image = new Image("bla");
-            testImage = MilkShake.ConentManager.Load<Texture2D>("w1K9D");
-
-
         }
 
-        public override void Load(Content.LoadManager content)
+        public override void Load(Core.Content.LoadManager content)
         {
             base.Load(content);
 
-            distortEffect = MilkShake.ConentManager.Load<Effect>("Distort");
+            distortEffect = MilkShake.ConentManager.Load<Effect>("Scene//Levels//Effects//Distort");
             distortTechnique = distortEffect.Techniques["Distort"];
 
             spriteBatch = new SpriteBatch(MilkShake.Graphics);
-
 
             PresentationParameters pp = MilkShake.Graphics.PresentationParameters;
             int width = pp.BackBufferWidth;
@@ -56,7 +117,7 @@ namespace MilkShakeFramework.Core.Game.Components.Distortion
             distortionMap = new RenderTarget2D(MilkShake.Graphics, width, height, false, format, depthFormat);
             targetMap = new RenderTarget2D(MilkShake.Graphics, width, height, false, format, depthFormat);
 
-            targetX = Globals.Random.Next(0, 0);
+            targetX = 2500;
         }
 
         int targetX = 0;
@@ -79,22 +140,9 @@ namespace MilkShakeFramework.Core.Game.Components.Distortion
             currentHeight += 10;
 
             if (currentHeight > 720) currentHeight -= 720;
-            // Needed?
-            MilkShake.Graphics.DepthStencilState = DepthStencilState.Default;
 
             Scene.RenderManager.Begin();
-
-            Color col = Color.White;
-
-
-            float numabh = MathHelper.Clamp(((float)MouseInput.Y / 720), 0, 1);
-            Console.WriteLine(numabh);
-            col.A = (byte)(numabh * 255);
-
             base.Draw();
-
-            Scene.RenderManager.Draw(new Vector2(getMultipleOfTwo(targetX), getMultipleOfTwo((int)currentHeight)), testImage, testImage.Width - 1, 720, 0, Vector2.Zero, col);
-            Scene.RenderManager.Draw(new Vector2(getMultipleOfTwo(targetX), getMultipleOfTwo((int)currentHeight) - 720), testImage, testImage.Width - 1, 720, 0, Vector2.Zero, col);
             Scene.RenderManager.End();
 
 
@@ -111,10 +159,11 @@ namespace MilkShakeFramework.Core.Game.Components.Distortion
 
             MilkShake.Graphics.SetRenderTarget(Scene.RenderTarget);
             // [Debug] Render distortion map
+
             if (_showDistortionMap || true)
             {
                 Scene.RenderManager.RawBegin();
-                Scene.RenderManager.RawDraw(Vector2.Zero, targetMap, 1280, 720, Color.White);
+                Scene.RenderManager.RawDraw(Vector2.Zero, targetMap, Globals.ScreenWidth, Globals.ScreenHeight, Color.White);
                 Scene.RenderManager.End();
             }
 

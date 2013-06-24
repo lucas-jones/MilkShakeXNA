@@ -8,10 +8,12 @@ using MilkShakeFramework.IO.Input.Devices;
 
 namespace MilkShakeFramework.Core.Game.Components.UI
 {
+    public delegate void MouseClickEvent(UISprite sprite);
+
     public class UISprite : Sprite
     {
         public bool isMouseOver;
-        public BasicEvent onMouseClick;
+        public MouseClickEvent onMouseClick;
 
         public BasicEvent onMouseEnter;
         public BasicEvent onMouseExit;
@@ -25,7 +27,7 @@ namespace MilkShakeFramework.Core.Game.Components.UI
         {
             Rectangle rect = new Rectangle((int)WorldPosition.X, (int)WorldPosition.Y, Width, Height);
 
-            bool curMouseOver = rect.Intersects(new Rectangle(MouseInput.X, MouseInput.Y, 1, 1));
+            bool curMouseOver = rect.Intersects(new Rectangle((int)MouseInput.WorldPosition.X, (int)MouseInput.WorldPosition.Y, 1, 1));
 
             if (curMouseOver != isMouseOver)
             {
@@ -41,7 +43,9 @@ namespace MilkShakeFramework.Core.Game.Components.UI
                 {
                     OnClick();
 
-                    if (onMouseClick != null) onMouseClick();
+                    string name = Name;
+
+                    if (onMouseClick != null) onMouseClick(this);
                 }
             }
 

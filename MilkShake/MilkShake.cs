@@ -20,7 +20,7 @@ namespace MilkShakeFramework
             ConentManager = Content;
             Game = this;
 
-            ApplySettings(ScreenWidth, ScreenHeight);
+            ApplySettings(ScreenWidth, ScreenHeight, Globals.IsFullscreen);
         }
 
         protected override void Initialize()

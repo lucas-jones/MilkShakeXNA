@@ -7,6 +7,7 @@ using MilkShakeFramework.Core.Content;
 using MilkShakeFramework.Core.Scenes;
 using MilkShakeFramework.Core.Filters;
 using Microsoft.Xna.Framework.Graphics;
+using MilkShakeFramework.Tools.Maths;
 
 namespace MilkShakeFramework.Core.Game
 {
@@ -89,12 +90,13 @@ namespace MilkShakeFramework.Core.Game
         }
 
         // [Public]
-        public virtual GameEntityListener Listener { get { return mListener; } }
+        public virtual GameEntityListener Listener { get { return mListener; } set { mListener = value; } }
         public virtual Vector2 Position { get { return mPosition; } set { mPosition = value; }  }
         public virtual float X { get { return mPosition.X; } set { mPosition = new Vector2(value, mPosition.Y); } }
         public virtual float Y { get { return mPosition.Y; } set { mPosition = new Vector2(mPosition.X, value); } }
 
         public virtual Vector2 WorldPosition { get { return (Parent as GameEntity).Position + Position; } }
+        public virtual RotatedRectangle BoundingBox { get { return new RotatedRectangle((int)WorldPosition.X, (int)WorldPosition.Y, 10, 10); } }
 
         public virtual bool AutoDraw { get { return mAutoDraw; } set { mAutoDraw = value; } }
     }

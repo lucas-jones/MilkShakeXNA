@@ -14,6 +14,11 @@ namespace MilkShakeFramework.Core.Game
         public event GameEntityEvent Load;
         public event GameEntityEvent Fixup;
 
+        public GameEntityListener(UpdateEvent updateEvent = null)
+        {
+            if (updateEvent != null) Update += updateEvent;
+        }
+
         public void OnUpdate(GameTime gameTime)
         {
             if (Update != null) Update(gameTime);

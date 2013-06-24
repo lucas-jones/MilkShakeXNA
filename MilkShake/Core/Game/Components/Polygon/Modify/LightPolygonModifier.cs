@@ -3,7 +3,7 @@ using System.Linq;
 using Krypton;
 using Microsoft.Xna.Framework;
 using MilkShakeFramework.Components.Lighting;
-using MilkShakeFramework.Components.Tile;
+using MilkShakeFramework.Core.Game.Components.Tile;
 using MilkShakeFramework.Core.Scenes;
 
 namespace MilkShakeFramework.Core.Game.Components.Polygon.Modify

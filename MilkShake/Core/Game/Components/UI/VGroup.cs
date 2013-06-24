@@ -19,11 +19,11 @@ namespace MilkShakeFramework.Core.Game.Components.UI
         {
             int currentY = 0;
 
-            foreach (Sprite child in Nodes)
+            foreach (GameEntity child in Nodes)
             {
                 child.Position = WorldPosition + new Vector2(0, currentY);
 
-                currentY += _gap + child.Height;
+                currentY += _gap + child.BoundingBox.Height;
             }
 
             base.Update(gameTime);

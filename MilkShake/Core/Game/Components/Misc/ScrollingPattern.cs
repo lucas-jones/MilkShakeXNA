@@ -12,10 +12,16 @@ namespace MilkShakeFramework.Core.Game.Components.Misc
         private Image image;
 
         private Vector2 offset;
+        private string _url;
+
+        public ScrollingPattern(string url)
+        {
+            _url = url;
+        }
 
         public override void Setup()
         {
-            image = new Image("pattern");
+            image = new Image(_url);
             AddNode(image);
 
             base.Setup();

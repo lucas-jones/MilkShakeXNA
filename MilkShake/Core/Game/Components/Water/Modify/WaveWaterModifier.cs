@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using MilkShakeFramework.Core.Game.Components.Misc;
-
-namespace MilkShakeFramework.Core.Game.Components.Water
+﻿namespace MilkShakeFramework.Core.Game.Components.Water.Modify
 {
     public class WaveWaterModifier : WaterModifier
     {
-        private TimeLine _timeLine;
+        
+        /*private TimeLine _timeLine;
 
         public WaveWaterModifier()
         {
@@ -20,5 +15,6 @@ namespace MilkShakeFramework.Core.Game.Components.Water
             _timeLine.AddEvent(100, () => Water.Splash(51, 9));
             _timeLine.AddEvent(100, () => Water.Splash(52, 10));
         }
+         * */
     }
 }

@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using MilkShakeFramework.Core.Game;
-using MilkShakeFramework.Core.Scenes;
-using Microsoft.Xna.Framework;
+﻿using MilkShakeFramework.Core.Game;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace MilkShakeFramework.Components.Effects
+namespace MilkShakeFramework.Components.PostProccessing
 {
     public class PostProcessingEffect : GameEntity
     {
