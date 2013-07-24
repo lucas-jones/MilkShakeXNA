@@ -9,7 +9,7 @@ namespace MilkShakeFramework.Core.Game.Components.Misc
 {
     public class ScrollingPattern : GameEntity
     {
-        private Image image;
+        private ImageRenderer image;
 
         private Vector2 offset;
         private string _url;
@@ -21,7 +21,7 @@ namespace MilkShakeFramework.Core.Game.Components.Misc
 
         public override void Setup()
         {
-            image = new Image(_url);
+            image = new ImageRenderer(_url);
             AddNode(image);
 
             base.Setup();

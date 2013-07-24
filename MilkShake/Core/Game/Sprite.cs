@@ -43,7 +43,7 @@ namespace MilkShakeFramework.Core.Game
 
     public class Sprite : GameEntity
     {
-        private Image mImage;
+        private ImageRenderer mImage;
         private int mWidth, mHeight;
         private float mRotation;
         private Vector2 mOrigin;
@@ -56,7 +56,7 @@ namespace MilkShakeFramework.Core.Game
         {
             Name = url.Split('/')[url.Split('/').Length - 1];
 
-            mImage = new Image(url) { FromStream = fromStream };
+            mImage = new ImageRenderer(url) { FromStream = fromStream };
             mColor = Color.White;
             mScale = new Vector2(1, 1);
             mAutoCenter = false;
@@ -108,7 +108,7 @@ namespace MilkShakeFramework.Core.Game
             }
         }
 
-        public Image Image { get { return mImage; } set { mImage = value; } }
+        public ImageRenderer Image { get { return mImage; } set { mImage = value; } }
         public Color Color { get { return mColor; } set { mColor = value; } }
         public float Alpha { get { return mColor.A; } set { mColor.A = (byte)(value * 255); } }
 

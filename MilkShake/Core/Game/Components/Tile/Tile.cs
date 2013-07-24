@@ -13,7 +13,7 @@ namespace MilkShakeFramework.Core.Game.Components.Tile
 {
     public class Tile : GameEntity
     {
-        public static SpriteSheet mSpriteSheet;
+        public static SpriteSheetRenderer mSpriteSheet;
         public static List<Rectangle> mTiles;
 
         public int X { get { return mX; } }
@@ -38,7 +38,7 @@ namespace MilkShakeFramework.Core.Game.Components.Tile
             mID = ID;
 
             Position = new Vector2(x * 32, y * 32);
-            mSpriteSheet = new SpriteSheet("tiles1");
+            mSpriteSheet = new SpriteSheetRenderer("tiles1");
         }
 
         public override void SetParent(Core.ITreeNode parent)

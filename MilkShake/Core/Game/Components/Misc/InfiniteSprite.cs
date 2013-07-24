@@ -9,7 +9,7 @@ namespace MilkShakeFramework.Core.Game.Components.Misc
 {
     public class InfiniteSprite : GameEntity
     {
-        private Image _image;
+        private ImageRenderer _image;
 
         private string _url;
 
@@ -22,7 +22,7 @@ namespace MilkShakeFramework.Core.Game.Components.Misc
             _url = url;
             _color = Color.White;
 
-            AddNode(_image = new Image(_url));
+            AddNode(_image = new ImageRenderer(_url));
         }
 
         public override void Load(Content.LoadManager content)

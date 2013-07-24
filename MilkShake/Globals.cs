@@ -4,6 +4,21 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace MilkShakeFramework
 {
+    public class MilkShakeSettings
+    {
+        public const int DefaultScreenHeight = 720;
+        public const int DefaultScreenWidth = 1280;
+        public const bool IsFullscreen = true;
+
+        public static bool BackToFrontRender = true;
+        public static bool EnabledVSync = true;
+        public static int MultiSampleRate = 4;
+
+        public static float DisplayUnitToSimUnitRatio = 24f;
+
+        public static bool IsMouseVisible = false;
+    }
+
     public static class Globals
     {
         // [Screen]

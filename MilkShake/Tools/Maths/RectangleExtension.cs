@@ -8,9 +8,9 @@ namespace MilkShakeFramework.Tools.Maths
 {
     public static class RectangleExtension
     {
-        public static bool Intersects(this Rectangle rect, RotatedRectangle rot)
+        public static bool Intersects(this Rectangle rectangle, RotatedRectangle rotatedRectangle)
         {
-            return rect.Intersects(rot.CollisionRectangle);
+            return rectangle.Intersects(rotatedRectangle.CollisionRectangle);
         }
     }
 }

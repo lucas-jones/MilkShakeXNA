@@ -52,7 +52,7 @@ namespace MilkShakeFramework.Core.Game.Components.Audio
             set;
         }
 
-        private LineDraw _lineDraw;
+        private PrimitiveRenderer _lineDraw;
 
         public Sound(String url, bool autoPlay = true, bool isLooped = true, bool is3D = false)
             : base()
@@ -62,7 +62,7 @@ namespace MilkShakeFramework.Core.Game.Components.Audio
             _isLooped = isLooped;
             _is3D = is3D;
 
-            if (Globals.EditorMode) AddNode(_lineDraw = new LineDraw());
+            if (Globals.EditorMode) AddNode(_lineDraw = new PrimitiveRenderer());
         }
 
         public float Volume

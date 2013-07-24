@@ -15,7 +15,7 @@ namespace MilkShakeFramework.Components.PostProccessing.Presets
     //
     public class WaterFall : GameEntity
     {
-        private Image _waterImage;
+        private ImageRenderer _waterImage;
 
         public int XCount { get; set; }
         public int YCount { get; set; }
@@ -27,7 +27,7 @@ namespace MilkShakeFramework.Components.PostProccessing.Presets
 
         public WaterFall()
         {
-            AddNode(_waterImage = new Image("Scene//Levels//Images//waterfall_distort"));
+            AddNode(_waterImage = new ImageRenderer("Scene//Levels//Images//waterfall_distort"));
 
             XCount = 1;
             YCount = 2;
@@ -83,7 +83,7 @@ namespace MilkShakeFramework.Components.PostProccessing.Presets
 
     public class DistortionLayer : PostProcessingEffect
     {
-        private Image _image;
+        private ImageRenderer _image;
         private SpriteBatch spriteBatch;
         private RenderTarget2D distortionMap;
         private RenderTarget2D targetMap;

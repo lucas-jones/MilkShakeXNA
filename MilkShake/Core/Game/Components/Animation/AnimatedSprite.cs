@@ -12,7 +12,7 @@ namespace MilkShakeFramework.Core.Game.Components.Animation
     {
         public event AnimationEvent OnAnimationComplete;
 
-        private SpriteSheet mSpriteSheet;
+        private SpriteSheetRenderer mSpriteSheet;
         private AnimationFile mAnimationFile;
         private List<Rectangle> mSpriteSource;
 
@@ -42,7 +42,7 @@ namespace MilkShakeFramework.Core.Game.Components.Animation
             mAnimationFile = new AnimationFile(fileURL);
 
             string spriteSheetPath = (fileURL.Split('.')[0]).Replace("Content//", "");
-            mSpriteSheet = new SpriteSheet(spriteSheetPath);
+            mSpriteSheet = new SpriteSheetRenderer(spriteSheetPath);
             mSpriteSource = new List<Rectangle>();
         }
 
@@ -140,7 +140,7 @@ namespace MilkShakeFramework.Core.Game.Components.Animation
 
         public Animation CurrentAnimation { get { return mAnimationFile.GetAnimation(curAnimation); } }
         public List<Rectangle> SourceRectangles { get { return mSpriteSource; } }
-        public SpriteSheet SpriteSheet { get { return mSpriteSheet; } }
+        public SpriteSheetRenderer SpriteSheet { get { return mSpriteSheet; } }
         public bool Visible { get; set; }
     }
 }

@@ -43,7 +43,7 @@ namespace MilkShakeFramework.Components.Physics
             else return pointB;
         }
 
-        public static RayCastResult ClosestRayCast(Vector2 pointA, Vector2 pointB, Func<Fixture, Boolean> filter = null, LineDraw lineDraw = null)
+        public static RayCastResult ClosestRayCast(Vector2 pointA, Vector2 pointB, Func<Fixture, Boolean> filter = null, PrimitiveRenderer lineDraw = null)
         {
             float minFrac = float.MaxValue;
 

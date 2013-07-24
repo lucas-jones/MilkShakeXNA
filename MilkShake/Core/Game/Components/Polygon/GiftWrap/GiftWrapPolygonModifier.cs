@@ -55,17 +55,17 @@ namespace MilkShakeFramework.Core.Game.Components.Polygon.GiftWrap
 
         private void MakeZone(Vector2 pointA, Vector2 pointB, Vector2 pointC, Vector2 pointD)
         {
-            float firstRotationOne = MathUtils.AngleBetweenVectors(pointA, pointB) + MathHelper.ToRadians(90);
-            float firstRotationTwo = MathUtils.AngleBetweenVectors(pointB, pointC) + MathHelper.ToRadians(90);
+            float firstRotationOne = MathUtils.AngleBetweenTwoVectors(pointA, pointB) + MathHelper.ToRadians(90);
+            float firstRotationTwo = MathUtils.AngleBetweenTwoVectors(pointB, pointC) + MathHelper.ToRadians(90);
 
             float firstRotation = adverageAngle(firstRotationOne, firstRotationTwo);
 
-            float secondRotationOne = MathHelper.ToRadians(MathHelper.ToDegrees((float)MilkShakeFramework.Tools.Utils.MathUtils.AngleBetweenVectors(pointB, pointC)) + 90);
-            float secondRotationTwo = MathHelper.ToRadians(MathHelper.ToDegrees((float)MilkShakeFramework.Tools.Utils.MathUtils.AngleBetweenVectors(pointC, pointD)) + 90);
+            float secondRotationOne = MathHelper.ToRadians(MathHelper.ToDegrees((float)MilkShakeFramework.Tools.Utils.MathUtils.AngleBetweenTwoVectors(pointB, pointC)) + 90);
+            float secondRotationTwo = MathHelper.ToRadians(MathHelper.ToDegrees((float)MilkShakeFramework.Tools.Utils.MathUtils.AngleBetweenTwoVectors(pointC, pointD)) + 90);
             float secondRotation = adverageAngle(secondRotationOne, secondRotationTwo);
 
-            Vector2 firstVector = MathUtils.AngleToV2(firstRotation, 1);
-            Vector2 secondVector = MathUtils.AngleToV2(secondRotation, 1);
+            Vector2 firstVector = MathUtils.AngleToVector2(firstRotation, 1);
+            Vector2 secondVector = MathUtils.AngleToVector2(secondRotation, 1);
 
             Vector2 topLeft = pointB + (firstVector * _height);
             Vector2 topRight = pointC + (secondVector * _height);
@@ -82,8 +82,8 @@ namespace MilkShakeFramework.Core.Game.Components.Polygon.GiftWrap
 
         public float adverageAngle(float angleOne, float angleTwo)
         {
-            Vector2 one = MilkShakeFramework.Tools.Utils.MathUtils.AngleToV2(angleOne, 1);
-            Vector2 two = MilkShakeFramework.Tools.Utils.MathUtils.AngleToV2(angleTwo, 1);
+            Vector2 one = MilkShakeFramework.Tools.Utils.MathUtils.AngleToVector2(angleOne, 1);
+            Vector2 two = MilkShakeFramework.Tools.Utils.MathUtils.AngleToVector2(angleTwo, 1);
 
             Vector2 newVector = one + ((two - one) / 2);
 

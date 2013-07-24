@@ -12,14 +12,14 @@ namespace Playground.Tools
 {
     public class EditPolygonModifier : PolygonModifier
     {
-        private Image _anchorImage, _anchorSelectedImage;
+        private ImageRenderer _anchorImage, _anchorSelectedImage;
 
         private int _selectedVertIndex = -1;
         // Store points ofr moficiation
         public EditPolygonModifier() 
         {
-            _anchorImage = new Image("icons//blue_big");
-            _anchorSelectedImage = new Image("icons//red_big");
+            _anchorImage = new ImageRenderer("icons//blue_big");
+            _anchorSelectedImage = new ImageRenderer("icons//red_big");
 
             AddNode(_anchorImage);
             AddNode(_anchorSelectedImage);

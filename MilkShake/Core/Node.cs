@@ -1,48 +1,29 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace MilkShakeFramework.Core
 {
-    public interface INode
-    {
-        Guid GUID { get; }
-        string Name { get; set; }
-        ITreeNode Parent { get; }
-
-        void SetParent(ITreeNode parent);
-        void Destroy();
-    }
-
     public class Node : INode
     {
-        private Guid mGUID;
-        private String mName;
-        private ITreeNode mParent;
+        public const string UNDEFINED_NODE_NAME = "Undefined";
+
+        public Guid GUID { get; private set; }
+        public string Name { get; set; }
+        public ITreeNode Parent { get; private set; }
 
         public Node(string name = null)
         {
-            mGUID = Guid.NewGuid();
-            mName = (name == null) ? "Undefined" : name;
+            GUID = Guid.NewGuid();
+            Name = name ?? UNDEFINED_NODE_NAME;
         }
 
         public virtual void SetParent(ITreeNode node)
         {
             if (Parent != null) Parent.RemoveNode(this);
 
-            mParent = node;
+            Parent = node;
         }
 
-        public virtual void Destroy()
-        {
-
-        }
-
-        // [Public]
-        public Guid GUID { get { return mGUID; } }
-        public string Name { get { return mName; } set { mName = value; } }
-        public ITreeNode Parent { get { return mParent; } }
+        public virtual void Destroy() { }
 
         // [Helper]
         public int SetValueOrDefault(int value, int defaultValue)

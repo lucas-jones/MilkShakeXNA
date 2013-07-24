@@ -176,8 +176,10 @@
     <Compile Include="Core\Game\Components\Water\WaterRenderer.cs" />
     <Compile Include="Core\Game\Components\Water\Modify\WaveWaterModifier.cs" />
     <Compile Include="Core\Game\Textfield.cs" />
+    <Compile Include="Core\INode.cs" />
+    <Compile Include="Core\ITreeNode.cs" />
     <Compile Include="IO\Input\Devices\MultiInput.cs" />
-    <Compile Include="Render\LineDraw.cs" />
+    <Compile Include="Render\Renderers\PrimitiveRenderer.cs" />
     <Compile Include="Core\Game\Components\Misc\ScrollingPattern.cs" />
     <Compile Include="Core\Game\Components\Polygon\GiftWrap\GiftWrapPolygonModifier.cs" />
     <Compile Include="Core\Game\Components\Polygon\Modify\LightPolygonModifier.cs" />
@@ -204,7 +206,7 @@
     <Compile Include="Core\Scenes\Components\SceneComponentManager.cs" />
     <Compile Include="Core\Scenes\SceneListener.cs" />
     <Compile Include="IO\Input\Devices\PadInput.cs" />
-    <Compile Include="Render\TextDraw.cs" />
+    <Compile Include="Render\Renderers\TextRenderer.cs" />
     <Compile Include="Tools\Debug\LogicTimer.cs" />
     <Compile Include="Tools\Debug\Watch\Watched.cs" />
     <Compile Include="Tools\Debug\Watch\WatchEntry.cs" />
@@ -235,19 +237,17 @@
     <Compile Include="IO\File\XML\NodeReader.cs" />
     <Compile Include="MilkShake.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Render\Image.cs" />
+    <Compile Include="Render\Renderers\ImageRenderer.cs" />
     <Compile Include="Render\Renderer.cs" />
     <Compile Include="Render\RenderManager.cs" />
-    <Compile Include="Render\SpriteSheet.cs" />
+    <Compile Include="Render\Renderers\SpriteSheetRenderer.cs" />
     <Compile Include="Core\Game\Components\Polygon\PolygonModifier.cs" />
-    <Compile Include="Tools\Physics\Rube\RubeImporter.cs" />
     <Compile Include="Tools\Tween\Interpolators\FloatInterpolator.cs" />
     <Compile Include="Tools\Tween\Interpolator.cs" />
     <Compile Include="Tools\Tween\Interpolators\Vector2Interpolator.cs" />
     <Compile Include="Tools\Tween\Interpolators\Vector3Interpolator.cs" />
     <Compile Include="Tools\Tween\TweenerManager.cs" />
     <Compile Include="Tools\Utils\MathUtils.cs" />
-    <Compile Include="Tools\Utils\Modifiers.cs" />
     <Compile Include="Tools\Utils\Wait.cs" />
   </ItemGroup>
   <ItemGroup />

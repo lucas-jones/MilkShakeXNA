@@ -25,11 +25,11 @@ namespace MilkShakeFramework.Core.Game.Components.Polygon.GiftWrap.Render
         private BasicEffect _effect;
         private Dictionary<GiftWrapQuad, VertexPositionTexture[]> _renderVerticies;
 
-        private Image _texture;
+        private ImageRenderer _texture;
 
         public TextureGiftWrapRenderer()
         {
-            AddNode(_texture = new Image("band"));
+            AddNode(_texture = new ImageRenderer("band"));
         }
 
         public Color Color { set { _effect.DiffuseColor = value.ToVector3(); } }
@@ -180,7 +180,7 @@ namespace MilkShakeFramework.Core.Game.Components.Polygon.GiftWrap.Render
 
 
 
-                Vector2 firstVector = MilkShakeFramework.Tools.Utils.MathUtils.AngleToV2(currentQuad.LeftRotationTwo, 45);
+                Vector2 firstVector = MilkShakeFramework.Tools.Utils.MathUtils.AngleToVector2(currentQuad.LeftRotationTwo, 45);
 
                 Vector2 daPosition = currentQuad.PointB + firstVector;
 

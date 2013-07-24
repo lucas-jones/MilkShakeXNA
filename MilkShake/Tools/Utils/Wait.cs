@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using MilkShakeFramework.Core.Scenes;
+﻿using MilkShakeFramework.Core.Scenes;
 using MilkShakeFramework.Core.Game.Components.Misc;
 
 namespace MilkShakeFramework.Tools.Utils
@@ -11,14 +7,16 @@ namespace MilkShakeFramework.Tools.Utils
     {
         public Wait(float delay, BasicEvent callBack)
         {
-            EventTimer timeLine = new EventTimer(delay);
-            timeLine.AddEvent(100, () =>
+            EventTimer eventTimer = new EventTimer(delay);
+
+            eventTimer.AddEvent(100, () =>
             {
                 callBack();
-                SceneManager.CurrentScene.RemoveNode(timeLine);
+
+                SceneManager.CurrentScene.RemoveNode(eventTimer);
             });
 
-            SceneManager.CurrentScene.AddNode(timeLine);
+            SceneManager.CurrentScene.AddNode(eventTimer);
         }
     }
 }

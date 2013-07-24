@@ -62,6 +62,6 @@ namespace MilkShakeFramework.Core.Game.Components.Polygon.GiftWrap
         public Vector2 PointC { get { return _pointC; } }
         public Vector2 PointD { get { return _pointD; } }
 
-        public float Rotation { get { return MathHelper.ToDegrees(MathUtils.AngleBetweenVectors(PointB, PointC)) + 180; } }
+        public float Rotation { get { return MathHelper.ToDegrees(MathUtils.AngleBetweenTwoVectors(PointB, PointC)) + 180; } }
     }
 }

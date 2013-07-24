@@ -11,11 +11,11 @@ namespace MilkShakeFramework.Core.Game.Components.Debug
 {
     public class WatchedDisplay : UILayer
     {
-        private TextDraw _textDraw;
+        private TextRenderer _textDraw;
 
         public WatchedDisplay() : base(DrawMode.Post)
         {
-            AddNode(_textDraw = new TextDraw());
+            AddNode(_textDraw = new TextRenderer());
         }
 
         public override void Update(GameTime gameTime)

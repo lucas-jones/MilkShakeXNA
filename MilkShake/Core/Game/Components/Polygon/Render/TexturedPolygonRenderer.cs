@@ -15,12 +15,12 @@ namespace MilkShakeFramework.Core.Game.Components.Polygon.Render
         private VertexPositionColorTexture[] _renderVerticies;
 
 
-        private Image _image;
+        private ImageRenderer _image;
         private float _scale;
 
         public TexturedPolygonRenderer(string assetURL, float scale = 1f)
         {
-            _image = new Image(assetURL);
+            _image = new ImageRenderer(assetURL);
             _scale = scale;
 
             AddNode(_image);
