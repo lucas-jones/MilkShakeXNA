@@ -68,15 +68,7 @@ namespace MilkShakeFramework.Core.Scenes
 
         public void OnUpdate(GameTime gameTime)
         {
-            if (Update != null)
-            {
-                //DateTime t1 = DateTime.Now;
-                Update(gameTime);
-                //TimeSpan elapsed = DateTime.Now - t1;
-                //double elapsedMS = elapsed.TotalMilliseconds;
-                //Console.WriteLine("TimeSpent Updating: " + elapsedMS);
-
-            }
+            if (Update != null) Update(gameTime);
         }
 
         public void OnLoad()

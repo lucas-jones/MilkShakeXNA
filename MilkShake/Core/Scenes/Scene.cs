@@ -1,20 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using MilkShakeFramework.Core.Cameras;
 using MilkShakeFramework.Core.Content;
 using MilkShakeFramework.Core.Game;
 using Microsoft.Xna.Framework;
 using MilkShakeFramework.Render;
 using Microsoft.Xna.Framework.Graphics;
-using FarseerPhysics.Dynamics;
-using FarseerPhysics.DebugViews;
-using FarseerPhysics;
-using Krypton;
 using MilkShakeFramework.Tools.Physics;
 using MilkShakeFramework.Core.Scenes.Components;
-using MilkShakeFramework.IO.Input.Devices;
 using MilkShakeFramework.Core.Events;
 using MilkShakeFramework.Tools.Tween;
 

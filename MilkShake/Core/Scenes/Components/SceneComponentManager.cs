@@ -2,23 +2,21 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using MilkShakeFramework.Core.Game;
 
 namespace MilkShakeFramework.Core.Scenes.Components
 {
-    public class SceneComponentManager
+    public class SceneComponentManager : GameEntity
     {
-        private List<SceneComponent> mComponents;
+        public List<SceneComponent> Components { get { return Nodes.OfType<SceneComponent>().ToList(); } }
 
-        public SceneComponentManager()
-        {
-            mComponents = new List<SceneComponent>();
-        }
+        public SceneComponentManager() { }
 
-        public void AddComponent(SceneComponent aComponent)
+        public void AddComponent(SceneComponent component)
         {
-            if (!HasComponent(aComponent.GetType()))
-            {                
-                mComponents.Add(aComponent);
+            if (!HasComponent(component.GetType()))
+            {
+                AddNode(component);
             }
             else
             {
@@ -26,35 +24,35 @@ namespace MilkShakeFramework.Core.Scenes.Components
             }
         }
 
-        public bool HasComponent<T>()
+        public void RemoveComponent(SceneComponent component)
         {
-            foreach (SceneComponent sceneComponent in mComponents)
+            if (HasComponent(component.GetType()))
             {
-                if (sceneComponent.GetType() == typeof(T)) return true;
+                Components.Remove(component);
             }
-
-            return false;
+            else
+            {
+                throw new Exception("Component type dosn't exists");
+            }
         }
 
-        public bool HasComponent(Type aComponent)
+        public bool HasComponent<T>()
         {
-            foreach (SceneComponent sceneComponent in mComponents)
-            {
-                if (sceneComponent.GetType() == aComponent) return true;
-            }
+            return HasComponent(typeof(T));
+        }
 
-            return false;
+        public bool HasComponent(Type component)
+        {
+            return Components.Find(c => c.GetType() == component) != null;
         }
 
         public T GetComponent<T>()
         {
-            foreach (SceneComponent sceneComponent in mComponents)
-            {
-                if (sceneComponent.GetType() == typeof(T)) return (T)(object)sceneComponent;
-            }
+            T component = (T)(object)Components.Find(c => c.GetType() == typeof(T));
 
-            throw new Exception("Component " + typeof(T).Name + " dosn't exists");
+            if(component == null) throw new Exception("Component " + typeof(T).Name + " dosn't exists");
+
+            return component;
         }
-
     }
 }

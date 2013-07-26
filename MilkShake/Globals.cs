@@ -8,7 +8,7 @@ namespace MilkShakeFramework
     {
         public const int DefaultScreenHeight = 720;
         public const int DefaultScreenWidth = 1280;
-        public const bool IsFullscreen = true;
+        public const bool IsFullscreen = false;
 
         public static bool BackToFrontRender = true;
         public static bool EnabledVSync = true;
@@ -24,7 +24,7 @@ namespace MilkShakeFramework
         // [Screen]
         public const int DefaultScreenHeight = 720;
         public const int DefaultScreenWidth = 1280;
-        public const bool IsFullscreen = true;
+        public const bool IsFullscreen = false;
 
         public static int ScreenWidth;
         public static int ScreenHeight;

@@ -35,16 +35,7 @@ namespace Playground
 
         public BasicScene() : base()
         {
-            new SceneView(this).Show();
-
             AddNode(_longCat = new Sprite("longcat"));
-        }
-
-        public override void FixUp()
-        {
-            base.FixUp();
-
-            _longCat.Filter = new GaussianBlurFilter(1, 100, 100, new Vector2(10, 10));
         }
     }
 }

@@ -1,33 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using MilkShakeFramework.Core.Game;
+﻿using MilkShakeFramework.Core.Game;
 
 namespace MilkShakeFramework.Core.Scenes.Components
 {
-    public class SceneComponent
+    public class SceneComponent : GameEntity
     {
-        private Scene mScene;
+        public SceneComponent() { }
 
-        public SceneComponent(Scene aScene)
+        public override void Setup()
         {
-            mScene = aScene;
+            base.Setup();
 
-            // Add Events
-            AddEventListeners();
+            Scene.Listener.EntityAdded += new EntityEvent(OnEntityAdded);
+            Scene.Listener.EntityRemoved += new EntityEvent(OnEntityRemoved);
         }
 
-        private void AddEventListeners()
+        public override void Destroy()
         {
-          //  mScene.OnEntityAdded += new EntityEvent(OnEntityAdded);
+            base.Destroy();
+
+            Scene.Listener.EntityAdded -= new EntityEvent(OnEntityAdded);
+            Scene.Listener.EntityRemoved -= new EntityEvent(OnEntityRemoved);
         }
 
-        public virtual void OnEntityAdded(Entity node)
-        {
-        }
-
-        // [Public]
-        public Scene Scene { get { return mScene; } }
+        protected virtual void OnEntityRemoved(Entity node) { }
+        protected virtual void OnEntityAdded(Entity node) { }
     }
 }

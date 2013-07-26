@@ -124,38 +124,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DayNight\DayNightManager.cs" />
-    <Compile Include="MetaballScene.cs" />
-    <Compile Include="Metaball\Metaball.cs" />
-    <Compile Include="Metaball\Metaballs.cs" />
-    <Compile Include="MilkSeralizeTestScene.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Game.cs" />
-    <Compile Include="RaEgg.cs" />
-    <Compile Include="SceneView.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SceneView.Designer.cs">
-      <DependentUpon>SceneView.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Script.cs">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Compile>
-    <Compile Include="Tools\EditPolygonModifier.cs" />
-    <Compile Include="Tools\KeyboardMovementModifier.cs" />
-    <Compile Include="Tools\Player.cs" />
-    <Compile Include="Tools\PolygonCreator.cs" />
-    <Compile Include="Tools\RABridge.cs" />
-    <Compile Include="Tools\ReflectiveTile.cs" />
-    <Compile Include="Tools\ShockWave.cs" />
-    <Compile Include="Tools\TerrainOne.cs" />
-    <Compile Include="Tools\TerrainTwo.cs" />
-    <Compile Include="Tools\UILayer.cs" />
-    <Compile Include="Tools\UISprite.cs" />
-    <Compile Include="Tools\VGroup.cs" />
-    <Compile Include="Tools\WaterFall.cs" />
-    <Compile Include="Tools\WireframePolygonModifier.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Game.ico" />
@@ -197,11 +168,6 @@
       <ProductName>Microsoft XNA Framework Redistributable 4.0</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="SceneView.resx">
-      <DependentUpon>SceneView.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

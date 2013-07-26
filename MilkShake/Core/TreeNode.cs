@@ -4,7 +4,7 @@ namespace MilkShakeFramework.Core
 {
     public class TreeNode : Node, ITreeNode
     {
-        private List<INode> Nodes { get; private set; }
+        public List<INode> Nodes { get; private set; }
 
         public TreeNode(string name = null) : base(name)
         {
