@@ -32,7 +32,6 @@ namespace MilkShakeFramework
             SceneManager.Setup();
         }
 
-
         protected override void Draw(GameTime gameTime)
         {
             Graphics.Clear(Globals.ScreenColour);

@@ -1,148 +1,119 @@
-﻿using System;
-using MilkShakeFramework.Core.Cameras;
+﻿using MilkShakeFramework.Core.Cameras;
 using MilkShakeFramework.Core.Content;
 using MilkShakeFramework.Core.Game;
 using Microsoft.Xna.Framework;
 using MilkShakeFramework.Render;
 using Microsoft.Xna.Framework.Graphics;
-using MilkShakeFramework.Tools.Physics;
 using MilkShakeFramework.Core.Scenes.Components;
-using MilkShakeFramework.Core.Events;
 using MilkShakeFramework.Tools.Tween;
 
 namespace MilkShakeFramework.Core.Scenes
 {
     public class Scene : GameEntity
     {
-        private SceneListener mSceneListener;
+        public SceneListener Listener { get; protected set; }
 
-        private RenderManager mRenderManager;
-        private CameraManager mCameraManager;
-        private LoadManager mLoadManager;
+        public SceneComponentManager ComponentManager { get; protected set; }
 
-        private SceneComponentManager mComponentManager;
+        public RenderManager RenderManager { get; protected set; }
+        public CameraManager CameraManager { get; protected set; }
+        public LoadManager LoadManager { get; protected set; }
+        public RenderTarget2D RenderTarget { get; protected set; }
 
-        private RenderTarget2D mRenderTarget;
+        public Camera Camera { get { return CameraManager.CurrentCamera; } }
+
         private int mRenderWidth, mRenderHeight;
         private int mWidth, mHeight;
         private Color mClearColour;
         private Color mColor;
 
-        private EventDispatcher mEventDispatcher;
-        
         public Scene()
         {
             SetScene(this);
 
-            mSceneListener = new SceneListener();
-            mEventDispatcher = new EventDispatcher();
+            Listener = new SceneListener();
 
-            mLoadManager = new LoadManager(this);
-            mCameraManager = new CameraManager(this);
-            mRenderManager = new RenderManager(this);
+            AddNode(ComponentManager = new SceneComponentManager());
+            ComponentManager.AddComponent(LoadManager = new LoadManager());            
+            ComponentManager.AddComponent(CameraManager = new CameraManager());
+            ComponentManager.AddComponent(RenderManager = new RenderManager());
 
+            // Change to alike of CameraManager?
             TweenerManager.Boot();
 
-            mComponentManager = new SceneComponentManager();
-                        
-            ConvertUnits.SetDisplayUnitToSimUnitRatio(24f);
             mColor = Color.White;
             mClearColour = Globals.ScreenColour;
         }
-
-        public Scene(Color clearColor) : this()
-        {
-            mClearColour = clearColor;
-        }
-
+        
         public override void Setup()
         {
             mWidth = SetValueOrDefault(mWidth, Globals.ScreenWidth );
             mHeight = SetValueOrDefault(mHeight, Globals.ScreenHeight);
+
             mRenderWidth = SetValueOrDefault(mRenderWidth, Globals.ScreenWidth);
             mRenderHeight = SetValueOrDefault(mRenderHeight, Globals.ScreenHeight);
 
-            mRenderTarget = new RenderTarget2D(MilkShake.Graphics, mRenderWidth, mRenderHeight, false, SurfaceFormat.Color, DepthFormat.Depth16, Globals.MultiSampleRate, RenderTargetUsage.PreserveContents); // Setup
+            RenderTarget = new RenderTarget2D(MilkShake.Graphics, mRenderWidth, mRenderHeight, false, SurfaceFormat.Color, DepthFormat.Depth16, Globals.MultiSampleRate, RenderTargetUsage.PreserveContents); // Setup
 
             base.Setup();
         }
 
         internal void LoadScene()
         {            
-            Load(ContentManager);
-            mLoadManager.SceneLoaded();
+            Load(LoadManager);
 
             Listener.OnLoad();
+
+            LoadManager.SceneLoaded();
         }
 
         public override void Update(GameTime gameTime)
         {
-            mLoadManager.Update();
-            mCameraManager.Update(gameTime);
-            TweenerManager.Update(gameTime);
+            LoadManager.Update();
+            CameraManager.Update(gameTime);
             Listener.OnUpdate(gameTime);
 
-            base.Update(gameTime);
+            TweenerManager.Update(gameTime);
 
-            Console.WriteLine(Nodes.Count);
+            base.Update(gameTime);
         }
 
         public override void Draw()
-        {
-            
+        {            
             RenderScene(); // Draws to Target Renderer
             DrawScene();   // Draws Scene on screen         
-         
         }
 
         public void RenderScene()
-        {            
-            RenderManager.SetRenderTarget(mRenderTarget);
-
+        { 
+            RenderManager.SetRenderTarget(RenderTarget);
             MilkShake.Graphics.Clear(mClearColour);
 
-            mSceneListener.OnPreDraw();
+            Listener.OnPreDraw();
             RenderManager.Begin();
 
             if(Filter != null) Filter.Begin();
+
             base.Draw();
+
             if (Filter != null) Filter.End();
 
             RenderManager.End();
-            mSceneListener.OnPostDraw();
+            Listener.OnPostDraw();
+
             RenderManager.SetRenderTarget(null);
         }
 
         private void DrawScene()
         {
+            Listener.OnPreSceneRender();
+
             RenderManager.RawBegin();
-            mSceneListener.OnPreSceneRender();
-            RenderManager.RawDraw(Position, mRenderTarget, mWidth, mHeight, mColor);            
+            RenderManager.RawDraw(Position, RenderTarget, mWidth, mHeight, mColor);            
             RenderManager.End();
-            mSceneListener.OnPostSceneRender();
+
+            Listener.OnPostSceneRender();
         }
-
-        
-        
-        
-
-        // [Public]
-        public SceneListener Listener { get { return mSceneListener; } }
-        public EventDispatcher EventDispatcher { get { return mEventDispatcher; } }
-
-
-        public CameraManager CameraManager { get { return mCameraManager; } }
-        public LoadManager ContentManager { get { return mLoadManager; } }
-
-
-
-        // Component
-        public SceneComponentManager ComponentManager { get { return mComponentManager; } }
-
-        public Camera Camera { get { return mCameraManager.CurrentCamera; } }
-        public RenderManager RenderManager { get { return mRenderManager; } }
-
-        public RenderTarget2D RenderTarget { get { return mRenderTarget; } } 
 
         public int RenderWidth { get { return mRenderWidth; } set { mRenderWidth = value; } }
         public int RenderHeight { get { return mRenderHeight; } set { mRenderHeight = value; } }

@@ -18,7 +18,7 @@ namespace MilkShakeFramework.Core.Cameras
 
         public Dictionary<string, Camera> Cameras { get; private set; }
 
-        public CameraManager(Scene scene) : base(scene)
+        public CameraManager()
         {
             Cameras = new Dictionary<string, Camera>();
 

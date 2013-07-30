@@ -10,7 +10,7 @@ namespace MilkShakeFramework.Components.Lighting
         private KryptonEngine mLight;
         private Matrix mMatrix;
 
-        public LightingComponent(Scene mScene, LightMapSize mLightMapSize = LightMapSize.Full, int mBluriness = 0) : base(mScene)
+        public LightingComponent(Scene mScene, LightMapSize mLightMapSize = LightMapSize.Full, int mBluriness = 0)
         {
             mLight = new KryptonEngine(MilkShake.Game, "KryptonEffect");
             mLight.Initialize();

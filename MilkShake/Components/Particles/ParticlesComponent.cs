@@ -18,8 +18,7 @@ namespace MilkShakeFramework.Components.Particles
     {
         private SpriteBatchRenderer mSpriteBatchRenderer;
 
-
-        public ParticlesComponent(Scene aScene) : base(aScene)
+        public ParticlesComponent()
         {
             Scene.Listener.EntityAdded += new EntityEvent(Listener_EntityAdded);
             Scene.Listener.PostDraw[DrawLayer.First] += new DrawEvent(Draw);

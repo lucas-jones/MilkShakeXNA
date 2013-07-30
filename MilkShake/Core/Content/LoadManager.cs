@@ -13,12 +13,10 @@ namespace MilkShakeFramework.Core.Content
         private Queue<Entity> mLoadQueue;
         private bool mSceneLoaded;
 
-        public LoadManager(Scene scene) : base(scene)
+        public LoadManager()
         {
             mLoadQueue = new Queue<Entity>();
-            mSceneLoaded = false;
-
-                     
+            mSceneLoaded = false;                     
         }
 
         public void SceneLoaded()
@@ -56,8 +54,6 @@ namespace MilkShakeFramework.Core.Content
 
         private void LoadEntity(Entity entity)
         {
-            //Console.WriteLine("[Dynamic Load] " + entity.GUID);
-
             if (!entity.IsLoaded)
             {
                 entity.Setup();
@@ -68,6 +64,5 @@ namespace MilkShakeFramework.Core.Content
 
         // [Public]
         public bool IsLoaded { get { return mSceneLoaded; } }
-
     }
 }

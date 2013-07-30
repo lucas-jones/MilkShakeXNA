@@ -16,7 +16,7 @@ namespace MilkShakeFramework.Render
         private SpriteBatch _spriteBatch;
         private SamplerState _samplerState;        
 
-        public RenderManager(Scene scene) : base(scene)
+        public RenderManager()
         {
             _spriteBatch = new SpriteBatch(MilkShake.Graphics);
             _samplerState = SamplerState;

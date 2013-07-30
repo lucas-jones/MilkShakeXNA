@@ -1,46 +1,42 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using Microsoft.Xna.Framework.Graphics;
 using MilkShakeFramework.Core.Content;
 using Microsoft.Xna.Framework;
-using MilkShakeFramework.Core.Scenes;
 using System.IO;
 
 namespace MilkShakeFramework.Render
 {
     public class ImageRenderer : Renderer
     {
-        private Texture2D mTexture2D;
-        private bool mFromStream = false;
-        private string mURL;
+        public const string DEFAULT_MISSING_TEXTURE = "MilkShake//MISSING_IMAGE";
+
+        public Texture2D Texture { get; private set; }
+        public string URL { get; private set; }
+        public bool FromStream { get; set; }
 
         public ImageRenderer(string url)
         {
-            mURL = url;
+            URL = url;
         }
 
         public override void Load(LoadManager content)
         {
             try
             {
-                if (mFromStream == false)
+                if (FromStream)
                 {
-                    mTexture2D = MilkShake.ConentManager.Load<Texture2D>(URL);
+                    Texture = Texture2D.FromStream(MilkShake.Graphics, File.OpenRead(URL));
                 }
                 else
                 {
-                    using (FileStream stream = File.OpenRead(mURL))
-                    {
-                        mTexture2D = Texture2D.FromStream(MilkShake.Graphics, stream);
-                    }
+                    Texture = MilkShake.ConentManager.Load<Texture2D>(URL);
                 }
             }
             catch (Exception error)
             {
                 Console.WriteLine("Missing Texture " + URL);
-                mTexture2D = MilkShake.ConentManager.Load<Texture2D>("Scene//Temp//MISSING_IMAGE");                
+
+                Texture = MilkShake.ConentManager.Load<Texture2D>(DEFAULT_MISSING_TEXTURE);
             }
 
             base.Load(content);
@@ -68,10 +64,9 @@ namespace MilkShakeFramework.Render
             }
         }
 
-        public Texture2D Texture { get { return mTexture2D; } set { mTexture2D = value; } }
-        public string URL { get { return mURL; } }
-        public Vector2 ImageCenter { get { return new Vector2(Texture.Width / 2, Texture.Height / 2); } }
-        public bool FromStream { get { return mFromStream; } set { mFromStream = value; } }
-
+        public Vector2 ImageCenter
+        {
+            get { return new Vector2(Texture.Width / 2, Texture.Height / 2);}
+        }
     }
 }

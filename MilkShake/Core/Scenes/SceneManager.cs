@@ -55,7 +55,7 @@ namespace MilkShakeFramework.Core.Scenes
 
             mCurrentScreenKey = key;
 
-            if (!CurrentScene.ContentManager.IsLoaded)
+            if (!CurrentScene.LoadManager.IsLoaded)
             {
                 CurrentScene.Setup();
                 CurrentScene.LoadScene();
@@ -71,7 +71,7 @@ namespace MilkShakeFramework.Core.Scenes
         {
             Scene sceneToLoad = Scenes[key];
 
-            if (!sceneToLoad.ContentManager.IsLoaded)
+            if (!sceneToLoad.LoadManager.IsLoaded)
             {
                 BackgroundWorker backgroundLoad = new BackgroundWorker();
 

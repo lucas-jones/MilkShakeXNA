@@ -25,7 +25,7 @@ namespace MilkShakeFramework.Components.Physics
         private Vector2 mGravity;
         private bool mCameraRotationGravity;
 
-        public PhysicsComponent(Scene aScene, Vector2 aGravity, bool aOptimised = false) : base(aScene)
+        public PhysicsComponent(Vector2 aGravity, bool aOptimised = false)
         {
             ConvertUnits.SetDisplayUnitToSimUnitRatio(24f);
 
