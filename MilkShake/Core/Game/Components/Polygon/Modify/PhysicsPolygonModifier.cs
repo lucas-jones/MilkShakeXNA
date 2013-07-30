@@ -9,6 +9,7 @@ using MilkShakeFramework.Core.Scenes;
 using MilkShakeFramework.Core.Scenes.Components;
 using MilkShakeFramework.Tools.Physics;
 using MilkShakeFramework.Components.Physics;
+using FarseerPhysics;
 
 namespace MilkShakeFramework.Core.Game.Components.Polygon.Modify
 {
@@ -33,6 +34,7 @@ namespace MilkShakeFramework.Core.Game.Components.Polygon.Modify
             Polygon.PolygonData.Points.ToList<Vector2>().ForEach(s => physicsVerts.Add(ConvertUnits.ToSimUnits(s + Polygon.WorldPosition)));
 
             // Convert points to verticies
+            /*
             List<Vertices> vers = EarclipDecomposer.ConvexPartition(new Vertices(physicsVerts));
 
             _physicsBody = BodyFactory.CreateCompoundPolygon(PhysicsComponent.World, vers, 1);
@@ -40,6 +42,7 @@ namespace MilkShakeFramework.Core.Game.Components.Polygon.Modify
             _physicsBody.BodyType = BodyType.Static;
             _physicsBody.Friction = 2;
             _physicsBody.UserData = new IgnoreWater();
+             * */
         }
 
         public override void Update(GameTime gameTime)

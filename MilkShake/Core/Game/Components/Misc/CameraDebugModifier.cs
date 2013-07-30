@@ -33,6 +33,9 @@ namespace MilkShakeFramework.Core.Game.Components.Misc
             if (KeyboardInput.isKeyDown(_left)) movement.X -= _speed;
             if (KeyboardInput.isKeyDown(_right)) movement.X += _speed;
 
+            if (KeyboardInput.isKeyDown(Keys.Q)) Scene.Camera.Zoom += 0.01F;
+            if (KeyboardInput.isKeyDown(Keys.E)) Scene.Camera.Zoom -= 0.01F;
+
             if (KeyboardInput.isKeyDown(Keys.LeftShift)) movement *= 2.5f;
 
             Scene.Camera.Position += movement;

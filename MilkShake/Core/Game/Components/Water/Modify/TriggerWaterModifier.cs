@@ -8,6 +8,7 @@ using MilkShakeFramework.Core.Scenes.Components;
 using FarseerPhysics.Dynamics;
 using MilkShakeFramework.Tools.Physics;
 using Microsoft.Xna.Framework;
+using FarseerPhysics;
 
 namespace MilkShakeFramework.Core.Game.Components.Water.Modify
 {

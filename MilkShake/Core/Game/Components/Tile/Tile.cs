@@ -8,6 +8,7 @@ using MilkShakeFramework.Components.Lighting;
 using MilkShakeFramework.Components.Physics;
 using MilkShakeFramework.Render;
 using MilkShakeFramework.Tools.Physics;
+using FarseerPhysics;
 
 namespace MilkShakeFramework.Core.Game.Components.Tile
 {

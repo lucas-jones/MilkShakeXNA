@@ -17,6 +17,7 @@ using FarseerPhysics.Dynamics;
 using MilkShakeFramework.Tools.Physics;
 using FarseerPhysics.Common.Decomposition;
 using MilkShakeFramework.Core.Scenes;
+using FarseerPhysics;
 
 namespace MilkShakeFramework.Core.Game.Components.Polygon.GiftWrap.Render
 {
@@ -84,7 +85,7 @@ namespace MilkShakeFramework.Core.Game.Components.Polygon.GiftWrap.Render
 
             List<Vector2> physicsVerts = new List<Vector2>();
             vets.ToList<Vector2>().ForEach(s => physicsVerts.Add(ConvertUnits.ToSimUnits(s)));
-            
+            /*
             List<Vertices> vers = EarclipDecomposer.ConvexPartition(new Vertices(physicsVerts));
 
             Body body = BodyFactory.CreateCompoundPolygon(physics.World, vers, 1);
@@ -131,7 +132,7 @@ namespace MilkShakeFramework.Core.Game.Components.Polygon.GiftWrap.Render
             currentQuad[5].Position = new Vector3(quad.BottomLeft, 0);
             currentQuad[5].TextureCoordinate = new Vector2(0, 1);
 
-            _renderVerticies.Add(quad, currentQuad);
+            _renderVerticies.Add(quad, currentQuad);*/
         }
 
         public override void Draw()

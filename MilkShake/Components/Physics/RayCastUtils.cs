@@ -10,6 +10,7 @@ using MilkShakeFramework.Tools.Physics;
 using MilkShakeFramework.Core.Game.Components.Misc;
 using MilkShakeFramework.Tools.Utils;
 using FarseerPhysics.Dynamics;
+using FarseerPhysics;
 
 namespace MilkShakeFramework.Components.Physics
 {

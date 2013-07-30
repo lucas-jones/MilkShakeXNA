@@ -14,6 +14,7 @@ using MilkShakeFramework.Tools.Physics;
 
 namespace MilkShakeFramework.Components.Physics
 {
+    /*
     public class IgnoreWater
     { }
 
@@ -152,5 +153,5 @@ namespace MilkShakeFramework.Components.Physics
                 //body.ApplyTorque(-body.Inertia / body.Mass * area * body.AngularVelocity * AngularDragCoefficient);
             }
         }
-    }
+    }*/
 }

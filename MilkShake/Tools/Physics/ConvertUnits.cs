@@ -5,6 +5,8 @@ namespace MilkShakeFramework.Tools.Physics
     /// <summary>
     /// Convert units between display and simulation units.
     /// </summary>
+    //
+    /*
     public static class ConvertUnits
     {
         private static float _displayUnitsToSimUnitsRatio = 100f;
@@ -99,5 +101,6 @@ namespace MilkShakeFramework.Tools.Physics
             simUnits.X = x * _simUnitsToDisplayUnitsRatio;
             simUnits.Y = y * _simUnitsToDisplayUnitsRatio;
         }
-    }
+     * 
+    }*/
 }

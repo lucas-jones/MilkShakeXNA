@@ -1,11 +1,11 @@
 ﻿using System;
 using FarseerPhysics.Dynamics;
 using Microsoft.Xna.Framework;
-using FarseerPhysics.DebugViews;
 using MilkShakeFramework.Core.Scenes;
 using MilkShakeFramework.Core.Scenes.Components;
 using MilkShakeFramework.Tools.Physics;
 using FarseerPhysics;
+using FarseerPhysics.DebugView;
 
 namespace MilkShakeFramework.Components.Physics
 {
@@ -40,19 +40,25 @@ namespace MilkShakeFramework.Components.Physics
             mDebugView.LoadContent(MilkShake.Graphics, MilkShake.ConentManager);
 
             // [Add Listeners]
-            Scene.Listener.Update += new UpdateEvent(Update);
-            Scene.Listener.PostDraw[DrawLayer.First] += new DrawEvent(Draw);
+           
             Settings.AllowSleep = false;
             // Optimise
-			if(aOptimised)
+			if(true)
 			{
          	   	Settings.AllowSleep = false;
-         	   	Settings.EnableDiagnostics = false;
+         	   	//Settings.EnableDiagnostics = false;
         	    Settings.VelocityIterations = 6;
        	     	Settings.PositionIterations = 4;
        	    	Settings.ContinuousPhysics = false;
 			}
+        }
 
+        public override void FixUp()
+        {
+            base.FixUp();
+
+            Scene.Listener.Update += new UpdateEvent(Update);
+            Scene.Listener.PostDraw[DrawLayer.First] += new DrawEvent(Draw);
         }
 
         public void Update(GameTime gameTime)

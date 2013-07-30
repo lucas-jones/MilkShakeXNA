@@ -60,10 +60,6 @@
     <XnaCompressContent>true</XnaCompressContent>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="FarseerPhysicsXNA, Version=3.3.4504.22430, Culture=neutral, processorArchitecture=x86">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Library\FarseerPhysicsXNA.dll</HintPath>
-    </Reference>
     <Reference Include="Krypton, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Library\Krypton.dll</HintPath>
@@ -133,6 +129,10 @@
     <Content Include="GameThumbnail.png" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\farseerphysics-103558\SourceFiles\Farseer Physics XNA.csproj">
+      <Project>{0A850700-1ABB-4288-A391-6726B90EBEB9}</Project>
+      <Name>Farseer Physics XNA</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\MilkShake\MilkShake.csproj">
       <Project>{0DCD3FF8-3A59-4EBC-B32C-F090350C354C}</Project>
       <Name>MilkShake</Name>
