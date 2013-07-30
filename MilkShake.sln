@@ -3,13 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual C# Express 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MilkShake", "MilkShake\MilkShake.csproj", "{0DCD3FF8-3A59-4EBC-B32C-F090350C354C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Playground", "Playground\Playground\Playground.csproj", "{8A596477-A55A-42A3-B736-2E6477ACFF1A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Samples", "Playground\Playground\Samples.csproj", "{8A596477-A55A-42A3-B736-2E6477ACFF1A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlaygroundContent", "Playground\PlaygroundContent\PlaygroundContent.contentproj", "{5CF3D429-AC20-41FB-8370-9854AA73700A}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Farseer Physics XNA", "..\farseerphysics-103558\SourceFiles\Farseer Physics XNA.csproj", "{0A850700-1ABB-4288-A391-6726B90EBEB9}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DebugView XNA", "..\farseerphysics-103558\DebugViews\DebugView XNA\DebugView XNA.csproj", "{FC7845FA-13FE-4FF8-822A-A577F3F59B00}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SamplesContent", "Playground\PlaygroundContent\SamplesContent.contentproj", "{5CF3D429-AC20-41FB-8370-9854AA73700A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,14 +23,6 @@ Global
 		{8A596477-A55A-42A3-B736-2E6477ACFF1A}.Release|x86.Build.0 = Release|x86
 		{5CF3D429-AC20-41FB-8370-9854AA73700A}.Debug|x86.ActiveCfg = Debug|x86
 		{5CF3D429-AC20-41FB-8370-9854AA73700A}.Release|x86.ActiveCfg = Release|x86
-		{0A850700-1ABB-4288-A391-6726B90EBEB9}.Debug|x86.ActiveCfg = Debug|x86
-		{0A850700-1ABB-4288-A391-6726B90EBEB9}.Debug|x86.Build.0 = Debug|x86
-		{0A850700-1ABB-4288-A391-6726B90EBEB9}.Release|x86.ActiveCfg = Release|x86
-		{0A850700-1ABB-4288-A391-6726B90EBEB9}.Release|x86.Build.0 = Release|x86
-		{FC7845FA-13FE-4FF8-822A-A577F3F59B00}.Debug|x86.ActiveCfg = Debug|x86
-		{FC7845FA-13FE-4FF8-822A-A577F3F59B00}.Debug|x86.Build.0 = Debug|x86
-		{FC7845FA-13FE-4FF8-822A-A577F3F59B00}.Release|x86.ActiveCfg = Release|x86
-		{FC7845FA-13FE-4FF8-822A-A577F3F59B00}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

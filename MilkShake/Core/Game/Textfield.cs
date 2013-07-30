@@ -17,11 +17,10 @@ namespace MilkShakeFramework.Core.Game
         public bool AutoCenter { get; set; }
         public Vector2 Origin { get; set; }
 
-        public Textfield(string fontURL, string text, Color color)
+        public Textfield(string fontURL, string text = "")
         {
             FontURL = fontURL;
             Text = text;
-            Color = color;
         }
 
         public override void Load(LoadManager content)
