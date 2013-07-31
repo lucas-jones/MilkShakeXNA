@@ -9,25 +9,25 @@ using MilkShakeFramework.Core.Scenes;
 
 namespace MilkShakeFramework.Tools.Tween
 {
-    public delegate void TweenPositionUpdate(float value);
+    public delegate void TweenPositionUpdate<T>(T value);
     public delegate void ColorTweenPositionUpdate(Color value);
 
     public class TweenerManager
     {
-        private static List<Tweener> _tweens;
+        private static List<ITweener> _tweens;
         private static List<ColorTweener> _colorTweens;
 
         public static void Boot()
         {
-            _tweens = new List<Tweener>();
+            _tweens = new List<ITweener>();
             _colorTweens = new List<ColorTweener>();
         }
 
-        public static void AddTween(Tweener tweener, TweenPositionUpdate updateCallback, BasicEvent endCallback = null)
+        public static void AddTween<T>(BaseTweener<T> tweener, TweenPositionUpdate<T> updateCallback, BasicEvent endCallback = null)
         {
             _tweens.Add(tweener);
 
-            tweener.PositionChanged += new PositionChangedHandler<float>((value) => updateCallback(value));
+            tweener.PositionChanged += new PositionChangedHandler<T>((value) => updateCallback(value));
             tweener.Ended += () =>
             {
                 if (endCallback != null) endCallback();

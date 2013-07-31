@@ -115,13 +115,21 @@ namespace MilkShakeFramework.Core.Scenes
             Listener.OnPostSceneRender();
         }
 
+        public virtual void OnEnterSceen()
+        {
+        }
+
+        public virtual void OnExitSceen()
+        {
+        }
+
         public int RenderWidth { get { return mRenderWidth; } set { mRenderWidth = value; } }
         public int RenderHeight { get { return mRenderHeight; } set { mRenderHeight = value; } }
 
         public int Width { get { return mWidth; } set { mWidth = value; } }
         public int Height { get { return mHeight; } set { mHeight = value; } }
 
-        public Color Color { get { return mColor; } set { mColor = value; } }
+        public Color SceneColor { get { return mColor; } set { mColor = value; } }
         public Color ClearColor { get { return mClearColour; } set { mClearColour = value; } }
 
         public override Vector2 WorldPosition { get { return Position; } }

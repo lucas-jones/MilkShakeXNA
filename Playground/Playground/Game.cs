@@ -18,6 +18,7 @@ using FarseerPhysics;
 using MilkShakeFramework.Core.Game.Components.Misc;
 using MilkShakeFramework.Tools.Utils;
 using Samples.Scenes.Demo1;
+using Samples.Scenes.Demos;
 
 namespace Samples
 {
@@ -30,7 +31,10 @@ namespace Samples
             base.Initialize();
 
             SceneManager.AddScene("Demo1", new Demo1Scene());
-            SceneManager.ChangeScreen("Demo1");           
+            SceneManager.AddScene("Demo2", new Demo2Scene());
+            SceneManager.AddScene("Demo_BreakOut", new Demo_BreakOut());
+
+            SceneManager.ChangeScreen("Demo_BreakOut");           
         }
     }
 }

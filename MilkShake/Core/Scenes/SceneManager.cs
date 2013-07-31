@@ -12,7 +12,7 @@ namespace MilkShakeFramework.Core.Scenes
 
     public static class SceneManager
     {
-        public static SceneChangeEvent OnSceneChange;
+        public static event SceneChangeEvent OnSceneChange;
         public static event SceneChangeEvent OnSceneLoadStart;
         public static event SceneChangeEvent OnSceneLoadComplete;
         public static event SceneChangeEvent OnSceneLoadEnd;
@@ -23,6 +23,9 @@ namespace MilkShakeFramework.Core.Scenes
         public static void Setup()
         {
             mScenes = new Dictionary<string, Scene>();
+
+            // Dispatch OnEnter Screen to Scene
+            OnSceneChange += (scene) => scene.OnEnterSceen();
 
             AddScene("Default", new Scene());
             ChangeScreen("Default");

@@ -121,13 +121,19 @@
     <Reference Include="Triangulator">
       <HintPath>..\..\Library\Triangulator.dll</HintPath>
     </Reference>
+    <Reference Include="XNATweeners, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Library\XNATweeners.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Game.cs" />
-    <Compile Include="Scenes\Demo1\Demo1Scene.cs" />
+    <Compile Include="Scenes\Demos\Demo1Scene.cs" />
+    <Compile Include="Scenes\Demos\Demo2Scene.cs" />
     <Compile Include="Scenes\DemoScene.cs" />
+    <Compile Include="Scenes\Demos\Demo_BreakOutcs.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Game.ico" />

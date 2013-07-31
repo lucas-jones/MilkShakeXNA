@@ -181,7 +181,7 @@ namespace MilkShakeFramework.Components.PostProccessing.Presets
         void DrawFullscreenQuad(Texture2D texture, int width, int height, Effect effect)
         {
             spriteBatch.Begin(0, BlendState.NonPremultiplied, null, null, null, effect);
-            spriteBatch.Draw(texture, new Rectangle(0, 0, width, height),Scene.Color);
+            spriteBatch.Draw(texture, new Rectangle(0, 0, width, height),Scene.SceneColor);
             spriteBatch.End();
         }
 

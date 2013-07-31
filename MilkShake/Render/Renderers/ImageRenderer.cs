@@ -6,31 +6,39 @@ using System.IO;
 
 namespace MilkShakeFramework.Render
 {
+    public enum ImageRendererLoadMode
+    {
+        Content,
+        Steam,
+        Texture
+    }
+
     public class ImageRenderer : Renderer
     {
         public const string DEFAULT_MISSING_TEXTURE = "MilkShake//MISSING_IMAGE";
 
         public Texture2D Texture { get; private set; }
         public string URL { get; private set; }
-        public bool FromStream { get; set; }
+        public ImageRendererLoadMode LoadMode { get; set; }
 
-        public ImageRenderer(string url)
+        public ImageRenderer(string url, ImageRendererLoadMode loadMode = ImageRendererLoadMode.Content)
         {
             URL = url;
+            LoadMode = loadMode;
+        }
+
+        public ImageRenderer(Texture2D texture)
+        {
+            Texture = texture;
+            LoadMode = ImageRendererLoadMode.Texture;
         }
 
         public override void Load(LoadManager content)
         {
             try
             {
-                if (FromStream)
-                {
-                    Texture = Texture2D.FromStream(MilkShake.Graphics, File.OpenRead(URL));
-                }
-                else
-                {
-                    Texture = MilkShake.ConentManager.Load<Texture2D>(URL);
-                }
+                if (LoadMode == ImageRendererLoadMode.Content) Texture = MilkShake.ConentManager.Load<Texture2D>(URL);
+                if(LoadMode == ImageRendererLoadMode.Steam) Texture = Texture2D.FromStream(MilkShake.Graphics, File.OpenRead(URL));
             }
             catch (Exception error)
             {

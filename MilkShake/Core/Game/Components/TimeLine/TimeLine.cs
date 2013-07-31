@@ -40,13 +40,13 @@ namespace MilkShakeFramework.Core.Game.Components.TimeLine
             new Wait(Time, Complete);
         }
     }
-
-    public class TweenTask : TimeLineTask
+    /*
+    public class TweenTask<T> : TimeLineTask
     {
         public Tweener Tweener { get; private set; }
-        public TweenPositionUpdate UpdateCallback { get; private set; }
+        public TweenPositionUpdate<T> UpdateCallback { get; private set; }
 
-        public TweenTask(Tweener tweener, TweenPositionUpdate updateCallback)
+        public TweenTask<T>(Tweener tweener, TweenPositionUpdate<T> updateCallback)
         {
             Tweener = tweener;
             UpdateCallback = updateCallback;
@@ -57,7 +57,7 @@ namespace MilkShakeFramework.Core.Game.Components.TimeLine
             TweenerManager.AddTween(Tweener, UpdateCallback, Complete);
         }
     }
-
+    */
     public class CustomTask : TimeLineTask
     {
         private BasicEvent _customAction;

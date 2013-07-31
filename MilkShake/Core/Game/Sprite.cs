@@ -6,6 +6,7 @@ using MilkShakeFramework.Render;
 using MilkShakeFramework.Core.Content;
 using Microsoft.Xna.Framework;
 using MilkShakeFramework.Tools.Maths;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace MilkShakeFramework.Core.Game
 {
@@ -56,7 +57,7 @@ namespace MilkShakeFramework.Core.Game
         {
             Name = url.Split('/')[url.Split('/').Length - 1];
 
-            mImage = new ImageRenderer(url) { FromStream = fromStream };
+            mImage = new ImageRenderer(url, (fromStream) ? ImageRendererLoadMode.Steam : ImageRendererLoadMode.Content);
             mColor = Color.White;
             mScale = new Vector2(1, 1);
             mAutoCenter = false;
@@ -65,6 +66,17 @@ namespace MilkShakeFramework.Core.Game
             AddNode(mImage);
         }
 
+        public Sprite(Texture2D texture)
+        {
+            mImage = new ImageRenderer(texture);
+            mColor = Color.White;
+            mScale = new Vector2(1, 1);
+            mAutoCenter = false;
+            mVisible = true;
+
+            AddNode(mImage);
+        }
+        
         public override void Setup()
         {
 
