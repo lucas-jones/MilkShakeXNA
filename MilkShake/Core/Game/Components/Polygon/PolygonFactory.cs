@@ -9,6 +9,7 @@ namespace MilkShakeFramework.Core.Game.Components.Polygon
 {
     public class PolygonDataFactory
     {
+        /*
         public static PolygonData PolygonFromPointTest(List<Vector2> _points)
         {
             Vector2[] sourceVerticies;
@@ -25,12 +26,12 @@ namespace MilkShakeFramework.Core.Game.Components.Polygon
 
             return new PolygonData() { Verticies = sourceVerticies, Indicies = sourceShortIndicies, Points = _points };
         }
-
+        
         public static PolygonData PolygonFromPoints(List<Vector2> _points)
         {
             return PolygonFromPointsOrder(_points, WindingOrder.Clockwise);
         }
-
+        
         public static PolygonData PolygonFromPointsOrder(List<Vector2> _points, WindingOrder _order = WindingOrder.Clockwise)
         {
             Vector2[] sourceVerticies;
@@ -44,7 +45,7 @@ namespace MilkShakeFramework.Core.Game.Components.Polygon
 
             return new PolygonData() { Verticies = sourceVerticies, Indicies = sourceShortIndicies, Points = _points };
         }
-
+        */
         public static PolygonData Tri(int _width, int _height)
         {
             Vector2[] sourceVerticies = new Vector2[3];
@@ -61,7 +62,7 @@ namespace MilkShakeFramework.Core.Game.Components.Polygon
 
             return new PolygonData() { Verticies = sourceVerticies, Indicies = sourceIndicies };
         }
-
+        /*
         public static PolygonData Quad(int _width, int _height)
         {
             List<Vector2> quad = new List<Vector2>();
@@ -71,6 +72,6 @@ namespace MilkShakeFramework.Core.Game.Components.Polygon
             quad.Add(new Vector2(_width, 0));
 
             return PolygonFromPoints(quad);
-        }
+        }*/
     }
 }

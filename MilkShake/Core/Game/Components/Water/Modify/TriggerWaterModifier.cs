@@ -5,10 +5,9 @@ using System.Text;
 using FarseerPhysics.Factories;
 using MilkShakeFramework.Components.Physics;
 using MilkShakeFramework.Core.Scenes.Components;
-using FarseerPhysics.Dynamics;
 using MilkShakeFramework.Tools.Physics;
 using Microsoft.Xna.Framework;
-using FarseerPhysics;
+using FarseerPhysics.Dynamics;
 
 namespace MilkShakeFramework.Core.Game.Components.Water.Modify
 {

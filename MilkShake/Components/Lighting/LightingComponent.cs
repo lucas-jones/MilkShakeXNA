@@ -10,7 +10,7 @@ namespace MilkShakeFramework.Components.Lighting
         private KryptonEngine mLight;
         private Matrix mMatrix;
 
-        public LightingComponent(Scene mScene, LightMapSize mLightMapSize = LightMapSize.Full, int mBluriness = 0)
+        public LightingComponent(LightMapSize mLightMapSize = LightMapSize.Full, int mBluriness = 0)
         {
             mLight = new KryptonEngine(MilkShake.Game, "KryptonEffect");
             mLight.Initialize();
@@ -18,6 +18,11 @@ namespace MilkShakeFramework.Components.Lighting
             // [Settings]
             mLight.LightMapSize = mLightMapSize;
             mLight.Bluriness = mBluriness;
+        }
+
+        public override void FixUp()
+        {
+            base.FixUp();
 
             // [Events]
             Scene.Listener.PreDraw[DrawLayer.First] += new DrawEvent(PreDraw);

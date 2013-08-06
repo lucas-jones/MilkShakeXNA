@@ -49,7 +49,7 @@ namespace MilkShakeFramework.Core.Game.Components.Polygon.Render
         public override void GenerateRenderer(Vector2[] _verticies, short[] _indices)
         {
             _renderIndices = _indices;
-            _renderVerticies = Array.ConvertAll<Vector2, VertexPositionColor>(_verticies, v => new VertexPositionColor(new Vector3(Polygon.WorldPosition + v, 0), _color));
+            //_renderVerticies = Array.ConvertAll<Vector2, VertexPositionColor>(_verticies, v => new VertexPositionColor(new Vector3(Polygon.WorldPosition + v, 0), _color));
         }
 
         public override void  Draw()

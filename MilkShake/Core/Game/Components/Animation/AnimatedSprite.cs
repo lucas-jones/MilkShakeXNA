@@ -4,6 +4,7 @@ using MilkShakeFramework.Render;
 
 namespace MilkShakeFramework.Core.Game.Components.Animation
 {
+    /*
     public enum PlayMode { Loop, PlayOnce, PlayAndPause } ;
 
     public delegate void AnimationEvent(string animationName);
@@ -142,5 +143,6 @@ namespace MilkShakeFramework.Core.Game.Components.Animation
         public List<Rectangle> SourceRectangles { get { return mSpriteSource; } }
         public SpriteSheetRenderer SpriteSheet { get { return mSpriteSheet; } }
         public bool Visible { get; set; }
-    }
+    }*/
 }
+     

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System;
 
 namespace MilkShakeFramework.Core
 {
@@ -29,12 +30,26 @@ namespace MilkShakeFramework.Core
         public virtual void RemoveNode(INode gameObject)
         {
             gameObject.Destroy();
-            Nodes.Remove(gameObject);
+
+            if (Nodes.Contains(gameObject))
+            {
+                Nodes.Remove(gameObject);
+            }
+            else
+            {
+                throw new Exception("Requested node isn't child of this node.");
+            }
         }
+
 
         public INode GetNodeByName(string name)
         {
-            return Nodes.Find(n => n.Name == name);
+            foreach (INode node in Nodes)
+            {
+                if (node.Name == name) return node;
+            }
+
+            return null;
         }
 
         public T GetNodeByName<T>(string name)

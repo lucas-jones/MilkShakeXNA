@@ -43,12 +43,13 @@ namespace MilkShakeFramework.Core.Scenes.Components
 
         public bool HasComponent(Type component)
         {
-            return Components.Find(c => c.GetType() == component) != null;
+            //return Components.FindAll(c => c.GetType() == component).Count > 0;
+            return false;
         }
 
         public T GetComponent<T>()
         {
-            T component = (T)(object)Components.Find(c => c.GetType() == typeof(T));
+            T component = (T)(object)Components.First(c => c.GetType() == typeof(T));
 
             if(component == null) throw new Exception("Component " + typeof(T).Name + " dosn't exists");
 

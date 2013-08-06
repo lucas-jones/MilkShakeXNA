@@ -37,7 +37,7 @@ namespace MilkShakeFramework.IO.Input.Devices
         {
             if (_padStates == null) Boot();
 
-            return _padStates.Find((pad) => pad.PlayerIndex == index);
+            return _padStates.First((pad) => pad.PlayerIndex == index);
         }
 
         public static List<PadState> GetAllPads()

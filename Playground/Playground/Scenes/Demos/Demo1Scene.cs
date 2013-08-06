@@ -21,7 +21,7 @@ namespace Samples.Scenes.Demo1
 
         public Demo1Scene() : base(TITLE, DESCRIPTION)
         {
-            background = new Sprite("Scenes//Demo1//background");
+            background = new Sprite("Scenes//Global//background");
 
             world = new Sprite("Scenes//Demo1//world")
             {

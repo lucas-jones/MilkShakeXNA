@@ -5,7 +5,7 @@ using MilkShakeFramework.Core.Scenes;
 using MilkShakeFramework.Core.Scenes.Components;
 using MilkShakeFramework.Tools.Physics;
 using FarseerPhysics;
-using FarseerPhysics.DebugView;
+using FarseerPhysics.DebugViews;
 
 namespace MilkShakeFramework.Components.Physics
 {

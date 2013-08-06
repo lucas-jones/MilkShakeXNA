@@ -39,5 +39,15 @@ namespace MilkShakeFramework.Core.Game
         {
             Scene.RenderManager.SpriteBatch.DrawString(SpriteFont, Text, WorldPosition - Scene.Camera.Position - Origin, Color);
         }
+
+        public int Width
+        {
+            get { return (int)SpriteFont.MeasureString(Text).X; }
+        }
+
+        public int Height
+        {
+            get { return (int)SpriteFont.MeasureString(Text).Y; }
+        }
     }
 }

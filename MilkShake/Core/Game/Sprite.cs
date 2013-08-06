@@ -137,7 +137,7 @@ namespace MilkShakeFramework.Core.Game
         {
             get
             {
-                return new RotatedRectangle(new Rectangle((int)WorldPosition.X - (int)((Width * Scale.X) / 2), (int)WorldPosition.Y - (int)((Height * Scale.Y) / 2), (int)(Width * Scale.X), (int)(Height * Scale.Y)), (Rotation));
+                return new RotatedRectangle(new Rectangle((int)WorldPosition.X - (int)Origin.X, (int)WorldPosition.Y - (int)Origin.Y, (int)(Width * Scale.X), (int)(Height * Scale.Y)), (Rotation));
             }
         }
 

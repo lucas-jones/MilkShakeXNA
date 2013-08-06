@@ -17,6 +17,7 @@ namespace Samples.Scenes
 
         private UILayer uiLayer;
         private Textfield _title;
+        private Textfield _description;
 
         public DemoScene(string title, string description) : base()
         {
@@ -28,15 +29,24 @@ namespace Samples.Scenes
             uiLayer.AddNode(_title = new Textfield("Scenes//Global//DemoFont")
             {
                 Text = Title,
-                Color = Color.White
+                Color = Color.White,
+                Y = 20
             });
 
-            uiLayer.AddNode(_title = new Textfield("Scenes//Global//DemoFont")
+            uiLayer.AddNode(_description = new Textfield("Scenes//Global//DemoFont")
             {
                 Text = Description,
                 Color = Color.White,
                 Position = new Vector2(0, 50)
             });
+        }
+
+        public override void FixUp()
+        {
+            base.FixUp();
+
+            _title.X = Globals.ScreenCenter.X - (_title.Width / 2);
+            _description.X = Globals.ScreenCenter.X - (_description.Width / 2);
         }
     }
 }

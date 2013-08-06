@@ -3,7 +3,6 @@ using System.Linq;
 using Krypton;
 using Microsoft.Xna.Framework;
 using MilkShakeFramework.Components.Lighting;
-using MilkShakeFramework.Core.Game.Components.Tile;
 using MilkShakeFramework.Core.Scenes;
 
 namespace MilkShakeFramework.Core.Game.Components.Polygon.Modify
@@ -33,14 +32,14 @@ namespace MilkShakeFramework.Core.Game.Components.Polygon.Modify
 
                 currentIndie.ForEach(i => currentVerts.Add(Polygon.Vertices[i] + Polygon.WorldPosition));
                 currentVerts.Reverse();
-
+                /*
                 PolygonHull hull = new PolygonHull(WorldPosition, currentVerts.ToList<Vector2>());
 
                 // Hacky fix
                 hull.Hull.Position.Y -= Globals.ScreenHeight;
 
                 _shadowHulls.Add(hull.Hull);
-                LightingComponent.Light.Hulls.Add(hull.Hull);
+                LightingComponent.Light.Hulls.Add(hull.Hull);*/
             }
         }
 

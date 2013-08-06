@@ -20,7 +20,7 @@ namespace MilkShakeFramework.Tools.Debug.Watch
 
         public static void SetValue(string key, object value)
         {
-            Entries.Find(e => e.FieldInfo.Name == key).SetValue(value);
+            Entries.First(e => e.FieldInfo.Name == key).SetValue(value);
         }
 
         public static void Scan(object obj)

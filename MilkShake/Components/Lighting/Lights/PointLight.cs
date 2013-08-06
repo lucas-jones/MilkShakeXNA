@@ -17,6 +17,7 @@ namespace MilkShakeFramework.Components.Lighting.Lights
         {
             mSize = size;
             mLight2D.ShadowType = type;
+
         }
 
         public override Texture2D Texture

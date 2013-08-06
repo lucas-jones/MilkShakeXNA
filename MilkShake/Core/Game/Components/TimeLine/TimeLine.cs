@@ -73,7 +73,7 @@ namespace MilkShakeFramework.Core.Game.Components.TimeLine
             Complete();
         }
     }
-
+    /*
     public class PlayAnimationTask : TimeLineTask
     {
         public AnimatedSprite AnimatedSprite { get; set; }
@@ -102,7 +102,7 @@ namespace MilkShakeFramework.Core.Game.Components.TimeLine
             }
         }
     }
-
+    */
     public class TimeLine : GameEntity
     {
         public bool Proccessing { get; private set; }

@@ -1,0 +1,215 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{340b1ffa-78df-4505-86f1-94d51a47cecd}</ProjectGuid>
+    <ProjectTypeGuids>{6D335F3A-9D43-41b4-9D22-F6F17C4BE596};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">Xbox 360</Platform>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MilkShakeFramework</RootNamespace>
+    <AssemblyName>MilkShake</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <XnaFrameworkVersion>v4.0</XnaFrameworkVersion>
+    <XnaPlatform>Xbox 360</XnaPlatform>
+    <XnaProfile>HiDef</XnaProfile>
+    <XnaCrossPlatformGroupID>c4ba0654-7986-44ad-8367-52797b822a0f</XnaCrossPlatformGroupID>
+    <XnaOutputType>Library</XnaOutputType>
+  </PropertyGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Compile Include="Components\Lighting\LightingComponent.cs" />
+    <Compile Include="Components\Lighting\Lights\ConicLight.cs" />
+    <Compile Include="Components\Lighting\Lights\Light.cs" />
+    <Compile Include="Components\Lighting\Lights\PointLight.cs" />
+    <Compile Include="Components\Physics\RayCastUtils.cs" />
+    <Compile Include="Components\PostProccessing\PostProcessingEffect.cs" />
+    <Compile Include="Components\PostProccessing\PostProcessingComponent.cs" />
+    <Compile Include="Components\Physics\BuoyancyController.cs" />
+    <Compile Include="Components\Physics\PhysicsUtils.cs" />
+    <Compile Include="Core\Content\ContentExtention.cs" />
+    <Compile Include="Core\Events\EventDispatcher.cs" />
+    <Compile Include="Core\Events\SceneEvents.cs" />
+    <Compile Include="Components\PostProccessing\Presets\DistortionPP.cs" />
+    <Compile Include="Core\Filters\Filter.cs" />
+    <Compile Include="Core\Filters\Presets\GaussianBlurFilter.cs" />
+    <Compile Include="Core\Filters\Presets\GrayScaleFilter.cs" />
+    <Compile Include="Core\Filters\Presets\InvertFilter.cs" />
+    <Compile Include="Core\Filters\Presets\WaveFilter.cs" />
+    <Compile Include="Core\Game\3DSprite.cs" />
+    <Compile Include="Core\Game\Components\Audio\Music.cs" />
+    <Compile Include="Core\Game\Components\Audio\Sound.cs" />
+    <Compile Include="Core\Game\Components\Debug\WacthedDisplay.cs" />
+    <Compile Include="Core\Game\Components\Misc\CameraDebugModifier.cs" />
+    <Compile Include="Core\Game\Components\Misc\InfiniteSprite.cs" />
+    <Compile Include="Core\Game\Components\Misc\Group.cs" />
+    <Compile Include="Core\Game\Components\Misc\RedirectDraw.cs" />
+    <Compile Include="Core\Game\Components\Misc\TimeLine.cs" />
+    <Compile Include="Core\Game\Components\Polygon\GiftWrap\GiftWrapQuad.cs" />
+    <Compile Include="Core\Game\Components\Polygon\GiftWrap\GiftWrapRenderer.cs" />
+    <Compile Include="Core\Game\Components\Polygon\GiftWrap\Render\BasicGiftWrapRenderer.cs" />
+    <Compile Include="Core\Game\Components\Polygon\GiftWrap\Render\TextureGiftWrapRenderer.cs" />
+    <Compile Include="Core\Game\Components\TimeLine\TimeLine.cs" />
+    <Compile Include="Core\Game\Components\UI\HGroup.cs" />
+    <Compile Include="Core\Game\Components\UI\UILayer.cs" />
+    <Compile Include="Core\Game\Components\UI\UISprite.cs" />
+    <Compile Include="Core\Game\Components\UI\VGroup.cs" />
+    <Compile Include="Core\Game\Components\Water\Modify\SplashWaterModifier.cs" />
+    <Compile Include="Core\Game\Components\Water\Modify\TriggerWaterModifier.cs" />
+    <Compile Include="Core\Game\Components\Water\Render\BasicWaterRenderer.cs" />
+    <Compile Include="Core\Game\Components\Water\Water.cs" />
+    <Compile Include="Core\Game\Components\Water\WaterColumn.cs" />
+    <Compile Include="Core\Game\Components\Water\WaterModifier.cs" />
+    <Compile Include="Core\Game\Components\Water\Modify\PhysicsWaterModifier.cs" />
+    <Compile Include="Core\Game\Components\Water\WaterRenderer.cs" />
+    <Compile Include="Core\Game\Components\Water\Modify\WaveWaterModifier.cs" />
+    <Compile Include="Core\Game\Textfield.cs" />
+    <Compile Include="Core\INode.cs" />
+    <Compile Include="Core\ITreeNode.cs" />
+    <Compile Include="IO\Input\Devices\MultiInput.cs" />
+    <Compile Include="Render\Renderers\PrimitiveRenderer.cs" />
+    <Compile Include="Core\Game\Components\Misc\ScrollingPattern.cs" />
+    <Compile Include="Core\Game\Components\Polygon\GiftWrap\GiftWrapPolygonModifier.cs" />
+    <Compile Include="Core\Game\Components\Polygon\Modify\LightPolygonModifier.cs" />
+    <Compile Include="Core\Game\Components\Polygon\Modify\PhysicsPolygonModifier.cs" />
+    <Compile Include="Core\Game\Components\Polygon\Modify\WireFramePolygonModifier.cs" />
+    <Compile Include="Core\Game\Components\Polygon\Polygon.cs" />
+    <Compile Include="Core\Game\Components\Polygon\PolygonData.cs" />
+    <Compile Include="Core\Game\Components\Polygon\PolygonFactory.cs" />
+    <Compile Include="Core\Game\Components\Polygon\Render\BasicPolygonRenderer.cs" />
+    <Compile Include="Core\Game\Components\Polygon\PolygonRenderer.cs" />
+    <Compile Include="Core\Game\Components\Polygon\Render\TexturedPolygonRenderer.cs" />
+    <Compile Include="Core\Cameras\Camera.cs" />
+    <Compile Include="Core\Cameras\CameraManager.cs" />
+    <Compile Include="Core\Content\LoadManager.cs" />
+    <Compile Include="Core\Game\Components\Animation\AnimatedSprite.cs" />
+    <Compile Include="Core\Game\Components\Animation\AnimationFile.cs" />
+    <Compile Include="Core\Game\Entity.cs" />
+    <Compile Include="Components\Physics\PhysicsComponent.cs" />
+    <Compile Include="Core\Game\GameEntityListener.cs" />
+    <Compile Include="Core\Scenes\Components\SceneComponentManager.cs" />
+    <Compile Include="Core\Scenes\SceneListener.cs" />
+    <Compile Include="IO\Input\Devices\PadInput.cs" />
+    <Compile Include="Render\Renderers\TextRenderer.cs" />
+    <Compile Include="Tools\Debug\LogicTimer.cs" />
+    <Compile Include="Tools\Debug\Watch\Watched.cs" />
+    <Compile Include="Tools\Debug\Watch\WatchEntry.cs" />
+    <Compile Include="Tools\Debug\Watch\WatchManager.cs" />
+    <Compile Include="Tools\Maths\RectangleExtension.cs" />
+    <Compile Include="Tools\Maths\RotatedRectangle.cs" />
+    <Compile Include="Tools\Physics\ConvertUnits.cs" />
+    <Compile Include="Core\Scenes\Scene.cs" />
+    <Compile Include="Core\Scenes\Components\SceneComponent.cs" />
+    <Compile Include="Core\Scenes\SceneManager.cs" />
+    <Compile Include="Core\Game\GameEntity.cs" />
+    <Compile Include="Core\Game\Sprite.cs" />
+    <Compile Include="Core\Node.cs" />
+    <Compile Include="Core\TreeNode.cs" />
+    <Compile Include="Globals.cs" />
+    <Compile Include="IO\Input\Devices\KeyboardInput.cs" />
+    <Compile Include="IO\Input\Devices\MouseInput.cs" />
+    <Compile Include="IO\Input\InputManager.cs" />
+    <Compile Include="MilkShake.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Render\Renderers\ImageRenderer.cs" />
+    <Compile Include="Render\Renderer.cs" />
+    <Compile Include="Render\RenderManager.cs" />
+    <Compile Include="Render\Renderers\SpriteSheetRenderer.cs" />
+    <Compile Include="Core\Game\Components\Polygon\PolygonModifier.cs" />
+    <Compile Include="Tools\Tween\Interpolators\FloatInterpolator.cs" />
+    <Compile Include="Tools\Tween\Interpolator.cs" />
+    <Compile Include="Tools\Tween\Interpolators\Vector2Interpolator.cs" />
+    <Compile Include="Tools\Tween\Interpolators\Vector3Interpolator.cs" />
+    <Compile Include="Tools\Tween\TweenerManager.cs" />
+    <Compile Include="Tools\Utils\MathUtils.cs" />
+    <Compile Include="Tools\Utils\Wait.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="DebugViewXNA" />
+    <Reference Include="FarseerPhysicsXNA" />
+    <Reference Include="Krypton" />
+    <Reference Include="Microsoft.Xna.Framework">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Avatar">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Game">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.GamerServices">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Graphics">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Net">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Storage">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Video">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Xact">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="mscorlib">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Core">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Net" />
+    <Reference Include="System.Xml">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Triangulator" />
+    <Reference Include="XNATweener Windows" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\Microsoft.Xna.GameStudio.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|Xbox 360' ">
+    <OutputPath>bin\Xbox 360\Debug</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoStdLib>true</NoStdLib>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineConstants>DEBUG;TRACE;XBOX;XBOX360</DefineConstants>
+    <XnaCompressContent>true</XnaCompressContent>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|Xbox 360' ">
+    <OutputPath>bin\Xbox 360\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoStdLib>true</NoStdLib>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineConstants>TRACE;XBOX;XBOX360</DefineConstants>
+    <XnaCompressContent>true</XnaCompressContent>
+  </PropertyGroup>
+  <!--
+      To modify your build process, add your task inside one of the targets below and uncomment it. 
+      Other similar extension points exist, see Microsoft.Common.targets.
+      <Target Name="BeforeBuild">
+      </Target>
+      <Target Name="AfterBuild">
+      </Target>
+    -->
+</Project>

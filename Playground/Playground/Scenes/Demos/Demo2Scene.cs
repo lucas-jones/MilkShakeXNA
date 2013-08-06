@@ -36,7 +36,7 @@ namespace Samples.Scenes.Demo1
 
             if (MouseInput.isLeftClicked())
             {
-                TweenerManager.AddTween(new Vector2Tweener(penguin.Position, MouseInput.WorldPosition, 2, XNATweener.Quartic.EaseInOut), (position) => penguin.Position = position);
+                //TweenerManager.AddTween(new Vector2Tweener(penguin.Position, MouseInput.WorldPosition, 2, XNATweener.Quartic.EaseInOut), (position) => penguin.Position = position);
             }
         }
 
