@@ -109,6 +109,7 @@
   <ItemGroup>
     <Compile Include="Components\Lighting\Hulls\CircleHull.cs" />
     <Compile Include="Components\Lighting\Hulls\AbstractHull.cs" />
+    <Compile Include="Components\Lighting\Hulls\ConvexHull.cs" />
     <Compile Include="Components\Lighting\Hulls\RectangleHull.cs" />
     <Compile Include="Components\Lighting\LightComponentGameEntity.cs" />
     <Compile Include="Components\Lighting\LightingComponent.cs" />

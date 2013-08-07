@@ -11,6 +11,24 @@ namespace MilkShakeFramework.Components.Lighting.Hulls
     {
         public ShadowHull ShadowHull { get; protected set; }
 
+        public float Rotation
+        {
+            get { return ShadowHull.Angle; }
+            set { ShadowHull.Angle = value; }
+        }
+
+        public float Opacity
+        {
+            get { return ShadowHull.Opacity; }
+            set { ShadowHull.Opacity = value; }
+        }
+
+        public Vector2 Scale
+        {
+            get { return ShadowHull.Scale; }
+            set { ShadowHull.Scale = value; }
+
+        }
         public AbstractHull() { }
 
         public override void Load(Core.Content.LoadManager content)
