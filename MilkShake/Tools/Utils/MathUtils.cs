@@ -32,5 +32,10 @@ namespace MilkShakeFramework.Tools.Utils
 
             return new Vector2(X, Y);
         }
+
+        public static Vector2 NextVector2(Vector2 min, Vector2 max)
+        {
+            return new Vector2(Globals.Random.Next((int)min.X, (int)max.X), Globals.Random.Next((int)min.Y, (int)max.Y));
+        }
     }
 }

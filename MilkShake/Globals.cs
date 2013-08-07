@@ -28,6 +28,7 @@ namespace MilkShakeFramework
 
         public static int ScreenWidth;
         public static int ScreenHeight;
+        public static Vector2 ScreenSize { get { return new Vector2(DefaultScreenHeight, DefaultScreenWidth); } }
 
         public static int ScreenWidthCenter { get { return (int)ScreenWidth / 2; }} 
         public static int ScreenHeightCenter { get { return (int)ScreenHeight / 2; } }
@@ -51,6 +52,8 @@ namespace MilkShakeFramework
 
         // [Helpers]
         public static Random Random = new Random();
+
+        
 
         public static RasterizerState WireframeState = new RasterizerState()
         {
