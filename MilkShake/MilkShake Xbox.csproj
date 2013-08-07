@@ -106,9 +106,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Components\Lighting\Hulls\CircleHull.cs" />
+    <Compile Include="Components\Lighting\Hulls\RectangleHull.cs" />
+    <Compile Include="Components\Lighting\LightComponentGameEntity.cs" />
     <Compile Include="Components\Lighting\LightingComponent.cs" />
+    <Compile Include="Components\Lighting\LightingMode.cs" />
+    <Compile Include="Components\Lighting\Hulls\AbstractHull.cs" />
+    <Compile Include="Components\Lighting\Lights\AbstractLight.cs" />
     <Compile Include="Components\Lighting\Lights\ConicLight.cs" />
-    <Compile Include="Components\Lighting\Lights\Light.cs" />
     <Compile Include="Components\Lighting\Lights\PointLight.cs" />
     <Compile Include="Components\Physics\BuoyancyController.cs" />
     <Compile Include="Components\Physics\PhysicsComponent.cs" />

@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework;
 using MilkShakeFramework.Core.Scenes;
 using MilkShakeFramework.Core.Scenes.Components;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace MilkShakeFramework.Components.Lighting
 {
@@ -9,8 +10,10 @@ namespace MilkShakeFramework.Components.Lighting
     {
         private KryptonEngine mLight;
         private Matrix mMatrix;
+        private LightingMode mLightingMode;
+        private RenderTarget2D mRenderTarget;
 
-        public LightingComponent(LightMapSize mLightMapSize = LightMapSize.Full, int mBluriness = 0)
+        public LightingComponent(LightingMode lightingMode = LightingMode.Knockout, LightMapSize mLightMapSize = LightMapSize.Full, int mBluriness = 0)
         {
             mLight = new KryptonEngine(MilkShake.Game, "KryptonEffect");
             mLight.Initialize();
@@ -18,6 +21,9 @@ namespace MilkShakeFramework.Components.Lighting
             // [Settings]
             mLight.LightMapSize = mLightMapSize;
             mLight.Bluriness = mBluriness;
+            mLightingMode = lightingMode;
+
+            mRenderTarget = new RenderTarget2D(MilkShake.Graphics, Globals.ScreenWidth, Globals.ScreenHeight);
         }
 
         public override void FixUp()
@@ -33,9 +39,6 @@ namespace MilkShakeFramework.Components.Lighting
         {
             GenerateMatrix(); // Cache?
 
-            mLight.AmbientColor = Color.Transparent;
-            
-            mLight.SpriteBatchCompatablityEnabled = false;
             mLight.Matrix = mMatrix;
 
             mLight.LightMapPrepare();
@@ -43,7 +46,25 @@ namespace MilkShakeFramework.Components.Lighting
 
         private void PostDraw()
         {
+            if (mLightingMode == LightingMode.Knockout) KnockoutDraw();
+            if (mLightingMode == LightingMode.Overlay) OverlayDraw();
+        }
+
+        private void KnockoutDraw()
+        {
             mLight.Draw(null);
+        }
+
+        private void OverlayDraw()
+        {
+            MilkShake.Graphics.SetRenderTarget(mRenderTarget);
+            
+            mLight.Draw(null);
+            MilkShake.Graphics.SetRenderTarget(Scene.RenderTarget);
+            
+            Scene.RenderManager.Begin(BlendState.Additive);
+            Scene.RenderManager.RawDraw(Vector2.Zero, mRenderTarget, Globals.ScreenWidth, Globals.ScreenHeight, Color.White);
+            Scene.RenderManager.End();
         }
 
         private void GenerateMatrix()
@@ -79,6 +100,6 @@ namespace MilkShakeFramework.Components.Lighting
 
         }
 
-        public KryptonEngine Light { get { return mLight; } }
+        public KryptonEngine Krypton { get { return mLight; } }
     }
 }

@@ -8,22 +8,20 @@ using Krypton.Lights;
 
 namespace MilkShakeFramework.Components.Lighting.Lights
 {
-    public class PointLight : Light
+    public class PointLight : AbstractLight
     {
         // [Light Settings]
         private int mSize;
 
-        public PointLight(int size, ShadowType type = ShadowType.Solid) : base()
+        public PointLight(int size, ShadowType type = ShadowType.Illuminated) : base()
         {
             mSize = size;
-            mLight2D.ShadowType = type;
-
+            Light.ShadowType = type;
         }
 
-        public override Texture2D Texture
+        public override Texture2D GenerateTexture()
         {
-            get { return LightTextureBuilder.CreatePointLight(MilkShake.Graphics, mSize); }
+            return LightTextureBuilder.CreatePointLight(MilkShake.Graphics, mSize);
         }
-
     }
 }

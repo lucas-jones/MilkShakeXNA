@@ -7,9 +7,8 @@ using Krypton;
 
 namespace MilkShakeFramework.Components.Lighting.Lights
 {
-    public class ConicLight : Light
+    public class ConicLight : AbstractLight
     {
-        // [Light Settings]
         private int mSize;
         private float mFOV;
         private float mNearPlaneDistance;
@@ -21,9 +20,9 @@ namespace MilkShakeFramework.Components.Lighting.Lights
             mNearPlaneDistance = nearPlaneDistance;
         }
 
-        public override Texture2D Texture
+        public override Texture2D GenerateTexture()
         {
-            get { return LightTextureBuilder.CreateConicLight(MilkShake.Graphics, mSize, mFOV, mNearPlaneDistance); }
+            return LightTextureBuilder.CreateConicLight(MilkShake.Graphics, mSize, mFOV, mNearPlaneDistance);
         }
     }
 }

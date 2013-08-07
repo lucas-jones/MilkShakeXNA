@@ -21,7 +21,7 @@ namespace MilkShakeFramework.Core.Game.Components.Polygon.Modify
         public void OnRendererRefresh()
         {
             // Remove old shadows
-            _shadowHulls.ForEach(sH => LightingComponent.Light.Hulls.Remove(sH));
+            _shadowHulls.ForEach(sH => LightingComponent.Krypton.Hulls.Remove(sH));
 
             int polyCount = Polygon.Indices.Length / 3;
 
