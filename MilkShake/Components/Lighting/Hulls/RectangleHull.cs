@@ -6,7 +6,7 @@ using Krypton;
 using MilkShakeFramework.Components.Lighting.Hulls;
 using Microsoft.Xna.Framework;
 
-namespace MilkShake_Xbox.Components.Lighting.Hulls
+namespace MilkShakeFramework.Components.Lighting.Hulls
 {
     public class RectangleHull : AbstractHull
     {
