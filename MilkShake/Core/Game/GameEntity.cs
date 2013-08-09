@@ -1,29 +1,33 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using Microsoft.Xna.Framework;
 using MilkShakeFramework.Core.Content;
-using MilkShakeFramework.Core.Scenes;
 using MilkShakeFramework.Core.Filters;
-using Microsoft.Xna.Framework.Graphics;
 using MilkShakeFramework.Tools.Maths;
 
 namespace MilkShakeFramework.Core.Game
 {
     public class GameEntity : Entity
     {
-        private Vector2 mPosition;
-        private bool mAutoDraw;
-        private GameEntityListener mListener;
+        public virtual Vector2 Position { get; set; }
+        public virtual Vector2 WorldPosition { get { return (Parent as GameEntity).Position + Position; } }
 
-        private Filter mFilter;
+        public virtual float X { get { return Position.X; } set { Position = new Vector2(value, Position.Y); } }
+        public virtual float Y { get { return Position.Y; } set { Position = new Vector2(Position.X, value); } }
+
+        public virtual GameEntityListener Listener { get; protected set; }
+        public virtual bool AutoDraw { get; set; }
+
+        // Todo: BoundingBox needs to be generated correctly..
+        public virtual RotatedRectangle BoundingBox { get { return new RotatedRectangle((int)WorldPosition.X, (int)WorldPosition.Y, 10, 10); } }
+
+        protected Filter _filter;
 
         public GameEntity()
         {
-            mPosition = Vector2.Zero;
-            mAutoDraw = true;
-            mListener = new GameEntityListener();
+            Position = Vector2.Zero;
+            AutoDraw = true;
+            Listener = new GameEntityListener();
         }
 
         public override void SetParent(ITreeNode parent)
@@ -37,40 +41,42 @@ namespace MilkShakeFramework.Core.Game
         {
             base.FixUp();
 
-            mListener.OnFixup();
+            Listener.OnFixup();
         }
 
         public override void Load(LoadManager content)
         {
             base.Load(content);
 
-            mListener.OnLoad();
+            Listener.OnLoad();
         }
 
         public override void Setup()
         {
             base.Setup();
 
-            mListener.OnSetup();
+            Listener.OnSetup();
         }
 
         public virtual void Update(GameTime gameTime)
         {
-            mListener.OnUpdate(gameTime);
+            Listener.OnUpdate(gameTime);
 
             foreach (GameEntity gameEntity in Nodes.OfType<GameEntity>().ToArray<GameEntity>()) if(gameEntity.IsLoaded) gameEntity.Update(gameTime);
         }
 
         public virtual void Draw()
         {
-            if(mAutoDraw)
+            if(AutoDraw)
             {
                 foreach (GameEntity gameEntity in Nodes.OfType<GameEntity>().ToArray<GameEntity>())
                 {
                     if (gameEntity.IsLoaded)
                     {
                         if (gameEntity.Filter != null) gameEntity.Filter.Begin();
+
                         gameEntity.Draw();
+
                         if (gameEntity.Filter != null) gameEntity.Filter.End();
                     }
                 }
@@ -79,25 +85,16 @@ namespace MilkShakeFramework.Core.Game
 
         public virtual Filter Filter
         {
-            get { return mFilter; }
-            set 
+            get
             {
-                /* Feels a bit dirty this */
-                if (Filter != null) RemoveNode(Filter);
-                mFilter = value;
-                AddNode(Filter);
+                return _filter;
+            }
+            set
+            {
+                if (_filter != null) RemoveNode(_filter);
+                _filter = value;
+                AddNode(_filter);
             }
         }
-
-        // [Public]
-        public virtual GameEntityListener Listener { get { return mListener; } set { mListener = value; } }
-        public virtual Vector2 Position { get { return mPosition; } set { mPosition = value; }  }
-        public virtual float X { get { return mPosition.X; } set { mPosition = new Vector2(value, mPosition.Y); } }
-        public virtual float Y { get { return mPosition.Y; } set { mPosition = new Vector2(mPosition.X, value); } }
-
-        public virtual Vector2 WorldPosition { get { return (Parent as GameEntity).Position + Position; } }
-        public virtual RotatedRectangle BoundingBox { get { return new RotatedRectangle((int)WorldPosition.X, (int)WorldPosition.Y, 10, 10); } }
-
-        public virtual bool AutoDraw { get { return mAutoDraw; } set { mAutoDraw = value; } }
     }
 }

@@ -45,6 +45,7 @@ namespace MilkShakeFramework.Core.Game.Components.Audio
 
         public void Stop()
         {
+            // Todo: Remove this!
             TweenerManager.AddTween(new Tweener(0.5f, 0, 2f, Linear.EaseNone), (value) => MediaPlayer.Volume = value);
             //MediaPlayer.Stop();
         }

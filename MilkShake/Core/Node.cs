@@ -7,7 +7,7 @@ namespace MilkShakeFramework.Core
         public const string UNDEFINED_NODE_NAME = "Undefined";
 
         public Guid GUID { get; private set; }
-        public string Name { get; set; }
+        public virtual string Name { get; set; }
         public ITreeNode Parent { get; private set; }
 
         public Node(string name = null)

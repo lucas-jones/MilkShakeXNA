@@ -7,11 +7,11 @@ using Microsoft.Xna.Framework;
 
 namespace MilkShakeFramework.Components.Lighting
 {
-    public class LightComponentGameEntity : GameEntity
+    public class KryptonGameEntity : GameEntity
     {
         public Vector2 KryptonPosition { get; protected set; }
 
-        public LightComponentGameEntity() : base()
+        public KryptonGameEntity() : base()
         {
             // Update KryptonPosition on creation
             Position = Vector2.Zero;

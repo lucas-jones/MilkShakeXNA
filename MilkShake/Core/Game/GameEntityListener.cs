@@ -38,8 +38,5 @@ namespace MilkShakeFramework.Core.Game
         {
             if (Fixup != null) Fixup();
         }
-
-
-
     }
 }

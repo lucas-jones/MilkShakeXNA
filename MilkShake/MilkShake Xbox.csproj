@@ -41,6 +41,9 @@
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <XnaCompressContent>true</XnaCompressContent>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Windoows|Xbox 360'">
+    <OutputPath>bin\Xbox 360\Windoows\</OutputPath>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="DebugViewXNA">
       <HintPath>..\Library\Binary\Xbox\DebugViewXNA.dll</HintPath>

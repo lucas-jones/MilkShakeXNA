@@ -57,6 +57,9 @@
     <DefineConstants>TRACE;XBOX;XBOX360</DefineConstants>
     <XnaCompressContent>true</XnaCompressContent>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Windoows|Xbox 360'">
+    <OutputPath>bin\Xbox 360\Windoows\</OutputPath>
+  </PropertyGroup>
   <ItemGroup />
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -68,6 +71,7 @@
     <Compile Include="Scenes\Demos\Demo3Scene.cs" />
     <Compile Include="Scenes\Demos\Demo4Scene.cs" />
     <Compile Include="Scenes\Demos\Demo_BreakOutcs.cs" />
+    <Compile Include="Scenes\Demos\Demo_Space.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Game.ico" />

@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using MilkShakeFramework.Core.Game;
 using MilkShakeFramework.Tools.Tween;
-using XNATweener;
 using Microsoft.Xna.Framework;
 using MilkShakeFramework;
 using MilkShakeFramework.IO.Input.Devices;
+using XNATweener;
 
 namespace Samples.Scenes.Demo1
 {
@@ -36,7 +36,7 @@ namespace Samples.Scenes.Demo1
 
             if (MouseInput.isLeftClicked())
             {
-                //TweenerManager.AddTween(new Vector2Tweener(penguin.Position, MouseInput.WorldPosition, 2, XNATweener.Quartic.EaseInOut), (position) => penguin.Position = position);
+                TweenerManager.AddTween(new Vector2Tweener(penguin.Position, MouseInput.WorldPosition, 2, XNATweener.Quartic.EaseInOut), (position) => penguin.Position = position);
             }
         }
 

@@ -19,7 +19,7 @@ namespace Samples
             SceneManager.AddScene("Demo4", new Demo4Scene());
             SceneManager.AddScene("Demo_BreakOut", new Demo_BreakOut());
 
-            SceneManager.ChangeScreen("Demo4");           
+            SceneManager.ChangeScreen("Demo2");           
         }
     }
 }

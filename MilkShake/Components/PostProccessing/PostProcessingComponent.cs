@@ -43,8 +43,6 @@ namespace MilkShakeFramework.Components.PostProccessing
         public ShockWave(Vector2 staringPosition, float alpha = 1) : base("Scene//Levels//Images//shockwave3")
         {
             _startingPosition = staringPosition;
-
-            Alpha = alpha;
         }
 
         public override void FixUp()

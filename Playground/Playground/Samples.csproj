@@ -59,6 +59,9 @@
     <PlatformTarget>x86</PlatformTarget>
     <XnaCompressContent>true</XnaCompressContent>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Windoows|x86'">
+    <OutputPath>bin\x86\Windoows\</OutputPath>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="FarseerPhysicsXNA, Version=3.3.4966.36407, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
@@ -67,9 +70,6 @@
     <Reference Include="Krypton, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Library\Krypton.dll</HintPath>
-    </Reference>
-    <Reference Include="Lidgren.Network">
-      <HintPath>..\..\Library\Lidgren.Network.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Xna.Framework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
       <Private>False</Private>
@@ -122,6 +122,10 @@
     <Reference Include="Triangulator">
       <HintPath>..\..\Library\Triangulator.dll</HintPath>
     </Reference>
+    <Reference Include="XNATweener Windows, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Library\Binary\Windows\XNATweener Windows.dll</HintPath>
+    </Reference>
     <Reference Include="XNATweeners, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Library\XNATweeners.dll</HintPath>
@@ -137,6 +141,7 @@
     <Compile Include="Scenes\Demos\Demo3Scene.cs" />
     <Compile Include="Scenes\Demos\Demo4Scene.cs" />
     <Compile Include="Scenes\Demos\Demo_BreakOutcs.cs" />
+    <Compile Include="Scenes\Demos\Demo_Space.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Game.ico" />

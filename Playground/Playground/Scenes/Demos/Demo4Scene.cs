@@ -24,7 +24,7 @@ namespace Samples.Scenes.Demos
         {
             ClearColor = Color.Tomato;
             //ComponentManager.AddComponent(new PhysicsComponent(new Vector2(0, 32)) { DrawDebug = true });
-            ComponentManager.AddComponent(new LightingComponent());
+            ComponentManager.AddComponent(new LightingComponent(LightingMode.Overlay));
 
             AddNode(new Sprite("Scenes//Global//background"));
         }
@@ -57,7 +57,7 @@ namespace Samples.Scenes.Demos
 
             if (MouseInput.isRightClicked())
             {
-                AddNode(new PointLight(250) { Position = MouseInput.Position, Color = Color.Blue, Intensity = 1 });
+                AddNode(new PointLight(250) { Position = MouseInput.Position, Intensity = 1 });
             }
         }
     }

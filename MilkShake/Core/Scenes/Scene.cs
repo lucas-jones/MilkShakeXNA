@@ -22,10 +22,14 @@ namespace MilkShakeFramework.Core.Scenes
 
         public Camera Camera { get { return CameraManager.CurrentCamera; } }
 
-        private int mRenderWidth, mRenderHeight;
-        private int mWidth, mHeight;
-        private Color mClearColour;
-        private Color mColor;
+        public int RenderWidth { get; protected set; }
+        public int RenderHeight { get; protected set; }
+
+        public int Width { get; protected set; }
+        public int Height { get; protected set; }
+
+        public Color SceneColor { get; protected set; }
+        public Color ClearColor { get; protected set; }
 
         public Scene()
         {
@@ -41,19 +45,19 @@ namespace MilkShakeFramework.Core.Scenes
             // Change to alike of CameraManager?
             TweenerManager.Boot();
 
-            mColor = Color.White;
-            mClearColour = Globals.ScreenColour;
+            SceneColor = Color.White;
+            ClearColor = Globals.ScreenColour;
         }
         
         public override void Setup()
         {
-            mWidth = SetValueOrDefault(mWidth, Globals.ScreenWidth );
-            mHeight = SetValueOrDefault(mHeight, Globals.ScreenHeight);
+            Width = SetValueOrDefault(Width, Globals.ScreenWidth);
+            Height = SetValueOrDefault(Height, Globals.ScreenHeight);
 
-            mRenderWidth = SetValueOrDefault(mRenderWidth, Globals.ScreenWidth);
-            mRenderHeight = SetValueOrDefault(mRenderHeight, Globals.ScreenHeight);
+            RenderWidth = SetValueOrDefault(RenderWidth, Globals.ScreenWidth);
+            RenderHeight = SetValueOrDefault(RenderHeight, Globals.ScreenHeight);
 
-            RenderTarget = new RenderTarget2D(MilkShake.Graphics, mRenderWidth, mRenderHeight, false, SurfaceFormat.Color, DepthFormat.Depth16, Globals.MultiSampleRate, RenderTargetUsage.PreserveContents); // Setup
+            RenderTarget = new RenderTarget2D(MilkShake.Graphics, RenderWidth, RenderHeight, false, SurfaceFormat.Color, DepthFormat.Depth16, Globals.MultiSampleRate, RenderTargetUsage.PreserveContents);
 
             base.Setup();
         }
@@ -87,7 +91,7 @@ namespace MilkShakeFramework.Core.Scenes
         public void RenderScene()
         { 
             RenderManager.SetRenderTarget(RenderTarget);
-            MilkShake.Graphics.Clear(mClearColour);
+            MilkShake.Graphics.Clear(ClearColor);
 
             Listener.OnPreDraw();
             RenderManager.Begin();
@@ -109,28 +113,14 @@ namespace MilkShakeFramework.Core.Scenes
             Listener.OnPreSceneRender();
 
             RenderManager.RawBegin();
-            RenderManager.RawDraw(Position, RenderTarget, mWidth, mHeight, mColor);            
+            RenderManager.RawDraw(Position, RenderTarget, Width, Height, SceneColor);            
             RenderManager.End();
 
             Listener.OnPostSceneRender();
         }
 
-        public virtual void OnEnterSceen()
-        {
-        }
-
-        public virtual void OnExitSceen()
-        {
-        }
-
-        public int RenderWidth { get { return mRenderWidth; } set { mRenderWidth = value; } }
-        public int RenderHeight { get { return mRenderHeight; } set { mRenderHeight = value; } }
-
-        public int Width { get { return mWidth; } set { mWidth = value; } }
-        public int Height { get { return mHeight; } set { mHeight = value; } }
-
-        public Color SceneColor { get { return mColor; } set { mColor = value; } }
-        public Color ClearColor { get { return mClearColour; } set { mClearColour = value; } }
+        public virtual void OnEnterSceen() { }
+        public virtual void OnExitSceen() { }
 
         public override Vector2 WorldPosition { get { return Position; } }
     }

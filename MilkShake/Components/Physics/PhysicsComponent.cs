@@ -25,10 +25,11 @@ namespace MilkShakeFramework.Components.Physics
         private Vector2 mGravity;
         private bool mCameraRotationGravity;
 
-        public PhysicsComponent(Vector2 aGravity, bool aOptimised = false)
+        public PhysicsComponent(Vector2 aGravity)
         {
             ConvertUnits.SetDisplayUnitToSimUnitRatio(24f);
 
+            //lucas smells
             mGravity = aGravity;
             Multiplier = 1;
             mWorld = new World(mGravity);
@@ -39,18 +40,8 @@ namespace MilkShakeFramework.Components.Physics
 
             mDebugView.LoadContent(MilkShake.Graphics, MilkShake.ConentManager);
 
-            // [Add Listeners]
-           
+            // 
             Settings.AllowSleep = false;
-            // Optimise
-			if(true)
-			{
-         	   	Settings.AllowSleep = false;
-         	   	//Settings.EnableDiagnostics = false;
-        	    Settings.VelocityIterations = 6;
-       	     	Settings.PositionIterations = 4;
-       	    	Settings.ContinuousPhysics = false;
-			}
         }
 
         public override void FixUp()
@@ -61,7 +52,7 @@ namespace MilkShakeFramework.Components.Physics
             Scene.Listener.PostDraw[DrawLayer.First] += new DrawEvent(Draw);
         }
 
-        public void Update(GameTime gameTime)
+        public override void Update(GameTime gameTime)
         {
             if (mCameraRotationGravity) World.Gravity = GravityFromCameraAngle(mGravity);
 
@@ -71,7 +62,7 @@ namespace MilkShakeFramework.Components.Physics
             Console.WriteLine(Multiplier);
         }
 
-        public void Draw()
+        public override void Draw()
         {
             mView = GetViewMatrix();
             mProjection = GetProjectionMatrix();

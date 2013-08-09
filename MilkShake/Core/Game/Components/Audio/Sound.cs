@@ -11,6 +11,7 @@ using MilkShakeFramework.Render;
 
 namespace MilkShakeFramework.Core.Game.Components.Audio
 {
+    // Todo: Have Sound and 2DSound
     public class Sound : GameEntity
     {
         private String _url;

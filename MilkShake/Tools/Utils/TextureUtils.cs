@@ -9,8 +9,6 @@ namespace MilkShakeFramework.Tools.Utils
 {
     public class TextureUtils
     {
-
-
         public static Texture2D GenerateTexture(int width, int height, Color color)
         {
             Texture2D texture = new Texture2D(MilkShake.Graphics, width, height);

@@ -7,7 +7,7 @@ using MilkShakeFramework.Core.Game;
 
 namespace MilkShakeFramework.Components.Lighting.Lights
 {
-    public abstract class AbstractLight : LightComponentGameEntity
+    public abstract class AbstractLight : KryptonGameEntity
     {
         public Light2D Light { get; protected set; }
 

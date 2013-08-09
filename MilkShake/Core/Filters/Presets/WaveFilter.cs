@@ -8,9 +8,9 @@ namespace MilkShakeFramework.Core.Filters.Presets
 {
     public class WaveFilter : Filter
     {
-        public float WaveLength = 200;
+        public float WaveLength { get; set; }
 
-        public WaveFilter(int waveLength) : base("Scene//Levels//Effects//Wave")
+        public WaveFilter(int waveLength = 200) : base("Scene//Levels//Effects//Wave")
         {
             WaveLength = waveLength;
         }
@@ -24,7 +24,7 @@ namespace MilkShakeFramework.Core.Filters.Presets
 
         private void Update(Microsoft.Xna.Framework.GameTime gameTime)
         {
-            Parameters["wavelength"].SetValue(MouseInput.X);
+            Parameters["wavelength"].SetValue(WaveLength);
         }
     }
 }

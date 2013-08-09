@@ -12,6 +12,7 @@ namespace MilkShakeFramework.Tools.Tween
     public delegate void TweenPositionUpdate<T>(T value);
     public delegate void ColorTweenPositionUpdate(Color value);
 
+    // Todo: Clean up & Convert to GameEntity / SceneComponent
     public class TweenerManager
     {
         private static List<ITweener> _tweens;

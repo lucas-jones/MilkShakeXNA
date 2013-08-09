@@ -2,31 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using MilkShakeFramework.Core.Scenes.Components;
-using MilkShakeFramework.Core.Scenes;
 using Microsoft.Xna.Framework;
+using FarseerPhysics.Dynamics;
 using MilkShakeFramework.Render;
 using MilkShakeFramework.Tools.Physics;
-using MilkShakeFramework.Core.Game.Components.Misc;
-using MilkShakeFramework.Tools.Utils;
-using FarseerPhysics.Dynamics;
-using FarseerPhysics;
+using MilkShakeFramework.Core.Scenes;
 
-namespace MilkShakeFramework.Components.Physics
+namespace MilkShakeFramework.Components.Physics.Raycast
 {
-    public struct RayCastResult
-    {
-        public bool Collision;
-        public Vector2 CollisionPoint;
-        public Vector2 Normal;
-        public Fixture Fixture;
-
-        public override string ToString()
-        {
-            return "{ Collision = " + Collision + " }";
-        }
-    }
-
     public class RayCastUtils
     {
         public bool DEBUG_MODE = false;
@@ -40,7 +23,7 @@ namespace MilkShakeFramework.Components.Physics
         {
             RayCastResult result = ClosestRayCast(pointA, pointB);
 
-            if(result.Collision) return result.CollisionPoint;
+            if (result.Collision) return result.CollisionPoint;
             else return pointB;
         }
 
@@ -82,18 +65,5 @@ namespace MilkShakeFramework.Components.Physics
         }
 
         public static PhysicsComponent PhysicsComponent { get { return SceneManager.CurrentScene.ComponentManager.GetComponent<PhysicsComponent>(); } }
-    }
-
-    public class RaycastFilters
-    {
-        public static Func<Fixture, Boolean> OnlyFixture(Fixture fixture)
-        {
-            return (compareFix) => compareFix == fixture;
-        }
-
-        public static Func<Fixture, Boolean> OnlyBodyType(BodyType bodyType)
-        {
-            return (compareFix) => compareFix.Body.BodyType == bodyType;
-        }
     }
 }

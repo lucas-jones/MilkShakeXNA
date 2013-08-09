@@ -4,21 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace MilkShakeFramework
 {
-    public class MilkShakeSettings
-    {
-        public const int DefaultScreenHeight = 720;
-        public const int DefaultScreenWidth = 1280;
-        public const bool IsFullscreen = false;
-
-        public static bool BackToFrontRender = true;
-        public static bool EnabledVSync = true;
-        public static int MultiSampleRate = 4;
-
-        public static float DisplayUnitToSimUnitRatio = 24f;
-
-        public static bool IsMouseVisible = false;
-    }
-
+    // Todo: Move these into a "settings" with defaults MilkShakeSettings.HD_720 , MilkShakeSettings.HD_1080 etc.. 
     public static class Globals
     {
         // [Screen]
@@ -51,9 +37,7 @@ namespace MilkShakeFramework
         public static bool EditorMode = false;
 
         // [Helpers]
-        public static Random Random = new Random();
-
-        
+        public static Random Random = new Random();       
 
         public static RasterizerState WireframeState = new RasterizerState()
         {

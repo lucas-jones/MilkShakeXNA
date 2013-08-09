@@ -1,86 +1,44 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using MilkShakeFramework.Render;
-using MilkShakeFramework.Core.Content;
-using Microsoft.Xna.Framework;
-using MilkShakeFramework.Tools.Maths;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using MilkShakeFramework.Core.Content;
+using MilkShakeFramework.Render;
+using MilkShakeFramework.Tools.Maths;
 
 namespace MilkShakeFramework.Core.Game
 {
-    public class ParallaxSprite : Sprite
-    {
-        private Vector2 mOriginalPosition;
-        private Vector2 mSpeed;
-
-        public ParallaxSprite(string url, float xSpeed = 0.5f, float ySpeed = 1) : base(url)
-        {
-            mSpeed = new Vector2(xSpeed, ySpeed);
-        }
-
-        public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
-        {
-            Position = mOriginalPosition + (Scene.Camera.Position * mSpeed);
-
-            base.Update(gameTime);
-        }
-
-        public override float X
-        {
-            get { return base.X; }
-            set { mOriginalPosition.X = value; base.X = value; }
-        }
-
-        public override float Y
-        {
-            get { return base.Y; }
-            set { mOriginalPosition.Y = value; base.Y = value; }
-        }
-
-        public Vector2 Speed { get { return mSpeed; } set { mSpeed = value; } }
-    }
-
     public class Sprite : GameEntity
     {
-        private ImageRenderer mImage;
-        private int mWidth, mHeight;
-        private float mRotation;
-        private Vector2 mOrigin;
-        private Vector2 mScale;
-        private Color mColor;
-        private bool mAutoCenter;
-        private bool mVisible;
-        
+        public ImageRenderer Image { get; protected set; }
+        public Color Color { get; set; }
+
+        public int Width { get; set; }
+        public int Height { get; set; }
+
+        public Vector2 Origin { get; set; }
+        public float Rotation { get; set; }
+        public Vector2 Scale { get; set; }
+        public bool AutoCenter { get; set; }
+        public bool Visible { get; set; }
+
         public Sprite(string url, bool fromStream = false)
         {
-            Name = url.Split('/')[url.Split('/').Length - 1];
-
-            mImage = new ImageRenderer(url, (fromStream) ? ImageRendererLoadMode.Steam : ImageRendererLoadMode.Content);
-            mColor = Color.White;
-            mScale = new Vector2(1, 1);
-            mAutoCenter = false;
-            mVisible = true;
-
-            AddNode(mImage);
+            Image = new ImageRenderer(url, (fromStream) ? ImageRendererLoadMode.Steam : ImageRendererLoadMode.Content);
         }
 
         public Sprite(Texture2D texture)
         {
-            mImage = new ImageRenderer(texture);
-            mColor = Color.White;
-            mScale = new Vector2(1, 1);
-            mAutoCenter = false;
-            mVisible = true;
-
-            AddNode(mImage);
+            Image = new ImageRenderer(texture);
         }
-        
+
         public override void Setup()
         {
+            Color = Color.White;
+            Scale = new Vector2(1, 1);
+            AutoCenter = false;
+            Visible = true;
 
-            
+            AddNode(Image);
+
             base.Setup();
         }
 
@@ -88,16 +46,16 @@ namespace MilkShakeFramework.Core.Game
         {
             base.Load(content);
 
-            if (mImage.Texture == null)
+            if (Image.Texture == null)
             {
-                mImage.SetParent(this);
-                mImage.SetScene(Scene);
-                mImage.Load(null);
-                mImage.FixUp();
+                Image.SetParent(this);
+                Image.SetScene(Scene);
+                Image.Load(null);
+                Image.FixUp();
             }
 
-            mWidth = SetValueOrDefault(mWidth, mImage.Texture.Width);
-            mHeight = SetValueOrDefault(mHeight, mImage.Texture.Height);
+            Width = SetValueOrDefault(Width, Image.Texture.Width);
+            Height = SetValueOrDefault(Height, Image.Texture.Height);
         }
 
         public override void FixUp()
@@ -115,32 +73,19 @@ namespace MilkShakeFramework.Core.Game
             if (Visible)
             {
                 base.Draw();
-                
-                mImage.Draw(WorldPosition, mWidth, mHeight, mRotation, mOrigin, mColor, mScale.X, mScale.Y);
+
+                Image.Draw(WorldPosition, Width, Height, Rotation, Origin, Color, Scale.X, Scale.Y);
             }
         }
 
-        public ImageRenderer Image { get { return mImage; } set { mImage = value; } }
-        public Color Color { get { return mColor; } set { mColor = value; } }
-        public float Alpha { get { return mColor.A; } set { mColor.A = (byte)(value * 255); } }
 
-        public int Width { get { return mWidth; } set { mWidth = value; } }
-        public int Height { get { return mHeight; } set { mHeight = value; } }
 
-        public Vector2 Origin { get { return mOrigin; } set { mOrigin = value; } }
-        public float Rotation { get { return mRotation; } set { mRotation = value; } }
-        public Vector2 Scale { get { return mScale; } set { mScale = value; } }
-        public bool AutoCenter { get { return mAutoCenter; } set { mAutoCenter = value; } }
-        public bool Visible { get { return mVisible; } set { mVisible = value; } }
-
-        public override Tools.Maths.RotatedRectangle BoundingBox
+        public override RotatedRectangle BoundingBox
         {
             get
             {
                 return new RotatedRectangle(new Rectangle((int)WorldPosition.X - (int)Origin.X, (int)WorldPosition.Y - (int)Origin.Y, (int)(Width * Scale.X), (int)(Height * Scale.Y)), (Rotation));
             }
         }
-
-        //public override Rectangle BoundingBox { get { return new Rectangle((int)((WorldPosition.X)) - (int)((Width * Scale.X) / 2), (int)((WorldPosition.Y)) - (int)((Height * Scale.Y) / 2), (int)(Width * Scale.X), (int)(Height * Scale.Y)); } }
     }
 }

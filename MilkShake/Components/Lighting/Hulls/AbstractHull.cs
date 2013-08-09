@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework;
 
 namespace MilkShakeFramework.Components.Lighting.Hulls
 {
-    public abstract class AbstractHull : LightComponentGameEntity
+    public abstract class AbstractHull : KryptonGameEntity
     {
         public ShadowHull ShadowHull { get; protected set; }
 
