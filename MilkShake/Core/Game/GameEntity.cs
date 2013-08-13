@@ -10,7 +10,7 @@ namespace MilkShakeFramework.Core.Game
     public class GameEntity : Entity
     {
         public virtual Vector2 Position { get; set; }
-        public virtual Vector2 WorldPosition { get { return (Parent as GameEntity).Position + Position; } }
+        public virtual Vector2 WorldPosition { get { return (Parent as GameEntity).WorldPosition + Position; } }
 
         public virtual float X { get { return Position.X; } set { Position = new Vector2(value, Position.Y); } }
         public virtual float Y { get { return Position.Y; } set { Position = new Vector2(Position.X, value); } }
