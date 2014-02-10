@@ -31,10 +31,13 @@ namespace MilkShakeFramework.Core.Scenes
         public Color SceneColor { get; protected set; }
         public Color ClearColor { get; protected set; }
 
+        public MatrixStack MatrixStack;
+        public BasicEffect Effect;
+
         public Scene()
         {
             SetScene(this);
-
+            
             Listener = new SceneListener();
 
             AddNode(ComponentManager = new SceneComponentManager());
@@ -45,8 +48,16 @@ namespace MilkShakeFramework.Core.Scenes
             // Change to alike of CameraManager?
             TweenerManager.Boot();
 
+            MatrixStack = new MatrixStack();
             SceneColor = Color.White;
             ClearColor = Globals.ScreenColour;
+
+            Effect = new BasicEffect(MilkShake.Graphics);
+            Effect.View = Matrix.Identity;
+            Effect.World = Matrix.Identity;
+            Effect.Projection = Matrix.CreateOrthographic(MilkShake.Graphics.Viewport.Width, -MilkShake.Graphics.Viewport.Height, 1, -1);
+            
+            Effect.TextureEnabled = true;
         }
         
         public override void Setup()
@@ -89,13 +100,19 @@ namespace MilkShakeFramework.Core.Scenes
         }
 
         public void RenderScene()
-        { 
+        {
+            //MatrixStack.LoadIdentity();
+
             RenderManager.SetRenderTarget(RenderTarget);
             MilkShake.Graphics.Clear(ClearColor);
 
-            Listener.OnPreDraw();
-            RenderManager.Begin();
+            MatrixStack.Clear();
+            MatrixStack.Push(Matrix.CreateTranslation(new Vector3(-Globals.ScreenCenter, 0)));
 
+
+            Listener.OnPreDraw();
+            RenderManager.Begin(Effect);
+            
             if(Filter != null) Filter.Begin();
 
             base.Draw();

@@ -17,9 +17,10 @@ namespace Samples
             SceneManager.AddScene("Demo2", new Demo2Scene());
             SceneManager.AddScene("Demo3", new Demo3Scene());
             SceneManager.AddScene("Demo4", new Demo4Scene());
-            SceneManager.AddScene("Demo_BreakOut", new Demo_BreakOut());
+            SceneManager.AddScene("NodeTest", new NodeTest());
+            SceneManager.AddScene("Flappy", new FlappyDogeScene());
 
-            SceneManager.ChangeScreen("Demo2");           
+            SceneManager.ChangeScreen("Flappy");           
         }
     }
 }

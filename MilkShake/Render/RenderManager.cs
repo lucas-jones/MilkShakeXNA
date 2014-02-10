@@ -45,8 +45,7 @@ namespace MilkShakeFramework.Render
                                SamplerState,
                                DepthStencilState.None,
                                RasterizerState.CullNone,
-                               effect,
-                               (!IsRawDraw) ? Scene.Camera.Matrix : Matrix.Identity);
+                               effect, Matrix.Identity);
         }
 
         public void Begin(Effect effect, BlendState blend)

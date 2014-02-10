@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework;
 using MilkShakeFramework.Core.Content;
 using MilkShakeFramework.Core.Filters;
 using MilkShakeFramework.Tools.Maths;
+using MilkShakeFramework.IO.Input.Devices;
 
 namespace MilkShakeFramework.Core.Game
 {
@@ -65,22 +66,40 @@ namespace MilkShakeFramework.Core.Game
             foreach (GameEntity gameEntity in Nodes.OfType<GameEntity>().ToArray<GameEntity>()) if(gameEntity.IsLoaded) gameEntity.Update(gameTime);
         }
 
+        public virtual Matrix GenerateMatrix()
+        {
+            return Matrix.CreateTranslation(new Vector3(Position, 0));
+        }
+
         public virtual void Draw()
         {
             if(AutoDraw)
             {
                 foreach (GameEntity gameEntity in Nodes.OfType<GameEntity>().ToArray<GameEntity>())
                 {
+                    //Matrix backup = Scene.Camera.Matrix;
+                    //Matrix newMatrix = ;
+                    //Scene.Camera.Matrix = newMatrix * backup;
+
+                    Scene.MatrixStack.Push(gameEntity.GenerateMatrix());
+
+                    // Setup Matrix
+                    //Scene.RenderManager.End();
+                    //Scene.RenderManager.Begin();
+                    Scene.Effect.World = Scene.MatrixStack.Top;
+
                     if (gameEntity.IsLoaded)
                     {
                         if (gameEntity.Filter != null) gameEntity.Filter.Begin();
-
                         gameEntity.Draw();
-
                         if (gameEntity.Filter != null) gameEntity.Filter.End();
                     }
+
+                    Scene.MatrixStack.Pop();
                 }
             }
+
+                      
         }
 
         public virtual Filter Filter

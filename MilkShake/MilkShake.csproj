@@ -134,6 +134,7 @@
     <Compile Include="Core\Filters\Presets\GrayScaleFilter.cs" />
     <Compile Include="Core\Filters\Presets\InvertFilter.cs" />
     <Compile Include="Core\Filters\Presets\WaveFilter.cs" />
+    <Compile Include="Core\Game\AlphaMaskedSprite.cs" />
     <Compile Include="Core\Game\Components\3D\3DSprite.cs" />
     <Compile Include="Core\Game\Components\Audio\Music.cs" />
     <Compile Include="Core\Game\Components\Audio\Sound.cs" />
@@ -166,6 +167,7 @@
     <Compile Include="Core\INode.cs" />
     <Compile Include="Core\ITreeNode.cs" />
     <Compile Include="IO\Input\Devices\MultiInput.cs" />
+    <Compile Include="Render\MatrixStack.cs" />
     <Compile Include="Render\Renderers\PrimitiveRenderer.cs" />
     <Compile Include="Core\Game\Components\Misc\ScrollingPattern.cs" />
     <Compile Include="Core\Game\Components\Polygon\GiftWrap\GiftWrapPolygonModifier.cs" />

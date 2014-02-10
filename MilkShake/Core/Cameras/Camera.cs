@@ -123,7 +123,7 @@ namespace MilkShakeFramework.Core.Cameras
         public Vector2 Offset { get { return mOffset; } }
         public Rectangle ViewBox { get { return mViewBox; } }
         public Vector2 Transform { get { return (Position + Offset); } }
-        public Matrix Matrix { get { return mMatrix; } }
+        public Matrix Matrix { get { return mMatrix; } set { mMatrix = value; } }
 
         public override Vector2 WorldPosition { get { return Position + Offset; } }
 

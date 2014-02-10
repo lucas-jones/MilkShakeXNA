@@ -29,8 +29,6 @@ namespace MilkShakeFramework.Core
 
         public virtual void RemoveNode(INode gameObject)
         {
-            gameObject.Destroy();
-
             if (Nodes.Contains(gameObject))
             {
                 Nodes.Remove(gameObject);
@@ -40,7 +38,6 @@ namespace MilkShakeFramework.Core
                 throw new Exception("Requested node isn't child of this node.");
             }
         }
-
 
         public INode GetNodeByName(string name)
         {

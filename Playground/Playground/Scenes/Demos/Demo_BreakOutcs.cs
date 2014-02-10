@@ -117,7 +117,7 @@ namespace Samples.Scenes.Demos
                 AddNode(new Ball());
             }
 
-            Paddle.X += PadInput.GetPad(PlayerIndex.One).ThumbSticks.Left.X * 10;
+            Paddle.X = MouseInput.X;
         }
     }
 }

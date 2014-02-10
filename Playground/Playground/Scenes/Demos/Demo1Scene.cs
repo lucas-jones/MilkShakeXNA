@@ -7,6 +7,7 @@ using MilkShakeFramework.Core.Game;
 using MilkShakeFramework;
 using Microsoft.Xna.Framework;
 using MilkShakeFramework.Core.Filters.Presets;
+using MilkShakeFramework.IO.Input.Devices;
 
 namespace Samples.Scenes.Demo1
 {
@@ -16,8 +17,10 @@ namespace Samples.Scenes.Demo1
         public const string DESCRIPTION = "Show the basic adding of sprites";
 
         private Sprite background;
+
         private Sprite world;
         private Sprite clouds;
+        private DisplayObject planet;
 
         public Demo1Scene() : base(TITLE, DESCRIPTION)
         {
@@ -25,21 +28,18 @@ namespace Samples.Scenes.Demo1
 
             world = new Sprite("Scenes//Demo1//world")
             {
-                AutoCenter = true,
-                Position = Globals.ScreenCenter,
-                Scale = new Vector2(0.25f),
+                AutoCenter = true
             };
 
             clouds = new Sprite("Scenes//Demo1//clouds")
             {
-                Origin = new Vector2(750, 750),
-                Position = Globals.ScreenCenter,
-                Scale = new Vector2(0.25f)
+                Origin = new Vector2(750, 750)
             };
-
+                        
             AddNode(background);
-            AddNode(world);
-            AddNode(clouds);
+            AddNode(planet = new DisplayObject() { Position = Globals.ScreenCenter });
+            planet.AddNode(world);
+            planet.AddNode(clouds);
         }
 
         public override void Update(GameTime gameTime)
@@ -47,7 +47,9 @@ namespace Samples.Scenes.Demo1
             base.Update(gameTime);
 
             world.Rotation += MathHelper.ToRadians(0.5f);
-            clouds.Rotation -= MathHelper.ToRadians(0.2f);
+            clouds.Rotation += MathHelper.ToRadians(0.2f);
+
+            planet.Scale = new Vector2((720f / MouseInput.X) - 1);
         }
     }
 }

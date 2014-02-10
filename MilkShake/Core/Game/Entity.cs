@@ -47,11 +47,26 @@ namespace MilkShakeFramework.Core.Game
             }
         }
 
+        public override void Destroy()
+        {
+            base.Destroy();
+        }
+
         public override void RemoveNode(INode gameObject)
         {
+            if (!Nodes.Contains(gameObject)) throw new Exception("Requested node isn't child of this node.");
+
+            if(gameObject is Entity)
+            {
+                Entity entity = gameObject as Entity;
+
+                entity.TearDown();
+                entity.Destroy();
+            }
+
             base.RemoveNode(gameObject);
 
-            mScene.Listener.OnEntityRemoved(gameObject as Entity);
+            Scene.Listener.OnEntityRemoved(gameObject as Entity);
         }
 
         public void SetScene(Scene scene)
@@ -63,7 +78,7 @@ namespace MilkShakeFramework.Core.Game
 
         public virtual void Setup()
         {
-            foreach (Entity entity in Nodes.ToArray()) entity.Setup();
+            foreach (Entity entity in Nodes) entity.Setup();
         }
 
         public virtual void Load(LoadManager content)
@@ -73,14 +88,14 @@ namespace MilkShakeFramework.Core.Game
 
         public virtual void FixUp()
         {
-            foreach (Entity entity in Nodes.ToArray()) entity.FixUp();
+            foreach (Entity entity in Nodes) entity.FixUp();
 
             mIsLoaded = true;
         }
 
         public virtual void TearDown()
         {
-            foreach (Entity entity in Nodes.ToArray()) entity.TearDown();
+            foreach (Entity entity in Nodes) entity.TearDown();
         }
 
         // [Public]
